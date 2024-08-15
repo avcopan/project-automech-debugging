@@ -1,0 +1,954 @@
+
+          ================================================================
+          ==                        AUTOMECHANIC                        ==
+          ===         Andreas Copan, Sarah Elliott, Kevin Moore,       ===
+          ===            Luna Pratali Maffei, Daniel Moberg,           ===
+          ===            Carlo Cavallotti, Yuri Georgievski,           ===
+          ==       Ahren Jasper, Murat Keceli, Stephen Klippenstein     ==
+          ================================================================
+
+                                 ,,,         ,,,
+                               ;"   ^;     ;'   ",
+                              ;    s$$$$$$$s      ;
+                               ,  ss$$$$$$$$$$s  ,'
+                               ;s$$$$$$$$$$$$$$$
+                               $$$$$$$$$$$$$$$$$$
+                              $$$$P""Y$$$Y""W$$$$$
+                              $$$$  0"$$$"0  $$$$$
+                              $$$$  .$$$$$.  $$$$
+                               $$$$$$$$$$$$$$$$$
+                                "Y$$$"'*'"$$$Y"
+                                   "$$b.d$$"        
+
+
+
+
+=========================================================
+HOST: csed-0030
+PID: 154299
+=========================================================
+
+=========================================================
+PARSING INPUT
+=========================================================
+
+Reading files provided in the inp directory...
+_pes_grp_dct output {((5, 0), (0, 0)): {'peds': (('C4H8ORvEsWvAA0+CH3O-S58cwB=C4H7ORvE4fmAA0+CH4O-S58WKw',), ()), 'hot': ((), ('C4H7ORvE4fmAA0',)), 'modeltype': 'rovib_dos', 'bf_threshold': 0.1, 'en_limit': [[], []]}}
+  FOUND run.dat
+  FOUND theory.dat
+  FOUND models.dat
+  FOUND species.csv
+  FOUND mechanism.dat
+  FOUND pes_groups.dat
+  FOUND species.dat
+  No .xyz files for species/TSs were found.
+  No active space templates for TSs were found.
+
+Parsing input files for runtime parameters...
+dat blocks {'global': '\n    kickoff = [0.1, False]\n    mc_nsamp = [True, 3, 1, 3, 300, 25]\n    hind_inc = 15.0\n    hbond_cutoffs = [4.61, 1.92]\n    \n    \n    tau_nsamp = [False, 1, 1, 1, 1, 10000]\n'}
+dat dct {'global': {'kickoff': (0.1, False), 'mc_nsamp': (True, 3, 1, 3, 300, 25), 'hind_inc': 15.0, 'hbond_cutoffs': (4.61, 1.92), 'tau_nsamp': (False, 1, 1, 1, 1, 10000)}}
+No # pes.subpes.channel comment type found in mech: resorting ...
+*ktp dct vals not found - derived for sorting purposes derived at [300:10:2010] K at 1 atm
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:267: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  df_pes['pes'][rxns] = pes_index
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:196: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  conn_chn_df['subpes'][rxns] = key+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+no filtering of species selected - submech will be used as default, but no sorting will be applied
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:1337: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  df_cmts_inline['cmts_inline'][rdf.index] = rxnclass
+   C4H7ORvE4fmAB0 = C4H7O4H74fm1           # fml.pes.subpes.channel C4H7O1.1.1.1
+   C4H7ORvE4fmAB0 = C4H7O-kSV4fm           # fml.pes.subpes.channel C4H7O1.1.1.2
+   C4H7ORvE4fmAB0 = C4H6O-RvErx51 + H-TcYTcY# fml.pes.subpes.channel C4H7O1.1.1.3
+   C4H7ORvE4fmAA0 = C4H7O4H74fm0           # fml.pes.subpes.channel C4H7O1.1.1.4
+   C4H7ORvE4fmAA0 = C4H7O-kSV4fm           # fml.pes.subpes.channel C4H7O1.1.1.5
+   C4H7ORvE4fmAA0 = C4H6O-RvErx50 + H-TcYTcY# fml.pes.subpes.channel C4H7O1.1.1.6
+   C4H7O4H74fm0 = C3H4OALAD-Wv9FbZ + CH3   # fml.pes.subpes.channel C4H7O1.1.1.7
+   C4H7O4H74fm0 = C2H4OALD-UPQWKw + C2H3ALK-S58hH1# fml.pes.subpes.channel C4H7O1.1.1.8
+   C4H7O-kSV4fm = C2H4OALD-UPQWKw + C2H3ALK-S58hH1# fml.pes.subpes.channel C4H7O1.1.1.9
+   C4H8ORvEsWvAA0 + OH = C4H7ORvE4fmAA0 + H2O# fml.pes.subpes.channel C4H9O2.2.1.1
+   C4H8ORvEsWvAB + OH = C4H7ORvE4fmAB0 + H2O# fml.pes.subpes.channel C4H9O2.2.2.2
+   C4H8ORvEsWvAA0 + HO2-S580KW = C4H7ORvE4fmAA0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.3.1.1
+   C4H8ORvEsWvAA0 + CH3 = C4H7ORvE4fmAA0 + CH4# fml.pes.subpes.channel C5H11O1.4.1.1
+   C4H8ORvEsWvAA0 + CH3O-S58cwB = C4H7ORvE4fmAA0 + CH4O-S58WKw# fml.pes.subpes.channel C5H11O2.5.1.1
+   C4H8ORvEsWvAA0 + CH3O2RO2-2LTcwB = C4H7ORvE4fmAA0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.6.1.1
+   C4H8ORvEsWvAA0 + Cl = C4H7ORvE4fmAA0 + HCl# fml.pes.subpes.channel C4Cl1H8O1.7.1.1
+
+Final check if all required input provided...
+
+Building the base Run-Save filesystems at
+        /lcrc/project/PACC/AutoMech/data/run
+        /lcrc/project/PACC/AutoMech/data/save
+
+=========================================================
+kTPDRIVER
+
+Sarah Elliott, Kevin Moore, Andreas Copan,
+Daniel Moberg, Carlo Cavallotti, Yuri Georgievski,
+Ahren Jasper, Stephen Klippenstein
+=========================================================
+WORKING ON PES
+{('C5H11O3', 5, 0): ((0, (('C4H8ORvEsWvAA0', 'CH3O2RO2-2LTcwB'), ('C4H7ORvE4fmAA0', 'CH4O2QOOH-2LTWKw'))),), ('C4H7O1', 0, 0): ((3, (('C4H7ORvE4fmAA0',), ('C4H7O4H74fm0',))), (4, (('C4H7ORvE4fmAA0',), ('C4H7O-kSV4fm',))), (5, (('C4H7ORvE4fmAA0',), ('C4H6O-RvErx50', 'H-TcYTcY'))), (6, (('C4H7O4H74fm0',), ('C3H4OALAD-Wv9FbZ', 'CH3'))), (7, (('C4H7O4H74fm0',), ('C2H4OALD-UPQWKw', 'C2H3ALK-S58hH1'))), (8, (('C4H7O-kSV4fm',), ('C2H4OALD-UPQWKw', 'C2H3ALK-S58hH1'))))} {'peds': (('C4H8ORvEsWvAA0+CH3O-S58cwB=C4H7ORvE4fmAA0+CH4O-S58WKw',), ()), 'hot': ((), ('C4H7ORvE4fmAA0',)), 'modeltype': 'rovib_dos', 'bf_threshold': 0.1, 'en_limit': [[], []]}
+Identifying reaction classes for transition states...
+
+  Preparing TS for PES-Channel 6-1 : C4H8ORvEsWvAA0+CH3O2RO2-2LTcwB = C4H7ORvE4fmAA0+CH4O2QOOH-2LTWKw
+    User requested forward direction.
+    Running reaction as: C4H8ORvEsWvAA0+CH3O2RO2-2LTcwB = C4H7ORvE4fmAA0+CH4O2QOOH-2LTWKw
+    Trying to find class info from fileysystem...
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.CH4O2/OBBPSXUIHCTOBW/0_0/2_1/MMALYQPHSA-N/C4H8O.CH3O2/JACMMNXULDWIBI/0_0/1_2/MMALYQPHSA-N/2/hJUn9NU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin hydrogen abstraction
+    There are 1 configuration(s) of transition state
+Warning: no stereo saved in filesys. Checking rxn direction w/o stereo ... 
+
+Identifying stability of all species...
+Identifying reaction classes for transition states...
+
+  Preparing TS for PES-Channel 1-4 : C4H7ORvE4fmAA0 = C4H7O4H74fm0
+    User requested forward direction.
+    Running reaction as: C4H7ORvE4fmAA0 = C4H7O4H74fm0
+    Trying to find class info from fileysystem...
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O/NKJCNSIBJYISAQ/0/2/IMJSIDKUSA-N/C4H7O/CUSJKSZZDNGAJQ/0/2/BYPYZUCNSA-N/2/hJUn9NU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin beta scission
+    There are 1 configuration(s) of transition state
+Warning: no stereo saved in filesys. Checking rxn direction w/o stereo ... 
+
+  Preparing TS for PES-Channel 1-5 : C4H7ORvE4fmAA0 = C4H7O-kSV4fm
+    User requested forward direction.
+    Running reaction as: C4H7ORvE4fmAA0 = C4H7O-kSV4fm
+    Trying to find class info from fileysystem...
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O/NKJCNSIBJYISAQ/0/2/IMJSIDKUSA-N/C4H7O/QVEJVAOFVGTBQB/0/2/UHFFFAOYSA-N/2/hJUn9NU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin beta scission
+    There are 1 configuration(s) of transition state
+Warning: no stereo saved in filesys. Checking rxn direction w/o stereo ... 
+
+  Preparing TS for PES-Channel 1-6 : C4H7ORvE4fmAA0 = C4H6O-RvErx50+H-TcYTcY
+    User requested forward direction.
+    Running reaction as: C4H7ORvE4fmAA0 = C4H6O-RvErx50+H-TcYTcY
+    Trying to find class info from fileysystem...
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O/NKJCNSIBJYISAQ/0/2/IMJSIDKUSA-N/C4H6O.H/HWJDMYDPTKTFCA/0_0/1_2/WCCKRBBISA-N/2/hJUn9NU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin beta scission
+    There are 1 configuration(s) of transition state
+Warning: no stereo saved in filesys. Checking rxn direction w/o stereo ... 
+
+  Preparing TS for PES-Channel 1-7 : C4H7O4H74fm0 = C3H4OALAD-Wv9FbZ+CH3
+    User requested forward direction.
+    Running reaction as: C4H7O4H74fm0 = C3H4OALAD-Wv9FbZ+CH3
+    Trying to find class info from fileysystem...
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O/CUSJKSZZDNGAJQ/0/2/BYPYZUCNSA-N/C3H4O.CH3/HXKSAMBJENJDKD/0_0/1_2/UHFFFAOYSA-N/2/hJUn9NU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin beta scission
+    There are 1 configuration(s) of transition state
+Warning: no stereo saved in filesys. Checking rxn direction w/o stereo ... 
+
+  Preparing TS for PES-Channel 1-8 : C4H7O4H74fm0 = C2H4OALD-UPQWKw+C2H3ALK-S58hH1
+    User requested forward direction.
+    Running reaction as: C4H7O4H74fm0 = C2H4OALD-UPQWKw+C2H3ALK-S58hH1
+    Trying to find class info from fileysystem...
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O/CUSJKSZZDNGAJQ/0/2/BYPYZUCNSA-N/C2H4O.C2H3/RPNVETMGGXGKAX/0_0/1_2/UHFFFAOYSA-N/2/hJUn9NU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin beta scission
+    There are 1 configuration(s) of transition state
+Warning: no stereo saved in filesys. Checking rxn direction w/o stereo ... 
+
+  Preparing TS for PES-Channel 1-9 : C4H7O-kSV4fm = C2H4OALD-UPQWKw+C2H3ALK-S58hH1
+    User requested forward direction.
+    Running reaction as: C4H7O-kSV4fm = C2H4OALD-UPQWKw+C2H3ALK-S58hH1
+    Trying to find class info from fileysystem...
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O/QVEJVAOFVGTBQB/0/2/UHFFFAOYSA-N/C2H4O.C2H3/RPNVETMGGXGKAX/0_0/1_2/UHFFFAOYSA-N/2/hJUn9NU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin beta scission
+    There are 1 configuration(s) of transition state
+
+Identifying stability of all species...
+Begin parallel job array on 2 processors
+Begin parallel job array on 2 processors
+Begin parallel job array on 2 processors
+Begin parallel job array on 2 processors
+Begin parallel job array on 2 processors
+Begin parallel job array on 2 processors
+=========================================
+
+Running PES 6: C5H11O3, SUB PES 1
+Running Channel 1: C4H8ORvEsWvAA0+CH3O2RO2-2LTcwB = C4H7ORvE4fmAA0+CH4O2QOOH-2LTWKw
+Preparing reaction channel section for MESS input... 
+
+Calculating reference energy for PES
+
+Determining the reference energy for PES...
+ - Reference species assumed to be the  first set of reactants on PES: C4H8ORvEsWvAA0+CH3O2RO2-2LTcwB
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rBtID2ZAEfgJx   cYMfUypyphWDL   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C4H8ORvEsWvAA0
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/IMJSIDKUSA-N/hJUn9NR/CONFS/rBtID2ZAEfgJx/cYMfUypyphWDL as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/IMJSIDKUSA-N/u-un9NR/CONFS/rBtID2ZAEfgJx/cYMfUypyphWDL for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/IMJSIDKUSA-N/hJUn9NR/CONFS/rBtID2ZAEfgJx/cYMfUypyphWDL
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+rotor names (('D5',), ('D10',))
+potential test:
+names ('D5',)
+grids ((3.7559572769380574, 4.279556052536356, 4.803154828134655, 5.3267536037329535),)
+max norm diff of splines  0.0629131097540472 0.1
+potential test:
+names ('D10',)
+grids ((1.6689152117769288, 2.1925139873752277, 2.7161127629735264, 3.239711538571825),)
+max norm diff of splines  0.06280635710644829 0.1
+Debug:  tors model in scale set 1dhrf
+Debug:  tors model in scale set 1dhrf
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/IMJSIDKUSA-N/hJUn9NR/CONFS/rBtID2ZAEfgJx/cYMfUypyphWDL
+Path for PROJROT/FREQ/1143163 Job:
+/lcrc/project/PACC/AutoMech/data/run/PROJROT/FREQ/C4H8O/1143163
+running projrot the first time:
+running projrot the second time:
+Debug:  tors model in scale set 1dhrf
+TAU FACTOR 41607.645027 	 2 	 1.147401 
+Debug:  scale_coeff test: 1.1474010040147287 2 1.1474010040147287 1.3 0.8
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+reduced int sym 1.0
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/IMJSIDKUSA-N/hJUn9NR/CONFS/rBtID2ZAEfgJx/cYMfUypyphWDL/SP/0zlOGvR
+  - Ene = 1.000 x -232.13233703116 Eh
+Final electronic energy: -232.13233703116 Eh
+Process 154606 prepping species: C4H8ORvEsWvAA0
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C4H8ORvEsWvAA0
+Debug:  Energy will be determined for basis species:  InChI=1S/H2/h1H
+Debug:  Energy will be determined for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy will be determined for basis species:  InChI=1S/H2O/h1H2
+Process 154618 reading energy for species: ['InChI=1S/H2/h1H' 'InChI=1S/CH4/h1H4' 'InChI=1S/H2O/h1H2']
+Debug:  bases energies test: InChI=1S/H2/h1H REF_1
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-un9NR/CONFS/rqPrrHTfPZAs4/crIudoXA5mZil for torsional profiles
+
+Calculating energy for basis REF_1...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy/SP/0zlOGvR
+  - Ene = 1.000 x -1.174043609727 Eh
+Final electronic energy: -1.174043609727 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    4465.050
+
+Harmonic ZPVE [kcal mol-1]: 6.383109424534299
+
+Final ZPE: 0.010033791360085153 Eh
+Debug:  bases energies test: InChI=1S/CH4/h1H4 CH4
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rbpV5y_m2CiIq/cCZ0Vl0o8-H9D as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/u-un9NR/CONFS/rSKS01TkSNKYm/cRigmTwsfVEW_ for torsional profiles
+
+Calculating energy for basis CH4...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rbpV5y_m2CiIq/cCZ0Vl0o8-H9D/SP/0zlOGvR
+  - Ene = 1.000 x -40.454355702394 Eh
+Final electronic energy: -40.454355702394 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rbpV5y_m2CiIq/cCZ0Vl0o8-H9D
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    1352.800    1352.800    1352.800    1575.910    1575.910    3052.940
+    3165.440    3165.440    3165.440
+
+Harmonic ZPVE [kcal mol-1]: 28.247594766440912
+
+Final ZPE: 0.04440319810612991 Eh
+Debug:  bases energies test: InChI=1S/H2O/h1H2 H2O
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r1yMQskfHvGYF/c-QWtQ06e5lSW as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/u-un9NR/CONFS/rgPDyi92Iqx3M/cmc5-laRxhQDP for torsional profiles
+
+Calculating energy for basis H2O...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r1yMQskfHvGYF/c-QWtQ06e5lSW/SP/0zlOGvR
+  - Ene = 1.000 x -76.369837596599 Eh
+Final electronic energy: -76.369837596599 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r1yMQskfHvGYF/c-QWtQ06e5lSW
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    1651.430    3830.150    3937.850
+
+Harmonic ZPVE [kcal mol-1]: 13.465751202504142
+
+Final ZPE: 0.021167197534389733 Eh
+hbasis list ({'InChI=1S/H2/h1H': -1.1640098183669148, 'InChI=1S/CH4/h1H4': -40.409952504287865, 'InChI=1S/H2O/h1H2': -76.3486703990646},)
+[-1.1640098183669148, -40.409952504287865, -76.3486703990646]
+Basis H contribution InChI=1S/H2/h1H -5.0 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -232.02002512953334
+Hf0K Energy (hart):  -0.18405125967516314
+
+Determining energy transfer parameters...
+  - No bath provided, using Argon bath as default
+
+- Determining the masses...
+  - Obtaining masses from geometries...
+
+- Determining the Lennard-Jones model parameters...
+- Estimating the parameters...
+    - Series to use for estimation: frozenset({'cyclic_ether', 'InChI=1S/Ar'})
+    - Heavy atom count: 5
+
+- Determining the energy-down transfer model parameters...
+  - Estimating the parameters...
+    - Series to use for estimation: frozenset({'cyclic_ether', 'InChI=1S/Ar'})
+    - Found effective rotor count: 2.00
+    - Using following LJ parameters for collisional frequency and alpha calculation:
+       eps=167.71 cm-1, sigma=4.20 Ang,
+       mass1=72.06 amu, mass2=39.96 amu
+edown_vec test: [ 358.19398852 1347.50525228 2147.79961779] 358.1939885215363
+    - E_down prefactor (after dividing by empirical factor of 2.0): 358.1939885215363
+    - E_down power: 0.99
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+r14RyEsOxYKEe   ccgzX7iYTdIem   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for CH3O2RO2-2LTcwB
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/CH3O2/WTFNSXYULBQCQV/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r14RyEsOxYKEe/ccgzX7iYTdIem as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/CH3O2/WTFNSXYULBQCQV/0/2/UHFFFAOYSA-N/u-un9NU/CONFS/rxSSOj_J43NAC/cEZYEVH2sDmGe for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/CH3O2/WTFNSXYULBQCQV/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r14RyEsOxYKEe/ccgzX7iYTdIem
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+rotor names (('D5',),)
+potential test:
+names ('D5',)
+grids ((1.0515015331320157, 1.5751003087303146, 2.0986990843286133, 2.6222978599269124),)
+max norm diff of splines  0.06247422806903575 0.1
+Debug:  tors model in scale set 1dhrf
+Debug:  tors model in scale set 1dhrf
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/CH3O2/WTFNSXYULBQCQV/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r14RyEsOxYKEe/ccgzX7iYTdIem
+Path for PROJROT/FREQ/2367757 Job:
+/lcrc/project/PACC/AutoMech/data/run/PROJROT/FREQ/CH3O2/2367757
+running projrot the first time:
+running projrot the second time:
+Debug:  tors model in scale set 1dhrf
+TAU FACTOR 133.922533 	 1 	 1.022356 
+Debug:  scale_coeff test: 1.0223562403063804 1 1.0452122820933973 1.3 0.8
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+reduced int sym 1.0
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/CH3O2/WTFNSXYULBQCQV/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r14RyEsOxYKEe/ccgzX7iYTdIem/SP/0zlOGvR
+  - Ene = 1.000 x -190.024535099766 Eh
+Final electronic energy: -190.024535099766 Eh
+Process 154651 prepping species: CH3O2RO2-2LTcwB
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: CH3O2RO2-2LTcwB
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -2.5 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 1.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 2.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -189.98185893039954
+Hf0K Energy (hart):  0.033696237894222804
+
+Determining energy transfer parameters...
+  - No bath provided, using Argon bath as default
+
+- Determining the masses...
+  - Obtaining masses from geometries...
+
+- Determining the Lennard-Jones model parameters...
+- Estimating the parameters...
+    - Series to use for estimation: frozenset({'peroxy', 'InChI=1S/Ar'})
+    - Heavy atom count: 3
+
+- Determining the energy-down transfer model parameters...
+  - Estimating the parameters...
+    - Series to use for estimation: frozenset({'peroxy', 'InChI=1S/Ar'})
+    - Found effective rotor count: 1.67
+    - Using following LJ parameters for collisional frequency and alpha calculation:
+       eps=90.18 cm-1, sigma=3.95 Ang,
+       mass1=47.01 amu, mass2=39.96 amu
+edown_vec test: [ 133.95991595  692.22504618 1487.08823538] 133.95991594516653
+    - E_down prefactor (after dividing by empirical factor of 2.0): 133.95991594516653
+    - E_down power: 1.30
+
+
+
+Reading PES electronic structure data
+Running Channel 1: C4H8ORvEsWvAA0+CH3O2RO2-2LTcwB = C4H7ORvE4fmAA0+CH4O2QOOH-2LTWKw
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rBtID2ZAEfgJx   cYMfUypyphWDL   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C4H8ORvEsWvAA0
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/IMJSIDKUSA-N/hJUn9NR/CONFS/rBtID2ZAEfgJx/cYMfUypyphWDL as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/IMJSIDKUSA-N/u-un9NR/CONFS/rBtID2ZAEfgJx/cYMfUypyphWDL for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/IMJSIDKUSA-N/hJUn9NR/CONFS/rBtID2ZAEfgJx/cYMfUypyphWDL
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+rotor names (('D5',), ('D10',))
+potential test:
+names ('D5',)
+grids ((3.7559572769380574, 4.279556052536356, 4.803154828134655, 5.3267536037329535),)
+max norm diff of splines  0.0629131097540472 0.1
+potential test:
+names ('D10',)
+grids ((1.6689152117769288, 2.1925139873752277, 2.7161127629735264, 3.239711538571825),)
+max norm diff of splines  0.06280635710644829 0.1
+Debug:  tors model in scale set 1dhrf
+Debug:  tors model in scale set 1dhrf
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/IMJSIDKUSA-N/hJUn9NR/CONFS/rBtID2ZAEfgJx/cYMfUypyphWDL
+Path for PROJROT/FREQ/4337609 Job:
+/lcrc/project/PACC/AutoMech/data/run/PROJROT/FREQ/C4H8O/4337609
+running projrot the first time:
+running projrot the second time:
+Debug:  tors model in scale set 1dhrf
+TAU FACTOR 41607.645027 	 2 	 1.147401 
+Debug:  scale_coeff test: 1.1474010040147287 2 1.1474010040147287 1.3 0.8
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+reduced int sym 1.0
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/IMJSIDKUSA-N/hJUn9NR/CONFS/rBtID2ZAEfgJx/cYMfUypyphWDL/SP/0zlOGvR
+  - Ene = 1.000 x -232.13233703116 Eh
+Final electronic energy: -232.13233703116 Eh
+Process 154671 prepping species: C4H8ORvEsWvAA0
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C4H8ORvEsWvAA0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -5.0 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -232.02002512953334
+Hf0K Energy (hart):  -0.18405125967516314
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+r14RyEsOxYKEe   ccgzX7iYTdIem   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for CH3O2RO2-2LTcwB
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/CH3O2/WTFNSXYULBQCQV/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r14RyEsOxYKEe/ccgzX7iYTdIem as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/CH3O2/WTFNSXYULBQCQV/0/2/UHFFFAOYSA-N/u-un9NU/CONFS/rxSSOj_J43NAC/cEZYEVH2sDmGe for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/CH3O2/WTFNSXYULBQCQV/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r14RyEsOxYKEe/ccgzX7iYTdIem
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+rotor names (('D5',),)
+potential test:
+names ('D5',)
+grids ((1.0515015331320157, 1.5751003087303146, 2.0986990843286133, 2.6222978599269124),)
+max norm diff of splines  0.06247422806903575 0.1
+Debug:  tors model in scale set 1dhrf
+Debug:  tors model in scale set 1dhrf
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/CH3O2/WTFNSXYULBQCQV/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r14RyEsOxYKEe/ccgzX7iYTdIem
+Path for PROJROT/FREQ/7573364 Job:
+/lcrc/project/PACC/AutoMech/data/run/PROJROT/FREQ/CH3O2/7573364
+running projrot the first time:
+running projrot the second time:
+Debug:  tors model in scale set 1dhrf
+TAU FACTOR 133.922533 	 1 	 1.022356 
+Debug:  scale_coeff test: 1.0223562403063804 1 1.0452122820933973 1.3 0.8
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+reduced int sym 1.0
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/CH3O2/WTFNSXYULBQCQV/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r14RyEsOxYKEe/ccgzX7iYTdIem/SP/0zlOGvR
+  - Ene = 1.000 x -190.024535099766 Eh
+Final electronic energy: -190.024535099766 Eh
+Process 154705 prepping species: CH3O2RO2-2LTcwB
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: CH3O2RO2-2LTcwB
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -2.5 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 1.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 2.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -189.98185893039954
+Hf0K Energy (hart):  0.033696237894222804
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rEN0cVUMw4ogR   c8f0ODjsIhFlo   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C4H7ORvE4fmAA0
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O/NKJCNSIBJYISAQ/0/2/IMJSIDKUSA-N/hJUn9NU/CONFS/rEN0cVUMw4ogR/c8f0ODjsIhFlo as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O/NKJCNSIBJYISAQ/0/2/IMJSIDKUSA-N/u-un9NU/CONFS/r6wopFXyayCds/cLnsEWjCyw7Qt for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O/NKJCNSIBJYISAQ/0/2/IMJSIDKUSA-N/hJUn9NU/CONFS/rEN0cVUMw4ogR/c8f0ODjsIhFlo
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+rotor names (('D7',), ('D9',))
+potential test:
+names ('D7',)
+grids ((5.659914076672178, 6.183512852270477, 6.707111627868775, 7.230710403467074, 7.754309179065373, 8.277907954663672, 8.80150673026197, 9.32510550586027, 9.848704281458568, 10.372303057056868, 10.895901832655166, 11.419500608253465),)
+max norm diff of splines  0.024248692717860242 0.05
+potential test:
+names ('D9',)
+grids ((3.723571069511098, 4.247169845109397, 4.770768620707695, 5.2943673963059945),)
+max norm diff of splines  0.062229782303251026 0.1
+Debug:  tors model in scale set 1dhrf
+Debug:  tors model in scale set 1dhrf
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O/NKJCNSIBJYISAQ/0/2/IMJSIDKUSA-N/hJUn9NU/CONFS/rEN0cVUMw4ogR/c8f0ODjsIhFlo
+Path for PROJROT/FREQ/6797132 Job:
+/lcrc/project/PACC/AutoMech/data/run/PROJROT/FREQ/C4H7O/6797132
+running projrot the first time:
+running projrot the second time:
+Debug:  tors model in scale set 1dhrf
+TAU FACTOR 45027.273554 	 2 	 1.322525 
+Debug:  scale_coeff test: 1.3225251241915417 2 1.3225251241915417 1.3 0.8
+value of sfactor is greater than sfacmax
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+reduced int sym 2.0
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O/NKJCNSIBJYISAQ/0/2/IMJSIDKUSA-N/hJUn9NU/CONFS/rEN0cVUMw4ogR/c8f0ODjsIhFlo/SP/0zlOGvR
+  - Ene = 1.000 x -231.461943106069 Eh
+Final electronic energy: -231.461943106069 Eh
+Process 154728 prepping species: C4H7ORvE4fmAA0
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C4H7ORvE4fmAA0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -231.36404911802185
+Hf0K Energy (hart):  0.12544383246525798
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+r_faWrcR19TyA   ccW2eMc7rkB0W   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for CH4O2QOOH-2LTWKw
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/CH4O2/MEUKEBNAABNAEX/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r_faWrcR19TyA/ccW2eMc7rkB0W as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/CH4O2/MEUKEBNAABNAEX/0/1/UHFFFAOYSA-N/u-un9NR/CONFS/rSRnv3I6gtCwA/c36BvzuAOgFBR for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/CH4O2/MEUKEBNAABNAEX/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r_faWrcR19TyA/ccW2eMc7rkB0W
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+rotor names (('D5',), ('D6',))
+potential test:
+names ('D5',)
+grids ((1.1159303624693864, 1.6395291380676853, 2.163127913665984, 2.686726689264283),)
+potential test:
+names ('D6',)
+grids ((4.3547640353340435, 4.878362810932343, 5.401961586530641, 5.92556036212894, 6.449159137727239, 6.9727579133255375, 7.496356688923837, 8.019955464522136, 8.543554240120434, 9.067153015718734, 9.590751791317032, 10.11435056691533),)
+Debug:  tors model in scale set 1dhrf
+Debug:  tors model in scale set 1dhrf
+WARNING: empty potential will crash MESS so using rigid model instead
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/CH4O2/MEUKEBNAABNAEX/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r_faWrcR19TyA/ccW2eMc7rkB0W
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+     189.920     255.830     448.780     877.230    1051.480    1182.760
+    1215.430    1372.130    1461.710    1478.690    1526.710    3035.100
+    3107.830    3139.370    3785.360
+
+Harmonic ZPVE [kcal mol-1]: 34.49317938685427
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+reduced int sym 1.0
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/CH4O2/MEUKEBNAABNAEX/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r_faWrcR19TyA/ccW2eMc7rkB0W/SP/0zlOGvR
+  - Ene = 1.000 x -190.670494975802 Eh
+Final electronic energy: -190.670494975802 Eh
+Process 154744 prepping species: CH4O2QOOH-2LTWKw
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: CH4O2QOOH-2LTWKw
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -2.0 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 1.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 2.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -190.6162741654892
+Hf0K Energy (hart):  -0.18558856569735463
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rwM7LDGPMUycx   cNMYFP4qcrX9_   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading Reading filesystem info for ts_6_1_0
+Obtaining a ZRXN object from conformer any TS, shouldn't matter
+-----
+Using /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.CH4O2/OBBPSXUIHCTOBW/0_0/2_1/MMALYQPHSA-N/C4H8O.CH3O2/JACMMNXULDWIBI/0_0/1_2/MMALYQPHSA-N/2/hJUn9NU/TS/00/CONFS/rwM7LDGPMUycx/cNMYFP4qcrX9_ as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.CH4O2/OBBPSXUIHCTOBW/0_0/2_1/MMALYQPHSA-N/C4H8O.CH3O2/JACMMNXULDWIBI/0_0/1_2/MMALYQPHSA-N/2/u-un9NU/TS/00/CONFS/r0B2vCYWUo1Y9/c3jRzbJ8hOdwj for torsional profiles
+-----
+Using /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.CH4O2/OBBPSXUIHCTOBW/0_0/2_1/MMALYQPHSA-N/C4H8O.CH3O2/JACMMNXULDWIBI/0_0/1_2/MMALYQPHSA-N/2/hJUn9NU/TS/00/CONFS/rwM7LDGPMUycx/cNMYFP4qcrX9_ as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.CH4O2/OBBPSXUIHCTOBW/0_0/2_1/MMALYQPHSA-N/C4H8O.CH3O2/JACMMNXULDWIBI/0_0/1_2/MMALYQPHSA-N/2/u-un9NU/TS/00/CONFS/r0B2vCYWUo1Y9/c3jRzbJ8hOdwj for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.CH4O2/OBBPSXUIHCTOBW/0_0/2_1/MMALYQPHSA-N/C4H8O.CH3O2/JACMMNXULDWIBI/0_0/1_2/MMALYQPHSA-N/2/hJUn9NU/TS/00/CONFS/rwM7LDGPMUycx/cNMYFP4qcrX9_
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+rotor names (('D7',), ('D11',), ('D15',), ('D16',), ('D17',))
+potential test:
+names ('D7',)
+grids ((3.7413717523653585, 4.264970527963658, 4.788569303561956, 5.312168079160255, 5.835766854758553, 6.359365630356852, 6.882964405955152, 7.40656318155345, 7.930161957151749, 8.453760732750048, 8.977359508348346, 9.500958283946645),)
+max norm diff of splines  0.03163607687511811 0.05
+potential test:
+names ('D11',)
+grids ((3.7368581040268984, 4.260456879625197, 4.784055655223496, 5.307654430821795),)
+max norm diff of splines  0.06207225347582518 0.1
+potential test:
+names ('D15',)
+grids ((5.327303015928189, 5.850901791526488, 6.3745005671247865, 6.898099342723086, 7.421698118321384, 7.945296893919683, 8.468895669517982, 8.99249444511628, 9.51609322071458, 10.039691996312879, 10.563290771911177, 11.086889547509475),)
+max norm diff of splines  0.8148423440634409 0.05
+Removing bad angle at 455.23197899999997 degrees
+potential test:
+names ('D16',)
+grids ((4.694436052459778, 5.2180348280580775, 5.741633603656376, 6.265232379254675, 6.788831154852973, 7.312429930451272, 7.8360287060495715, 8.35962748164787, 8.883226257246168, 9.406825032844468, 9.930423808442766, 10.454022584041066),)
+max norm diff of splines  0.031052528317825553 0.05
+potential test:
+names ('D17',)
+grids ((3.2102085103494056, 3.7338072859477043, 4.257406061546003, 4.781004837144302),)
+max norm diff of splines  0.06344303632337138 0.1
+Debug:  tors model in scale set 1dhrf
+Debug:  tors model in scale set 1dhrf
+Traceback (most recent call last):
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/bin/automech", line 8, in <module>
+    sys.exit(main())
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/lib/python3.10/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/lib/python3.10/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/lib/python3.10/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/lib/python3.10/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/automech/cli/__init__.py", line 30, in run
+    _run.main(path=path, safemode_off=safemode_off)
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/automech/cli/_run.py", line 110, in main
+    ktpdriver.run(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/drivers/ktpdriver.py", line 99, in run
+    pes_param_dct = ktp_tasks.write_messrate_task(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/ktp/tsk.py", line 51, in write_messrate_task
+    rxn_chan_str, dats, hot_enes_dct = make_pes_mess_str(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/ktp/rates.py", line 334, in make_pes_mess_str
+    chnl_infs, chn_basis_ene_dct = get_channel_data(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/ktp/rates.py", line 816, in get_channel_data
+    inf_dct, model_basis_energy_dct = build.read_ts_data(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/models/build.py", line 221, in read_ts_data
+    inf_dct, chn_basis_ene_dct = mol_data(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/models/build.py", line 351, in mol_data
+    vib_anal_dct = vib.full_vib_analysis(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/models/_vib.py", line 56, in full_vib_analysis
+    tors_strs = tors.make_hr_strings(rotors, mdhr_dct=mdhr_dct)
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/models/_tors.py", line 235, in make_hr_strings
+    hr_str, ir_str, flux_str, prot_str = _tors_strs(torsion, rotor, geo)
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/models/_tors.py", line 299, in _tors_strs
+    update_coo[0] = list(filter(
+IndexError: list index out of range
