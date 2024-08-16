@@ -1,0 +1,48 @@
+grp 1 
+	 idxs = [2:1, 1:1] 
+	 peds = [['C4H8ORvEsWvAA0+OH=C4H7ORvE4fmAA0+H2O'], []] 
+	 hot = [[], ['C4H7ORvE4fmAA0']] 
+	 modeltype = rovib_dos 
+	 bf_threshold = 0.1 
+end grp 
+
+grp 2 
+	 idxs = [3:1, 1:1] 
+	 peds = [['C4H8ORvEsWvAA0+HO2-S580KW=C4H7ORvE4fmAA0+H2O2-S58pAY'], []] 
+	 hot = [[], ['C4H7ORvE4fmAA0']] 
+	 modeltype = rovib_dos 
+	 bf_threshold = 0.1 
+end grp 
+
+grp 3 
+	 idxs = [4:1, 1:1] 
+	 peds = [['C4H8ORvEsWvAA0+CH3=C4H7ORvE4fmAA0+CH4'], []] 
+	 hot = [[], ['C4H7ORvE4fmAA0']] 
+	 modeltype = rovib_dos 
+	 bf_threshold = 0.1 
+end grp 
+
+grp 4 
+	 idxs = [5:1, 1:1] 
+	 peds = [['C4H8ORvEsWvAA0+CH3O-S58cwB=C4H7ORvE4fmAA0+CH4O-S58WKw'], []] 
+	 hot = [[], ['C4H7ORvE4fmAA0']] 
+	 modeltype = rovib_dos 
+	 bf_threshold = 0.1 
+end grp 
+
+grp 5 
+	 idxs = [6:1, 1:1] 
+	 peds = [['C4H8ORvEsWvAA0+CH3O2RO2-2LTcwB=C4H7ORvE4fmAA0+CH4O2QOOH-2LTWKw'], []] 
+	 hot = [[], ['C4H7ORvE4fmAA0']] 
+	 modeltype = rovib_dos 
+	 bf_threshold = 0.1 
+end grp 
+
+grp 6 
+	 idxs = [7:1, 1:1] 
+	 peds = [['C4H8ORvEsWvAA0+Cl=C4H7ORvE4fmAA0+HCl'], []] 
+	 hot = [[], ['C4H7ORvE4fmAA0']] 
+	 modeltype = rovib_dos 
+	 bf_threshold = 0.1 
+end grp 
+

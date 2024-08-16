@@ -1,0 +1,278 @@
+
+          ================================================================
+          ==                        AUTOMECHANIC                        ==
+          ===         Andreas Copan, Sarah Elliott, Kevin Moore,       ===
+          ===            Luna Pratali Maffei, Daniel Moberg,           ===
+          ===            Carlo Cavallotti, Yuri Georgievski,           ===
+          ==       Ahren Jasper, Murat Keceli, Stephen Klippenstein     ==
+          ================================================================
+
+                                   _.---~-~-~~-..
+               ..       __.    .-~               ~-.
+               ((\     /   `}.~                     `.
+                \\\\\   {     }              /     \   \\
+            (\   \\\\~~       }             |       }   \\
+             \`.-~-^~     }  ,-,.         |       )    \\
+             (___,    ) _}  (    :        |    / /      `.
+              `----._-~.     _\ \ |_       \   / /- _     -.
+                     ~~----~~  \ \| ~~--~~~(  + /     ~-.   '--~.
+                               /  /         \  \         `~-..__ `~__
+                            __/  /          _\  )               `~~---'
+                          .<___.'         .<___/  
+
+
+
+
+=========================================================
+HOST: beboplogin3.lcrc.anl.gov
+PID: 3616437
+=========================================================
+
+=========================================================
+PARSING INPUT
+=========================================================
+
+Reading files provided in the inp directory...
+_pes_grp_dct output {((4, 0), (0, 0)): {'peds': (('C4H8ORvEsWvAA0+CH3O-S58cwB=C4H7ORvE4fmAA0+CH4O-S58WKw',), ()), 'hot': ((), ('C4H7ORvE4fmAA0',)), 'modeltype': 'rovib_dos', 'bf_threshold': 0.1, 'en_limit': [[], []]}}
+  FOUND run.dat
+  FOUND theory.dat
+  FOUND models.dat
+  FOUND species.csv
+  FOUND mechanism.dat
+  FOUND pes_groups.dat
+  FOUND species.dat
+  No .xyz files for species/TSs were found.
+  No active space templates for TSs were found.
+
+Parsing input files for runtime parameters...
+Warning: user selected the 'canon_ent' option, but the field 'canon_enant_ich' is not in the CSV file.
+The canonical enantiomer will have to be calculated for every species, which might be slow.
+dat blocks {'global': '\n    kickoff = [0.1, False]\n    mc_nsamp = [True, 3, 1, 3, 300, 25]\n    hind_inc = 15.0\n    hbond_cutoffs = [4.61, 1.92]\n    \n    \n    tau_nsamp = [False, 1, 1, 1, 1, 10000]\n'}
+dat dct {'global': {'kickoff': (0.1, False), 'mc_nsamp': (True, 3, 1, 3, 300, 25), 'hind_inc': 15.0, 'hbond_cutoffs': (4.61, 1.92), 'tau_nsamp': (False, 1, 1, 1, 1, 10000)}}
+No # pes.subpes.channel comment type found in mech: resorting ...
+*ktp dct vals not found - derived for sorting purposes derived at [300:10:2010] K at 1 atm
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:267: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  df_pes['pes'][rxns] = pes_index
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:196: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  conn_chn_df['subpes'][rxns] = key+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:203: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['chnl'][rxn] = chnl_idx+idx_start+1
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:205: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  pes_dct_df['pes_chnl_tuple'][rxn] = (
+no filtering of species selected - submech will be used as default, but no sorting will be applied
+/lcrc/project/PACC/copan/amech-dev/src/mechanalyzer/mechanalyzer/builder/sort_fct.py:1337: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
+A typical example is when you are setting values in a column of a DataFrame, like:
+
+df["col"][row_indexer] = value
+
+Use `df.loc[row_indexer, "col"] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+  df_cmts_inline['cmts_inline'][rdf.index] = rxnclass
+   C4H7ORvE4fmAB0 = C4H7O4H74fm1           # fml.pes.subpes.channel C4H7O1.1.1.1
+   C4H7ORvE4fmAB0 = C4H7O-kSV4fm           # fml.pes.subpes.channel C4H7O1.1.1.2
+   C4H7ORvE4fmAB0 = C4H6O-RvErx51 + H-TcYTcY# fml.pes.subpes.channel C4H7O1.1.1.3
+   C4H7ORvE4fmAA0 = C4H7O4H74fm0           # fml.pes.subpes.channel C4H7O1.1.1.4
+   C4H7ORvE4fmAA0 = C4H7O-kSV4fm           # fml.pes.subpes.channel C4H7O1.1.1.5
+   C4H7ORvE4fmAA0 = C4H6O-RvErx50 + H-TcYTcY# fml.pes.subpes.channel C4H7O1.1.1.6
+   C4H7O4H74fm0 = C3H4OALAD-Wv9FbZ + CH3   # fml.pes.subpes.channel C4H7O1.1.1.7
+   C4H7O4H74fm0 = C2H4OALD-UPQWKw + C2H3ALK-S58hH1# fml.pes.subpes.channel C4H7O1.1.1.8
+   C4H7O-kSV4fm = C2H4OALD-UPQWKw + C2H3ALK-S58hH1# fml.pes.subpes.channel C4H7O1.1.1.9
+   C4H8ORvEsWvAA0 + OH = C4H7ORvE4fmAA0 + H2O# fml.pes.subpes.channel C4H9O2.2.1.1
+   C4H8ORvEsWvAA0 + HO2-S580KW = C4H7ORvE4fmAA0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.3.1.1
+   C4H8ORvEsWvAA0 + CH3 = C4H7ORvE4fmAA0 + CH4# fml.pes.subpes.channel C5H11O1.4.1.1
+   C4H8ORvEsWvAA0 + CH3O-S58cwB = C4H7ORvE4fmAA0 + CH4O-S58WKw# fml.pes.subpes.channel C5H11O2.5.1.1
+   C4H8ORvEsWvAA0 + CH3O2RO2-2LTcwB = C4H7ORvE4fmAA0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.6.1.1
+   C4H8ORvEsWvAA0 + Cl = C4H7ORvE4fmAA0 + HCl# fml.pes.subpes.channel C4Cl1H8O1.7.1.1
+
+Final check if all required input provided...
+
+Building the base Run-Save filesystems at
+        /lcrc/project/PACC/AutoMech/data/run
+        /lcrc/project/PACC/AutoMech/data/save
+
+=========================================================
+kTPDRIVER
+
+Sarah Elliott, Kevin Moore, Andreas Copan,
+Daniel Moberg, Carlo Cavallotti, Yuri Georgievski,
+Ahren Jasper, Stephen Klippenstein
+=========================================================
+WORKING ON PES
+{('C5H11O2', 4, 0): ((0, (('C4H8ORvEsWvAA0', 'CH3O-S58cwB'), ('C4H7ORvE4fmAA0', 'CH4O-S58WKw'))),), ('C4H7O1', 0, 0): ((3, (('C4H7ORvE4fmAA0',), ('C4H7O4H74fm0',))), (4, (('C4H7ORvE4fmAA0',), ('C4H7O-kSV4fm',))), (5, (('C4H7ORvE4fmAA0',), ('C4H6O-RvErx50', 'H-TcYTcY'))), (6, (('C4H7O4H74fm0',), ('C3H4OALAD-Wv9FbZ', 'CH3'))), (7, (('C4H7O4H74fm0',), ('C2H4OALD-UPQWKw', 'C2H3ALK-S58hH1'))), (8, (('C4H7O-kSV4fm',), ('C2H4OALD-UPQWKw', 'C2H3ALK-S58hH1'))))} {'peds': (('C4H8ORvEsWvAA0+CH3O-S58cwB=C4H7ORvE4fmAA0+CH4O-S58WKw',), ()), 'hot': ((), ('C4H7ORvE4fmAA0',)), 'modeltype': 'rovib_dos', 'bf_threshold': 0.1, 'en_limit': [[], []]}
+Identifying reaction classes for transition states...
+
+  Preparing TS for PES-Channel 5-1 : C4H8ORvEsWvAA0+CH3O-S58cwB = C4H7ORvE4fmAA0+CH4O-S58WKw
+    User requested forward direction.
+    Running reaction as: C4H8ORvEsWvAA0+CH3O-S58cwB = C4H7ORvE4fmAA0+CH4O-S58WKw
+    Trying to find class info from fileysystem...

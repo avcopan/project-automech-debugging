@@ -1,0 +1,20 @@
+isolate_submech # this section is not mandatory
+    C4H7ORvE4fmAA0
+end
+
+
+sort_mech
+    criteria = (
+        submech_prompt
+        subpes
+    )
+    n_criteria_headers = 0
+end
+
+
+#prompt_filter # not mandatory
+    # available: Tref, DH, H5H3ratio, kratio, kabs
+#    DH = 31.
+#    Tref = 1000
+#end
+
