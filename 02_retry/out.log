@@ -1,0 +1,1346 @@
+Running on csed-0037 in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/02_retry
+Process ID: 374510
+Run command: automech run
+
+          ================================================================
+          ==                        AUTOMECHANIC                        ==
+          ===         Andreas Copan, Sarah Elliott, Kevin Moore,       ===
+          ===            Luna Pratali Maffei, Daniel Moberg,           ===
+          ===            Carlo Cavallotti, Yuri Georgievski,           ===
+          ==       Ahren Jasper, Murat Keceli, Stephen Klippenstein     ==
+          ================================================================
+
+                                 ,,,         ,,,
+                               ;"   ^;     ;'   ",
+                              ;    s$$$$$$$s      ;
+                               ,  ss$$$$$$$$$$s  ,'
+                               ;s$$$$$$$$$$$$$$$
+                               $$$$$$$$$$$$$$$$$$
+                              $$$$P""Y$$$Y""W$$$$$
+                              $$$$  0"$$$"0  $$$$$
+                              $$$$  .$$$$$.  $$$$
+                               $$$$$$$$$$$$$$$$$
+                                "Y$$$"'*'"$$$Y"
+                                   "$$b.d$$"        
+
+
+
+
+=========================================================
+HOST: csed-0037
+PID: 374510
+=========================================================
+
+=========================================================
+PARSING INPUT
+=========================================================
+
+Reading files provided in the inp directory...
+_pes_grp_dct output None
+  FOUND run.dat
+  FOUND theory.dat
+  FOUND models.dat
+  FOUND species.csv
+  FOUND mechanism.dat
+  MISSING pes_groups.dat
+  FOUND species.dat
+  No .xyz files for species/TSs were found.
+  No active space templates for TSs were found.
+
+Parsing input files for runtime parameters...
+dat blocks {'global': '\n    kickoff = [0.1, False]\n    mc_nsamp = [True, 3, 1, 3, 300, 25]\n    hind_inc = 15.0\n    hbond_cutoffs = [4.61, 1.92]\n    \n    \n    tau_nsamp = [False, 1, 1, 1, 1, 10000]\n', 'ts_6_94_0': '\n   ts_search = pst\n   kt_pst = 4.0e-12\n   temp_pst = 300.0\n   n_pst = 6.0\n', 'ts_6_38_0': '\n   ts_search = pst\n   kt_pst = 4.0e-12\n   temp_pst = 300.0\n   n_pst = 6.0\n', 'ts_6_39_0': '\n   ts_search = pst\n   kt_pst = 4.0e-12\n   temp_pst = 300.0\n   n_pst = 6.0\n', 'ts_6_79_0': '\n   conf_id = [rNk4BBd6DduXc, c0xQpUzESLLMH]\n', 'ts_6_81_0': '\n   conf_id = [ry8zhkJkBORaa, c-whdHzs6O0gr]\n', 'ts_6_82_0': '\n   conf_id = [rpVxgryxx8P_I, cJJt1UOj5qo2-]\n', 'ts_6_83_0': '\n   conf_id = [r9frQiARXT8n7, cKKGTGxoIynzS]\n', 'ts_6_85_0': '\n   conf_id = [rwVRvJUgk6XRg, cA634tl9cijzZ]\n', 'ts_6_88_0': '\n   conf_id = [r2-kEBscgWM63, canX_GuebqE3q]\n', 'ts_6_93_0': '\n   conf_id = [rb8DsbOuhjuZi, cNxpUj1xGjgey]\n', 'ts_6_57_0': '\n   conf_id = [rVZqTfEhqW0R4, cXIXC7vV467G8]\n', 'ts_6_58_0': '\n   conf_id = [rE-Q22CjHmd50, cm_3F6D7R941M]\n', 'ts_6_61_0': '\n   conf_id = [rKWZE8hB3228q, c5EZzkXwAsWR6]\n', 'ts_6_63_0': '\n   conf_id = [rIO7dIvveo3Rm, cca7vdzuZy9_U]\n', 'ts_6_76_0': '\n   conf_id = [rDgbrkobH0R-s, cm6Wn8BqxdP1U]\n'}
+dat dct {'global': {'kickoff': (0.1, False), 'mc_nsamp': (True, 3, 1, 3, 300, 25), 'hind_inc': 15.0, 'hbond_cutoffs': (4.61, 1.92), 'tau_nsamp': (False, 1, 1, 1, 1, 10000)}, 'ts_6_94_0': {'ts_search': 'pst', 'kt_pst': 4e-12, 'temp_pst': 300.0, 'n_pst': 6.0}, 'ts_6_38_0': {'ts_search': 'pst', 'kt_pst': 4e-12, 'temp_pst': 300.0, 'n_pst': 6.0}, 'ts_6_39_0': {'ts_search': 'pst', 'kt_pst': 4e-12, 'temp_pst': 300.0, 'n_pst': 6.0}, 'ts_6_79_0': {'conf_id': ('rNk4BBd6DduXc', 'c0xQpUzESLLMH')}, 'ts_6_81_0': {'conf_id': ('ry8zhkJkBORaa', 'c-whdHzs6O0gr')}, 'ts_6_82_0': {'conf_id': ('rpVxgryxx8P_I', 'cJJt1UOj5qo2-')}, 'ts_6_83_0': {'conf_id': ('r9frQiARXT8n7', 'cKKGTGxoIynzS')}, 'ts_6_85_0': {'conf_id': ('rwVRvJUgk6XRg', 'cA634tl9cijzZ')}, 'ts_6_88_0': {'conf_id': ('r2-kEBscgWM63', 'canX_GuebqE3q')}, 'ts_6_93_0': {'conf_id': ('rb8DsbOuhjuZi', 'cNxpUj1xGjgey')}, 'ts_6_57_0': {'conf_id': ('rVZqTfEhqW0R4', 'cXIXC7vV467G8')}, 'ts_6_58_0': {'conf_id': ('rE-Q22CjHmd50', 'cm_3F6D7R941M')}, 'ts_6_61_0': {'conf_id': ('rKWZE8hB3228q', 'c5EZzkXwAsWR6')}, 'ts_6_63_0': {'conf_id': ('rIO7dIvveo3Rm', 'cca7vdzuZy9_U')}, 'ts_6_76_0': {'conf_id': ('rDgbrkobH0R-s', 'cm6Wn8BqxdP1U')}}
+Building PES dictionary from input file specification
+   CH3O2QOOH-2LTQF7 = CH2OALD-S58lDf + OH  # fml.pes.subpes.channel CH3O2.1.1.1
+   C2H3O2SMslpG = C2H2OALKE-UPQlDf + OH    # fml.pes.subpes.channel C2H3O2.2.1.1
+   C2H5O2SMsBtg = C2H4OALD-UPQWKw + OH     # fml.pes.subpes.channel C2H5O2.3.1.1
+   C4H7ORvE4fmAB0 = C4H7O4H74fm1           # fml.pes.subpes.channel C4H7O.4.1.1
+   C4H7ORvE4fmAB0 = C4H7O-kSV4fm           # fml.pes.subpes.channel C4H7O.4.1.2
+   C4H7ORvE4fmAB0 = C4H6O-RvErx51 + H-TcYTcY# fml.pes.subpes.channel C4H7O.4.1.3
+   C4H7ORvE4fmAA0 = C4H7O4H74fm0           # fml.pes.subpes.channel C4H7O.4.1.4
+   C4H7ORvE4fmAA0 = C4H7O-kSV4fm           # fml.pes.subpes.channel C4H7O.4.1.5
+   C4H7ORvE4fmAA0 = C4H6O-RvErx50 + H-TcYTcY# fml.pes.subpes.channel C4H7O.4.1.6
+   C4H7O4H7XqB0 = C4H7O4H7Ps70             # fml.pes.subpes.channel C4H7O.4.1.7
+   C4H7O4H7XqB0 = C4H7O4H796JZ             # fml.pes.subpes.channel C4H7O.4.1.8
+   C4H7O4H7XqB0 = C4H7O4H796JE             # fml.pes.subpes.channel C4H7O.4.1.9
+   C4H7O4H7XqB0 = C4H6O-4H7Rx60 + H-TcYTcY # fml.pes.subpes.channel C4H7O.4.1.10
+   C4H7O4H7XqB0 = C4H6-808rx5 + OH         # fml.pes.subpes.channel C4H7O.4.1.11
+   C4H7O4H7Ps70 = C4H7O4H796JZ             # fml.pes.subpes.channel C4H7O.4.1.12
+   C4H7O4H7Ps70 = C4H7O4H796JE             # fml.pes.subpes.channel C4H7O.4.1.13
+   C4H7O4H7Ps70 = C4H6O-4H7go2 + H-TcYTcY  # fml.pes.subpes.channel C4H7O.4.1.14
+   C4H7O4H7Ps70 = C4H6-808VHz + OH         # fml.pes.subpes.channel C4H7O.4.1.15
+   C4H7O4H7Ps70 = C2H4OALOH-UPQFbZ + C2H3ALK-S58hH1# fml.pes.subpes.channel C4H7O.4.1.16
+   C4H7O4H796JZ = C4H6OALKE-4H7LsA + H-TcYTcY# fml.pes.subpes.channel C4H7O.4.1.17
+   C4H7O4H796JZ = C4H6O-4H7go2 + H-TcYTcY  # fml.pes.subpes.channel C4H7O.4.1.18
+   C4H7O4H796JE = C4H6OALKE-4H7LsA + H-TcYTcY# fml.pes.subpes.channel C4H7O.4.1.19
+   C4H7O4H796JE = C4H6O-4H7go2 + H-TcYTcY  # fml.pes.subpes.channel C4H7O.4.1.20
+   C4H7O4H78TgZ0 = C4H7O4H7XqB0            # fml.pes.subpes.channel C4H7O.4.1.21
+   C4H7O4H78TgZ0 = C4H7O4H7Ps70            # fml.pes.subpes.channel C4H7O.4.1.22
+   C4H7O4H78TgZ0 = C4H7O4H796JZ            # fml.pes.subpes.channel C4H7O.4.1.23
+   C4H7O4H78TgZ0 = C4H7O4H796JE            # fml.pes.subpes.channel C4H7O.4.1.24
+   C4H7O4H78TgZ0 = C4H6O-4H7Rx60 + H-TcYTcY# fml.pes.subpes.channel C4H7O.4.1.25
+   C4H7O4H78TgZ0 = C2H5O-UPQBtg + C2H2-S58pAY# fml.pes.subpes.channel C4H7O.4.1.26
+   C4H7O4H78TgE0 = C4H7O4H7XqB0            # fml.pes.subpes.channel C4H7O.4.1.27
+   C4H7O4H78TgE0 = C4H7O4H7Ps70            # fml.pes.subpes.channel C4H7O.4.1.28
+   C4H7O4H78TgE0 = C4H7O4H796JZ            # fml.pes.subpes.channel C4H7O.4.1.29
+   C4H7O4H78TgE0 = C4H7O4H796JE            # fml.pes.subpes.channel C4H7O.4.1.30
+   C4H7O4H78TgE0 = C4H6O-4H7Rx60 + H-TcYTcY# fml.pes.subpes.channel C4H7O.4.1.31
+   C4H7O4H78TgE0 = C2H5O-UPQBtg + C2H2-S58pAY# fml.pes.subpes.channel C4H7O.4.1.32
+   C4H7O4H74fm0 = C4H7O4H7XqB0             # fml.pes.subpes.channel C4H7O.4.1.33
+   C4H7O4H74fm0 = C4H7O4H7Ps70             # fml.pes.subpes.channel C4H7O.4.1.34
+   C4H7O4H74fm0 = C4H7O4H796JZ             # fml.pes.subpes.channel C4H7O.4.1.35
+   C4H7O4H74fm0 = C4H7O4H796JE             # fml.pes.subpes.channel C4H7O.4.1.36
+   C4H7O4H74fm0 = C4H7O4H78TgZ0            # fml.pes.subpes.channel C4H7O.4.1.37
+   C4H7O4H74fm0 = C4H7O4H78TgE0            # fml.pes.subpes.channel C4H7O.4.1.38
+   C4H7O4H74fm0 = C4H6OALKE-4H7LsA + H-TcYTcY# fml.pes.subpes.channel C4H7O.4.1.39
+   C4H7O4H74fm0 = C3H4OALAD-Wv9FbZ + CH3   # fml.pes.subpes.channel C4H7O.4.1.40
+   C4H7O4H74fm0 = C2H4OALD-UPQWKw + C2H3ALK-S58hH1# fml.pes.subpes.channel C4H7O.4.1.41
+   C4H7O-kSVyrZ = C4H6O-kSVVHz + H-TcYTcY  # fml.pes.subpes.channel C4H7O.4.1.42
+   C4H7O-kSVyrZ = C2H3OALOX-UPQQF7 + C2H4ALK-S58kzk# fml.pes.subpes.channel C4H7O.4.1.43
+   C4H7O-kSVO9K = C4H7O-kSVyrZ             # fml.pes.subpes.channel C4H7O.4.1.44
+   C4H7O-kSVO9K = C2H2OALKE-UPQlDf + C2H5-S58eMK# fml.pes.subpes.channel C4H7O.4.1.45
+   C4H7O-kSV4fm = C4H7O-kSVyrZ             # fml.pes.subpes.channel C4H7O.4.1.46
+   C4H7O-kSV4fm = C4H7O-kSVO9K             # fml.pes.subpes.channel C4H7O.4.1.47
+   C4H7O-kSV4fm = C4H7O-kSV3dbZ            # fml.pes.subpes.channel C4H7O.4.1.48
+   C4H7O-kSV4fm = C4H7O-kSV3dbE            # fml.pes.subpes.channel C4H7O.4.1.49
+   C4H7O-kSV4fm = C4H6O-kSVVHz + H-TcYTcY  # fml.pes.subpes.channel C4H7O.4.1.50
+   C4H7O-kSV4fm = C2H4OALD-UPQWKw + C2H3ALK-S58hH1# fml.pes.subpes.channel C4H7O.4.1.51
+   C4H7O-kSV3dbZ = C4H7O-kSVyrZ            # fml.pes.subpes.channel C4H7O.4.1.52
+   C4H7O-kSV3dbZ = C4H7O-kSVO9K            # fml.pes.subpes.channel C4H7O.4.1.53
+   C4H7O-kSV3dbZ = C2H5O-UPQqJr + C2H2-S58pAY# fml.pes.subpes.channel C4H7O.4.1.54
+   C4H7O-kSV3dbE = C4H7O-kSVyrZ            # fml.pes.subpes.channel C4H7O.4.1.55
+   C4H7O-kSV3dbE = C4H7O-kSVO9K            # fml.pes.subpes.channel C4H7O.4.1.56
+   C4H7ORvE0BQ0 = C4H7O4H70BQZ             # fml.pes.subpes.channel C4H7O.4.3.57
+   C4H7ORvE0BQ0 = C4H7O4H70BQE             # fml.pes.subpes.channel C4H7O.4.3.58
+   C4H7ORvE0BQ0 = C4H6O-RvErx50 + H-TcYTcY # fml.pes.subpes.channel C4H7O.4.3.59
+   C4H7O4H70BQZ = C4H6OALKE-4H7LsA + H-TcYTcY# fml.pes.subpes.channel C4H7O.4.3.60
+   C4H7O4H70BQZ = C3H4OALKE-Wv9WKw + CH3   # fml.pes.subpes.channel C4H7O.4.3.61
+   C4H7O4H70BQE = C4H6OALKE-4H7LsA + H-TcYTcY# fml.pes.subpes.channel C4H7O.4.3.62
+   C4H7O4H70BQE = C3H4OALKE-Wv9WKw + CH3   # fml.pes.subpes.channel C4H7O.4.3.63
+   C4H8ORvEsWvAA0 + OH = C4H7ORvE0BQ0 + H2O# fml.pes.subpes.channel C4H9O2.5.1.1
+   C4H8ORvEsWvAA0 + OH = C4H7ORvE4fmAA0 + H2O# fml.pes.subpes.channel C4H9O2.5.2.2
+   C4H8ORvEsWvAB + OH = C4H7ORvE0BQ0 + H2O # fml.pes.subpes.channel C4H9O2.5.3.3
+   C4H8ORvEsWvAB + OH = C4H7ORvE4fmAB0 + H2O# fml.pes.subpes.channel C4H9O2.5.4.4
+   C4H7ORvE4fmAB1 + O2-S58TcY = C4H7O3-0vR8pfAB0# fml.pes.subpes.channel C4H7O3.6.1.1
+   C4H7ORvE4fmAA0 + O2-S58TcY = C4H7O3-0vR8pfAA0# fml.pes.subpes.channel C4H7O3.6.1.2
+   C4H7O30vRsim0 = C4H7O3-aiQBlaZ          # fml.pes.subpes.channel C4H7O3.6.1.3
+   C4H7O30vRsim0 = C4H7O3-aiQBlaE          # fml.pes.subpes.channel C4H7O3.6.1.4
+   C4H7O30vRsim0 = C4H6O2-uEU6xFAA0 + OH   # fml.pes.subpes.channel C4H7O3.6.1.5
+   C4H7O30vRPs7AB0 = C4H7O3-tIYLi0         # fml.pes.subpes.channel C4H7O3.6.1.6
+   C4H7O30vRPs7AB0 = C4H7O3-rtmoOQ0        # fml.pes.subpes.channel C4H7O3.6.1.7
+   C4H7O30vRPs7AB0 = C4H6O2-Ef6VHzAB + OH  # fml.pes.subpes.channel C4H7O3.6.1.8
+   C4H7O30vRPs7AA0 = C4H7O3-tIYLi0         # fml.pes.subpes.channel C4H7O3.6.1.9
+   C4H7O30vRPs7AA0 = C4H7O3-rtmoOQ1        # fml.pes.subpes.channel C4H7O3.6.1.10
+   C4H7O30vRHhi0 = C4H7O3-rtmBlaZ          # fml.pes.subpes.channel C4H7O3.6.1.11
+   C4H7O30vRHhi0 = C4H7O3-rtmBlaE          # fml.pes.subpes.channel C4H7O3.6.1.12
+   C4H7O30vRHhi0 = C4H6O2-q8d6xFAB0 + OH   # fml.pes.subpes.channel C4H7O3.6.1.13
+   C4H7O30vRHhi0 = C4H6O2-q8d6xFAA0 + OH   # fml.pes.subpes.channel C4H7O3.6.1.14
+   C4H7O30vRHhi0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.1.15
+   C4H7O3-tIYLi0 = C4H6O2-pEoSxf0 + OH     # fml.pes.subpes.channel C4H7O3.6.1.16
+   C4H7O3-tIYLi0 = C4H6O-kSVVHz + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.1.17
+   C4H7O3-tIYLi0 = C2H4O3AHP-FpYwHr + C2H3ALK-S58hH1# fml.pes.subpes.channel C4H7O3.6.1.18
+   C4H7O3-rtmoOQ0 = C3H4OALAD-Wv9FbZ + CH3O2QOOH-2LTQF7# fml.pes.subpes.channel C4H7O3.6.1.19
+   C4H7O3-rtmoOQ0 = C2H4O3AHP-FpYwHr + C2H3ALK-S58hH1# fml.pes.subpes.channel C4H7O3.6.1.20
+   C4H7O3-rtmBlaZ = C4H6O2-0lO6xF0 + OH    # fml.pes.subpes.channel C4H7O3.6.1.21
+   C4H7O3-rtmBlaZ = C3H4OALKE-Wv9WKw + CH3O2QOOH-2LTQF7# fml.pes.subpes.channel C4H7O3.6.1.22
+   C4H7O3-rtmBlaE = C4H6O2-0lO6xF0 + OH    # fml.pes.subpes.channel C4H7O3.6.1.23
+   C4H7O3-rtmBlaE = C3H4OALKE-Wv9WKw + CH3O2QOOH-2LTQF7# fml.pes.subpes.channel C4H7O3.6.1.24
+   C4H7O3-aiQBlaZ = C4H6OALKE-4H7LsA + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.1.25
+   C4H7O3-aiQBlaZ = C4H6O2-JST5fu0 + OH    # fml.pes.subpes.channel C4H7O3.6.1.26
+   C4H7O3-aiQBlaE = C4H6OALKE-4H7LsA + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.1.27
+   C4H7O3-aiQBlaE = C4H6O2-JST5fu0 + OH    # fml.pes.subpes.channel C4H7O3.6.1.28
+   C4H7O3-0vR8pfAB0 = C4H7O30vRsim1        # fml.pes.subpes.channel C4H7O3.6.1.29
+   C4H7O3-0vR8pfAB0 = C4H7O30vRPs7AB0      # fml.pes.subpes.channel C4H7O3.6.1.30
+   C4H7O3-0vR8pfAB0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.1.31
+   C4H7O3-0vR8pfAA0 = C4H7O30vRsim0        # fml.pes.subpes.channel C4H7O3.6.1.32
+   C4H7O3-0vR8pfAA0 = C4H7O30vRPs7AA0      # fml.pes.subpes.channel C4H7O3.6.1.33
+   C4H7O3-0vR8pfAA0 = C4H7O30vRHhi0        # fml.pes.subpes.channel C4H7O3.6.1.34
+   C4H7O3-0vR8pfAA0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.1.35
+   C4H7ORvE0BQ0 + O2-S58TcY = C4H7O3-lIr0BQAB0# fml.pes.subpes.channel C4H7O3.6.3.36
+   C4H7ORvE0BQ0 + O2-S58TcY = C4H7O3-lIr0BQAA0# fml.pes.subpes.channel C4H7O3.6.3.37
+   C4H7O4H70BQZ + O2-S58TcY = C4H7O3-LKXJ8D0# fml.pes.subpes.channel C4H7O3.6.3.38
+   C4H7O4H70BQE + O2-S58TcY = C4H7O3-LKXJ8D0# fml.pes.subpes.channel C4H7O3.6.3.39
+   C4H7O3lIrHhiAB0 = C4H7O3-LKXYSe0        # fml.pes.subpes.channel C4H7O3.6.3.40
+   C4H7O3lIrHhiAB0 = C4H7O3-KBiHhi         # fml.pes.subpes.channel C4H7O3.6.3.41
+   C4H7O3lIrHhiAB0 = C4H6O2-q8d6xFAA0 + OH # fml.pes.subpes.channel C4H7O3.6.3.42
+   C4H7O3lIrHhiAB0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.3.43
+   C4H7O3lIrHhiAA0 = C4H7O3-LKXYSe0        # fml.pes.subpes.channel C4H7O3.6.3.44
+   C4H7O3lIrHhiAA0 = C4H7O3-KBiHhi         # fml.pes.subpes.channel C4H7O3.6.3.45
+   C4H7O3lIrHhiAA0 = C4H6O2-q8d6xFAB0 + OH # fml.pes.subpes.channel C4H7O3.6.3.46
+   C4H7O3lIrHhiAA0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.3.47
+   C4H7O3lIr96JAB0 = C4H7O3-rMBwIC1        # fml.pes.subpes.channel C4H7O3.6.3.48
+   C4H7O3lIr96JAB0 = C4H7O3-KBi96J         # fml.pes.subpes.channel C4H7O3.6.3.49
+   C4H7O3lIr96JAB0 = C4H6O2-uEU6xFAA0 + OH # fml.pes.subpes.channel C4H7O3.6.3.50
+   C4H7O3lIr1Yq0 = C4H7O3-LKXXbmZ          # fml.pes.subpes.channel C4H7O3.6.3.51
+   C4H7O3lIr1Yq0 = C4H7O3-LKXXbmE          # fml.pes.subpes.channel C4H7O3.6.3.52
+   C4H7O3lIr1Yq0 = C4H6O2-h6G0v8 + OH      # fml.pes.subpes.channel C4H7O3.6.3.53
+   C4H7O3LKXn3Y0 = C4H7O3LKXdwk0           # fml.pes.subpes.channel C4H7O3.6.3.54
+   C4H7O3LKXn3Y0 = C4H7O3-LKXXbmZ          # fml.pes.subpes.channel C4H7O3.6.3.55
+   C4H7O3LKXn3Y0 = C4H7O3-LKXXbmE          # fml.pes.subpes.channel C4H7O3.6.3.56
+   C4H7O3LKXn3Y0 = C4H6OALKE-4H7LsA + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.3.57
+   C4H7O3LKXn3Y0 = C4H6O2-JST5fu0 + OH     # fml.pes.subpes.channel C4H7O3.6.3.58
+   C4H7O3LKXn3Y0 = C2H4O2SMsFbZ + C2H3OKET-UPQcwB# fml.pes.subpes.channel C4H7O3.6.3.59
+   C4H7O3LKXdwk0 = C4H7O3-LKXXbmZ          # fml.pes.subpes.channel C4H7O3.6.3.60
+   C4H7O3LKXdwk0 = C4H7O3-LKXXbmE          # fml.pes.subpes.channel C4H7O3.6.3.61
+   C4H7O3LKXdwk0 = C4H6O2-0lO6xF0 + OH     # fml.pes.subpes.channel C4H7O3.6.3.62
+   C4H7O3LKXdwk0 = C2H5O2SMsBtg + C2H2OALKE-UPQlDf# fml.pes.subpes.channel C4H7O3.6.3.63
+   C4H7O3-lIr0BQAB0 = C4H7O3lIrHhiAB0      # fml.pes.subpes.channel C4H7O3.6.3.64
+   C4H7O3-lIr0BQAB0 = C4H7O3lIr96JAB0      # fml.pes.subpes.channel C4H7O3.6.3.65
+   C4H7O3-lIr0BQAB0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.3.66
+   C4H7O3-lIr0BQAA0 = C4H7O3lIrHhiAA0      # fml.pes.subpes.channel C4H7O3.6.3.67
+   C4H7O3-lIr0BQAA0 = C4H7O3lIr1Yq0        # fml.pes.subpes.channel C4H7O3.6.3.68
+   C4H7O3-lIr0BQAA0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.3.69
+   C4H7O3-LKXYSe0 = C3H4O3-vrVtdX + CH3    # fml.pes.subpes.channel C4H7O3.6.3.70
+   C4H7O3-LKXYSe0 = C2H3O2SMslpG + C2H4OALD-UPQWKw# fml.pes.subpes.channel C4H7O3.6.3.71
+   C4H7O3-LKXXbmZ = C4H6O2mZN0v8 + OH      # fml.pes.subpes.channel C4H7O3.6.3.72
+   C4H7O3-LKXXbmE = C4H6O2mZN0v8 + OH      # fml.pes.subpes.channel C4H7O3.6.3.73
+   C4H7O3-LKXJ8D0 = C4H7O3LKXn3Y0          # fml.pes.subpes.channel C4H7O3.6.3.74
+   C4H7O3-LKXJ8D0 = C4H7O3LKXdwk0          # fml.pes.subpes.channel C4H7O3.6.3.75
+   C4H7O3-LKXJ8D0 = C4H7O3-LKXXbmZ         # fml.pes.subpes.channel C4H7O3.6.3.76
+   C4H7O3-LKXJ8D0 = C4H7O3-LKXXbmE         # fml.pes.subpes.channel C4H7O3.6.3.77
+   C4H7O3-LKXJ8D0 = C4H6OALKE-4H7LsA + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.3.78
+   C4H7O3-KBiXqB0 = C4H7O3-KBiPs70         # fml.pes.subpes.channel C4H7O3.6.3.79
+   C4H7O3-KBiXqB0 = C4H7O3-KBi96J          # fml.pes.subpes.channel C4H7O3.6.3.80
+   C4H7O3-KBiXqB0 = C4H6O2-cAorx5 + OH     # fml.pes.subpes.channel C4H7O3.6.3.81
+   C4H7O3-KBiXqB0 = C2H5O2SMsBtg + C2H2OALKE-UPQlDf# fml.pes.subpes.channel C4H7O3.6.3.82
+   C4H7O3-KBiPs70 = C4H6O2-pEoSxf0 + OH    # fml.pes.subpes.channel C4H7O3.6.3.83
+   C4H7O3-KBiPs70 = C4H6O-kSVVHz + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.3.84
+   C4H7O3-KBiPs70 = C2H4O2SMsFbZ + C2H3OALOX-UPQQF7# fml.pes.subpes.channel C4H7O3.6.3.85
+   C4H7O3-KBiHhi = C2H3O2SMslpG + C2H4OALD-UPQWKw# fml.pes.subpes.channel C4H7O3.6.3.86
+   C4H7O3-KBi96J = C4H6O2-TmPLsA + OH      # fml.pes.subpes.channel C4H7O3.6.3.87
+   C4H7O3-KBi8TgE0 = C4H7O3-KBi96J         # fml.pes.subpes.channel C4H7O3.6.3.88
+   C4H7O3-KBi4fm0 = C4H7O3-KBiXqB0         # fml.pes.subpes.channel C4H7O3.6.3.89
+   C4H7O3-KBi4fm0 = C4H7O3-KBiPs70         # fml.pes.subpes.channel C4H7O3.6.3.90
+   C4H7O3-KBi4fm0 = C4H7O3-KBi96J          # fml.pes.subpes.channel C4H7O3.6.3.91
+   C4H7O3-KBi4fm0 = C4H7O3-KBi8TgE0        # fml.pes.subpes.channel C4H7O3.6.3.92
+   C4H7O3-KBi4fm0 = C4H6O-kSVVHz + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.3.93
+   C4H7O-kSV4fm + O2-S58TcY = C4H7O3-KBi4fm0# fml.pes.subpes.channel C4H7O3.6.3.94
+   C4H7O3-rMBwIC0 = C4H6OALKE-4H7LsA + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.7.95
+   C4H7O3-rMBwIC0 = C3H4O3-n5TtdX + CH3    # fml.pes.subpes.channel C4H7O3.6.7.96
+   C4H7O3-rMBwIC0 = C2H4O3KHP-rlPQnQ + C2H3ALK-S58hH1# fml.pes.subpes.channel C4H7O3.6.7.97
+   C4H7O4H7Ps71 + O2-S58TcY = C4H7O3-rtmn7G0# fml.pes.subpes.channel C4H7O3.6.8.98
+   C4H7O3-rtmn7G0 = C4H6O-4H7go2 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.6.8.99
+   C4H8ORvEsWvAA0 + O2-S58TcY = C4H7ORvE0BQ0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.7.1.1
+   C4H8ORvEsWvAA0 + O2-S58TcY = C4H7ORvE4fmAA0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.7.2.2
+   C4H8ORvEsWvAB + O2-S58TcY = C4H7ORvE0BQ0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.7.3.3
+   C4H8ORvEsWvAB + O2-S58TcY = C4H7ORvE4fmAB0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.7.4.4
+   C4H8ORvEsWvAA0 + HO2-S580KW = C4H7ORvE0BQ0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.8.1.1
+   C4H8ORvEsWvAA0 + HO2-S580KW = C4H7ORvE4fmAA0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.8.2.2
+   C4H8ORvEsWvAB + HO2-S580KW = C4H7ORvE0BQ0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.8.3.3
+   C4H8ORvEsWvAB + HO2-S580KW = C4H7ORvE4fmAB0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.8.4.4
+   C4H8ORvEsWvAA0 + CH3 = C4H7ORvE0BQ0 + CH4# fml.pes.subpes.channel C5H11O.9.1.1
+   C4H8ORvEsWvAA0 + CH3 = C4H7ORvE4fmAA0 + CH4# fml.pes.subpes.channel C5H11O.9.2.2
+   C4H8ORvEsWvAB + CH3 = C4H7ORvE0BQ0 + CH4# fml.pes.subpes.channel C5H11O.9.3.3
+   C4H8ORvEsWvAB + CH3 = C4H7ORvE4fmAB0 + CH4# fml.pes.subpes.channel C5H11O.9.4.4
+   C4H8ORvEsWvAA0 + CH3O-S58cwB = C4H7ORvE0BQ0 + CH4O-S58WKw# fml.pes.subpes.channel C5H11O2.10.1.1
+   C4H8ORvEsWvAA0 + CH3O-S58cwB = C4H7ORvE4fmAA0 + CH4O-S58WKw# fml.pes.subpes.channel C5H11O2.10.2.2
+   C4H8ORvEsWvAB + CH3O-S58cwB = C4H7ORvE0BQ0 + CH4O-S58WKw# fml.pes.subpes.channel C5H11O2.10.3.3
+   C4H8ORvEsWvAB + CH3O-S58cwB = C4H7ORvE4fmAB0 + CH4O-S58WKw# fml.pes.subpes.channel C5H11O2.10.4.4
+   C4H8ORvEsWvAA0 + CH3O2RO2-2LTcwB = C4H7ORvE0BQ0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.11.1.1
+   C4H8ORvEsWvAA0 + CH3O2RO2-2LTcwB = C4H7ORvE4fmAA0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.11.2.2
+   C4H8ORvEsWvAB + CH3O2RO2-2LTcwB = C4H7ORvE0BQ0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.11.3.3
+   C4H8ORvEsWvAB + CH3O2RO2-2LTcwB = C4H7ORvE4fmAB0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.11.4.4
+   C4H8ORvEsWvAA0 + Cl = C4H7ORvE0BQ0 + HCl# fml.pes.subpes.channel C4H8ClO.12.1.1
+   C4H8ORvEsWvAA0 + Cl = C4H7ORvE4fmAA0 + HCl# fml.pes.subpes.channel C4H8ClO.12.2.2
+   C4H8ORvEsWvAB + Cl = C4H7ORvE0BQ0 + HCl # fml.pes.subpes.channel C4H8ClO.12.3.3
+   C4H8ORvEsWvAB + Cl = C4H7ORvE4fmAB0 + HCl# fml.pes.subpes.channel C4H8ClO.12.4.4
+
+Final check if all required input provided...
+
+Building the base Run-Save filesystems at
+        /lcrc/project/PACC/AutoMech/data/run
+        /lcrc/project/PACC/AutoMech/data/save
+
+=========================================================
+kTPDRIVER
+
+Sarah Elliott, Kevin Moore, Andreas Copan,
+Daniel Moberg, Carlo Cavallotti, Yuri Georgievski,
+Ahren Jasper, Stephen Klippenstein
+=========================================================
+WORKING ON PES
+{('C4H7O3', 5, 2): ((62, (('C4H7O3LKXdwk0',), ('C2H5O2SMsBtg', 'C2H2OALKE-UPQlDf'))),)} None
+Identifying reaction classes for transition states...
+
+  Preparing TS for PES-Channel 6-63 : C4H7O3LKXdwk0 = C2H5O2SMsBtg+C2H2OALKE-UPQlDf
+    User requested forward direction.
+    Running reaction as: C4H7O3LKXdwk0 = C2H5O2SMsBtg+C2H2OALKE-UPQlDf
+    Trying to find class info from fileysystem...
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/C2H5O2.C2H2O/JOQFQKZPFHUQPA/0_0/2_1/UHFFFAOYSA-N/2/hJUn9NU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin beta scission
+    There are 1 configuration(s) of transition state
+Warning: no stereo saved in filesys. Checking rxn direction w/o stereo ... 
+
+Identifying stability of all species...
+Begin parallel job array on 2 processors
+
+Found instability files at path:
+  /lcrc/project/PACC/AutoMech/data/save/SPC/C2H5O2/KCCOAEPWQAZTPX/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/rL3Ap_P5WHXMy/cyvBHUWj07Yun/Z/00/instab.yaml
+- Splitting species C2H5O2SMsBtg into C2H4OALD-UPQWKw and OH
+=========================================
+
+Running PES 6: C4H7O3, SUB PES 3
+Running Channel 63: C4H7O3LKXdwk0 = C2H5O2SMsBtg+C2H2OALKE-UPQlDf
+Preparing reaction channel section for MESS input... 
+
+Calculating reference energy for PES
+
+Determining the reference energy for PES...
+ - Reference species assumed to be the  first set of reactants on PES: C4H7O3LKXdwk0
+
+Begin parallel job array on 2 processors
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+r3jrVVW82LnE-   cfZOOnhY2uPsI   0.00  *  
+r3jrVVW82LnE-   cxd94-uEqVZI5   1.13     
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C4H7O3LKXdwk0
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/hJUn9NU/CONFS/r3jrVVW82LnE-/cfZOOnhY2uPsI as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/u-un9NU/CONFS/rSeD4jdwrnXkA/cvplkFVqqSzja for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/hJUn9NU/CONFS/r3jrVVW82LnE-/cfZOOnhY2uPsI
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+rotor names (('D6',), ('D9',), ('D12',), ('D13',))
+potential test:
+names ('D6',)
+grids ((1.751951938747607, 2.275550714345906, 2.7991494899442046, 3.3227482655425034, 3.8463470411408025, 4.369945816739101, 4.8935445923374, 5.417143367935699, 5.940742143533997, 6.4643409191322965, 6.987939694730595, 7.511538470328894),)
+potential test:
+names ('D9',)
+grids ((5.1797829529876, 5.703381728585899, 6.226980504184198, 6.750579279782497),)
+potential test:
+names ('D12',)
+grids ((5.157663871778301, 5.681262647376601, 6.204861422974899, 6.728460198573198, 7.252058974171497, 7.775657749769795, 8.299256525368094, 8.822855300966394, 9.346454076564692, 9.870052852162992, 10.39365162776129, 10.917250403359589),)
+potential test:
+names ('D13',)
+grids ((4.435820703721627, 4.959419479319926, 5.483018254918225, 6.006617030516524, 6.530215806114823, 7.053814581713121, 7.57741335731142, 8.10101213290972, 8.624610908508018, 9.148209684106316, 9.671808459704614, 10.195407235302914),)
+Debug:  tors model in scale set 1dhrf
+Debug:  tors model in scale set 1dhrf
+WARNING: empty potential will crash MESS so using rigid model instead
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/hJUn9NU/CONFS/r3jrVVW82LnE-/cfZOOnhY2uPsI
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+      54.480     136.880     207.450     219.740     226.430     273.960
+     298.600     382.170     471.380     492.830     558.540     632.260
+     778.100     813.260     884.190     946.720     998.500    1052.670
+    1106.070    1173.510    1298.420    1331.100    1344.110    1374.440
+    1409.270    1474.940    1500.990    1512.760    1640.090    3066.380
+    3068.640    3143.970    3158.730    3187.660    3310.510    3779.150
+
+Harmonic ZPVE [kcal mol-1]: 67.63146783448131
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+reduced int sym 1.0
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/hJUn9NU/CONFS/r3jrVVW82LnE-/cfZOOnhY2uPsI/SP/0zlOGvR
+  - Ene = 1.000 x -381.733880368064 Eh
+Final electronic energy: -381.733880368064 Eh
+Process 375129 prepping species: C4H7O3LKXdwk0
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C4H7O3LKXdwk0
+Debug:  Energy will be determined for basis species:  InChI=1S/H2/h1H
+Debug:  Energy will be determined for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy will be determined for basis species:  InChI=1S/H2O/h1H2
+Process 375131 reading energy for species: ['InChI=1S/H2/h1H' 'InChI=1S/CH4/h1H4' 'InChI=1S/H2O/h1H2']
+Debug:  bases energies test: InChI=1S/H2/h1H REF_1
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-un9NR/CONFS/rqPrrHTfPZAs4/crIudoXA5mZil for torsional profiles
+
+Calculating energy for basis REF_1...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy/SP/0zlOGvR
+  - Ene = 1.000 x -1.174043609727 Eh
+Final electronic energy: -1.174043609727 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    4465.050
+
+Harmonic ZPVE [kcal mol-1]: 6.383109424534299
+
+Final ZPE: 0.010033791360085153 Eh
+Debug:  bases energies test: InChI=1S/CH4/h1H4 CH4
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rbpV5y_m2CiIq/cCZ0Vl0o8-H9D as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/u-un9NR/CONFS/rSKS01TkSNKYm/cRigmTwsfVEW_ for torsional profiles
+
+Calculating energy for basis CH4...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rbpV5y_m2CiIq/cCZ0Vl0o8-H9D/SP/0zlOGvR
+  - Ene = 1.000 x -40.454355702394 Eh
+Final electronic energy: -40.454355702394 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rbpV5y_m2CiIq/cCZ0Vl0o8-H9D
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    1352.800    1352.800    1352.800    1575.910    1575.910    3052.940
+    3165.440    3165.440    3165.440
+
+Harmonic ZPVE [kcal mol-1]: 28.247594766440912
+
+Final ZPE: 0.04440319810612991 Eh
+Debug:  bases energies test: InChI=1S/H2O/h1H2 H2O
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r1yMQskfHvGYF/c-QWtQ06e5lSW as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/u-un9NR/CONFS/rgPDyi92Iqx3M/cmc5-laRxhQDP for torsional profiles
+
+Calculating energy for basis H2O...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r1yMQskfHvGYF/c-QWtQ06e5lSW/SP/0zlOGvR
+  - Ene = 1.000 x -76.369837596599 Eh
+Final electronic energy: -76.369837596599 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r1yMQskfHvGYF/c-QWtQ06e5lSW
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    1651.430    3830.150    3937.850
+
+Harmonic ZPVE [kcal mol-1]: 13.465751202504142
+
+Final ZPE: 0.021167197534389733 Eh
+hbasis list ({'InChI=1S/H2/h1H': -1.1640098183669148, 'InChI=1S/CH4/h1H4': -40.409952504287865, 'InChI=1S/H2O/h1H2': -76.3486703990646},)
+[-1.1640098183669148, -40.409952504287865, -76.3486703990646]
+Basis H contribution InChI=1S/H2/h1H -7.5 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 3.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -381.62756853906427
+Hf0K Energy (hart):  -0.19340486278844607
+
+Determining energy transfer parameters...
+  - No bath provided, using Argon bath as default
+
+- Determining the masses...
+  - Obtaining masses from geometries...
+
+- Determining the Lennard-Jones model parameters...
+- Estimating the parameters...
+    - Series to use for estimation: frozenset({'InChI=1S/Ar', 'peroxy'})
+    - Heavy atom count: 7
+
+- Determining the energy-down transfer model parameters...
+  - Estimating the parameters...
+    - Series to use for estimation: frozenset({'InChI=1S/Ar', 'peroxy'})
+    - Found effective rotor count: 3.33
+    - Using following LJ parameters for collisional frequency and alpha calculation:
+       eps=168.82 cm-1, sigma=4.50 Ang,
+       mass1=103.04 amu, mass2=39.96 amu
+edown_vec test: [ 331.19503963  792.76431455 1380.16754729] 331.1950396341852
+    - E_down prefactor (after dividing by empirical factor of 2.0): 331.1950396341852
+    - E_down power: 0.74
+
+
+
+Reading PES electronic structure data
+Running Channel 63: C4H7O3LKXdwk0 = C2H4OALD-UPQWKw+OH+C2H2OALKE-UPQlDf
+Begin parallel job array on 2 processors
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+r3jrVVW82LnE-   cfZOOnhY2uPsI   0.00  *  
+r3jrVVW82LnE-   cxd94-uEqVZI5   1.13     
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C4H7O3LKXdwk0
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/hJUn9NU/CONFS/r3jrVVW82LnE-/cfZOOnhY2uPsI as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/u-un9NU/CONFS/rSeD4jdwrnXkA/cvplkFVqqSzja for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/hJUn9NU/CONFS/r3jrVVW82LnE-/cfZOOnhY2uPsI
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+rotor names (('D6',), ('D9',), ('D12',), ('D13',))
+potential test:
+names ('D6',)
+grids ((1.751951938747607, 2.275550714345906, 2.7991494899442046, 3.3227482655425034, 3.8463470411408025, 4.369945816739101, 4.8935445923374, 5.417143367935699, 5.940742143533997, 6.4643409191322965, 6.987939694730595, 7.511538470328894),)
+potential test:
+names ('D9',)
+grids ((5.1797829529876, 5.703381728585899, 6.226980504184198, 6.750579279782497),)
+potential test:
+names ('D12',)
+grids ((5.157663871778301, 5.681262647376601, 6.204861422974899, 6.728460198573198, 7.252058974171497, 7.775657749769795, 8.299256525368094, 8.822855300966394, 9.346454076564692, 9.870052852162992, 10.39365162776129, 10.917250403359589),)
+potential test:
+names ('D13',)
+grids ((4.435820703721627, 4.959419479319926, 5.483018254918225, 6.006617030516524, 6.530215806114823, 7.053814581713121, 7.57741335731142, 8.10101213290972, 8.624610908508018, 9.148209684106316, 9.671808459704614, 10.195407235302914),)
+Debug:  tors model in scale set 1dhrf
+Debug:  tors model in scale set 1dhrf
+WARNING: empty potential will crash MESS so using rigid model instead
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/hJUn9NU/CONFS/r3jrVVW82LnE-/cfZOOnhY2uPsI
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+      54.480     136.880     207.450     219.740     226.430     273.960
+     298.600     382.170     471.380     492.830     558.540     632.260
+     778.100     813.260     884.190     946.720     998.500    1052.670
+    1106.070    1173.510    1298.420    1331.100    1344.110    1374.440
+    1409.270    1474.940    1500.990    1512.760    1640.090    3066.380
+    3068.640    3143.970    3158.730    3187.660    3310.510    3779.150
+
+Harmonic ZPVE [kcal mol-1]: 67.63146783448131
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+reduced int sym 1.0
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/hJUn9NU/CONFS/r3jrVVW82LnE-/cfZOOnhY2uPsI/SP/0zlOGvR
+  - Ene = 1.000 x -381.733880368064 Eh
+Final electronic energy: -381.733880368064 Eh
+Process 375287 prepping species: C4H7O3LKXdwk0
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C4H7O3LKXdwk0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -7.5 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 3.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -381.62756853906427
+Hf0K Energy (hart):  -0.19340486278844607
+
+Determining energy transfer parameters...
+  - No bath provided, using Argon bath as default
+
+- Determining the masses...
+  - Obtaining masses from geometries...
+
+- Determining the Lennard-Jones model parameters...
+- Estimating the parameters...
+    - Series to use for estimation: frozenset({'InChI=1S/Ar', 'peroxy'})
+    - Heavy atom count: 7
+
+- Determining the energy-down transfer model parameters...
+  - Estimating the parameters...
+    - Series to use for estimation: frozenset({'InChI=1S/Ar', 'peroxy'})
+    - Found effective rotor count: 3.33
+    - Using following LJ parameters for collisional frequency and alpha calculation:
+       eps=168.82 cm-1, sigma=4.50 Ang,
+       mass1=103.04 amu, mass2=39.96 amu
+edown_vec test: [ 331.19503963  792.76431455 1380.16754729] 331.1950396341852
+    - E_down prefactor (after dividing by empirical factor of 2.0): 331.1950396341852
+    - E_down power: 0.74
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+r_dYTaNODYFFz   cE01lKokGc6BI   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C2H4OALD-UPQWKw
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/C2H4O/IKHGUXGNUITLKF/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r_dYTaNODYFFz/cE01lKokGc6BI as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/C2H4O/IKHGUXGNUITLKF/0/1/UHFFFAOYSA-N/u-un9NR/CONFS/roTZ11KoGu4MR/cJu5792Tyaefq for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/C2H4O/IKHGUXGNUITLKF/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r_dYTaNODYFFz/cE01lKokGc6BI
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+rotor names (('D5',),)
+potential test:
+names ('D5',)
+grids ((2.123053408710942, 2.6466521843092408, 3.1702509599075395, 3.6938497355058386),)
+max norm diff of splines  0.06784498705999874 0.1
+Debug:  tors model in scale set 1dhrf
+Debug:  tors model in scale set 1dhrf
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/C2H4O/IKHGUXGNUITLKF/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r_dYTaNODYFFz/cE01lKokGc6BI
+Path for PROJROT/FREQ/5525793 Job:
+/lcrc/project/PACC/AutoMech/data/run/PROJROT/FREQ/C2H4O/5525793
+running projrot the first time:
+running projrot the second time:
+Debug:  tors model in scale set 1dhrf
+TAU FACTOR 159.914887 	 1 	 1.048464 
+Debug:  scale_coeff test: 1.0484640776109788 1 1.0992769220406406 1.3 0.8
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+reduced int sym 1.0
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/C2H4O/IKHGUXGNUITLKF/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r_dYTaNODYFFz/cE01lKokGc6BI/SP/0zlOGvR
+  - Ene = 1.000 x -153.649720291023 Eh
+Final electronic energy: -153.649720291023 Eh
+Process 375383 prepping species: C2H4OALD-UPQWKw
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C2H4OALD-UPQWKw
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -3.0 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 2.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -153.59480125799968
+Hf0K Energy (hart):  -0.2508523817276205
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+r1Y-anm0uaKAL   cn4jl3ytrAObx   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for OH
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/HO/TUJKJAMUKRIRHC/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r1Y-anm0uaKAL/cn4jl3ytrAObx as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/HO/TUJKJAMUKRIRHC/0/2/UHFFFAOYSA-N/u-un9NU/CONFS/rO-GwabzKd41x/cWJGeCAvxY_CB for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/HO/TUJKJAMUKRIRHC/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r1Y-anm0uaKAL/cn4jl3ytrAObx
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/HO/TUJKJAMUKRIRHC/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r1Y-anm0uaKAL/cn4jl3ytrAObx
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    3750.970
+
+Harmonic ZPVE [kcal mol-1]: 5.362280816148849
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+ - Reading symmetry number input by user: 1.0
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/HO/TUJKJAMUKRIRHC/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/r1Y-anm0uaKAL/cn4jl3ytrAObx/SP/0zlOGvR
+  - Ene = 1.000 x -75.67035979993 Eh
+Final electronic energy: -75.67035979993 Eh
+Process 375389 prepping species: OH
+[H][H]
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: OH
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -0.5 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -75.66193067811099
+Hf0K Energy (hart):  0.05744886400103701
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rH0utSJ76NVj5   cStGBolLvq8yG   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C2H2OALKE-UPQlDf
+Using /lcrc/project/PACC/AutoMech/data/save/SPC/C2H2O/CCGKOQOJPYTBIH/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rH0utSJ76NVj5/cStGBolLvq8yG as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/SPC/C2H2O/CCGKOQOJPYTBIH/0/1/UHFFFAOYSA-N/u-un9NR/CONFS/rlWOjuNRpyuvd/c7jnknh6YwRXZ for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/C2H2O/CCGKOQOJPYTBIH/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rH0utSJ76NVj5/cStGBolLvq8yG
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/C2H2O/CCGKOQOJPYTBIH/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rH0utSJ76NVj5/cStGBolLvq8yG
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+     439.450     540.400     590.860     994.360    1163.640    1418.690
+    2208.400    3208.540    3307.530
+
+Harmonic ZPVE [kcal mol-1]: 19.830833727038804
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/C2H2O/CCGKOQOJPYTBIH/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rH0utSJ76NVj5/cStGBolLvq8yG/SP/0zlOGvR
+  - Ene = 1.000 x -152.419578294429 Eh
+Final electronic energy: -152.419578294429 Eh
+Process 375415 prepping species: C2H2OALKE-UPQlDf
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C2H2OALKE-UPQlDf
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -4.0 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 2.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -152.38840564253164
+Hf0K Energy (hart):  -0.07351020665648003
+Using user specified conformer IDs
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading Reading filesystem info for ts_6_63_0
+Obtaining a ZRXN object from conformer any TS, shouldn't matter
+-----
+-----
+Using /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/C2H5O2.C2H2O/JOQFQKZPFHUQPA/0_0/2_1/UHFFFAOYSA-N/2/hJUn9NU/TS/00/CONFS/rIO7dIvveo3Rm/cca7vdzuZy9_U as the parent conformer location
+and /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/C2H5O2.C2H2O/JOQFQKZPFHUQPA/0_0/2_1/UHFFFAOYSA-N/2/u-un9NU/TS/00/CONFS/roZGAtFVWnkpy/cXj_Zu68XHBmg for torsional profiles
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/C2H5O2.C2H2O/JOQFQKZPFHUQPA/0_0/2_1/UHFFFAOYSA-N/2/hJUn9NU/TS/00/CONFS/rIO7dIvveo3Rm/cca7vdzuZy9_U
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+rotor names (('D6',), ('D9',), ('D12',), ('D13',))
+potential test:
+names ('D6',)
+grids ((4.801434736343644, 5.325033511941943, 5.848632287540242, 6.372231063138541, 6.895829838736839, 7.419428614335138, 7.943027389933437, 8.466626165531736, 8.990224941130034, 9.513823716728334, 10.037422492326632, 10.561021267924932),)
+potential test:
+names ('D9',)
+grids ((3.293929580919791, 3.8175283565180895, 4.341127132116388, 4.864725907714687),)
+potential test:
+names ('D12',)
+grids ((1.3532510362704173, 1.8768498118687162, 2.400448587467015, 2.9240473630653137, 3.447646138663613, 3.971244914261911, 4.49484368986021, 5.018442465458509, 5.542041241056808, 6.065640016655107, 6.589238792253405, 7.112837567851704),)
+potential test:
+names ('D13',)
+grids ((4.8752995835621675, 5.398898359160467, 5.922497134758765, 6.446095910357064, 6.969694685955362, 7.4932934615536615, 8.01689223715196, 8.540491012750259, 9.064089788348557, 9.587688563946857, 10.111287339545155, 10.634886115143455),)
+Debug:  tors model in scale set 1dhrf
+Debug:  tors model in scale set 1dhrf
+WARNING: empty potential will crash MESS so using rigid model instead
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/C2H5O2.C2H2O/JOQFQKZPFHUQPA/0_0/2_1/UHFFFAOYSA-N/2/hJUn9NU/TS/00/CONFS/rIO7dIvveo3Rm/cca7vdzuZy9_U
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+      37.960     148.930     167.300     189.060     236.090     294.360
+     305.850     331.020     447.140     473.120     565.260     607.950
+     624.460     769.300     874.030     938.520     975.250    1060.010
+    1126.300    1148.840    1212.600    1395.600    1427.880    1433.830
+    1440.230    1479.700    1496.300    2024.060    3026.810    3124.880
+    3165.440    3176.700    3185.830    3310.280    3637.510
+
+Harmonic ZPVE [kcal mol-1]: 65.55787398440415
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+reduced int sym 1.0
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O3/YRFIBEUPLRIYOI/0/2/BYPYZUCNSA-N/C2H5O2.C2H2O/JOQFQKZPFHUQPA/0_0/2_1/UHFFFAOYSA-N/2/hJUn9NU/TS/00/CONFS/rIO7dIvveo3Rm/cca7vdzuZy9_U/SP/0zlOGvR
+  - Ene = 1.000 x -381.684239117625 Eh
+Final electronic energy: -381.684239117625 Eh
+Process 375897 prepping species: ts_6_63_0
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_6_63_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -7.5 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 3.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -381.58118682981024
+Hf0K Energy (hart):  0.0006562087304375837
+
+
+Getting energies for the reaction channel...
+reac ene -0.04622487160335709 -0.04622487160335709
+prod ene -0.05995515815669705 -0.05995515815669705
+prod ene 0.013730608030840585 0.013730608030840585
+prod ene -0.01756936105556406 -0.01756936105556406
+Debug:  REAC HoF (0 K) spc lvl kcal/mol:  -29.006544855256838
+Debug:  REAC HoF (0 K) ts lvl kcal/mol:  -29.006544855256838
+Debug:  PROD HoF (0 K) spc lvl kcal/mol:  -40.03128363566415
+Debug:  PROD HoF (0 K) ts lvl kcal/mol:  -40.03128363566415
+Debug:  TS HoF (0 K) ts lvl kcal/mol:  0.09841711164558174
+Debug:  TS HoF (0 K) approx spc lvl kcal/mol:  0.09841711164558174
+Preparing global energy transfer section for MESS input...
+- Determining reference well species...
+  - Using C4H7O3LKXdwk0 for global collision target for PES
+- Determining information for the bath species...
+  - No bath provided, using Argon bath as default
+
+- Determining the masses...
+  - Obtaining masses from geometries...
+
+- Determining the Lennard-Jones model parameters...
+- Estimating the parameters...
+    - Series to use for estimation: frozenset({'InChI=1S/Ar', 'peroxy'})
+    - Heavy atom count: 7
+
+- Determining the energy-down transfer model parameters...
+  - Estimating the parameters...
+    - Series to use for estimation: frozenset({'InChI=1S/Ar', 'peroxy'})
+    - Found effective rotor count: 3.33
+    - Using following LJ parameters for collisional frequency and alpha calculation:
+       eps=168.82 cm-1, sigma=4.50 Ang,
+       mass1=103.04 amu, mass2=39.96 amu
+edown_vec test: [ 331.19503963  792.76431455 1380.16754729] 331.1950396341852
+    - E_down prefactor (after dividing by empirical factor of 2.0): 331.1950396341852
+    - E_down power: 0.74
+Preparing global keywords section for MESS input...
+ - Using temperatures and pressures defined by user
+ - Using internal AutoMech defaults for other MESS keywords:
+Debug:  EnergyStepOverTemperature, ExcessEnergyOverTemperature, ModelEnergyLimit
+Debug:  CalculationMethod, WellCutoff, ReductionMethod, AtomDistanceMin
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Writing MESS input file at /lcrc/project/PACC/AutoMech/data/run/MESS/RATE/C4H7O3_6_3/basev1
+Debug:  MESS Input:
+
+!===================================================
+!  GLOBAL KEYWORDS
+!===================================================
+TemperatureList[K]                     300.0  350.0  400.0  450.0  500.0  550.0  600.0  650.0  700.0  750.0  800.0  850.0  900.0  950.0  1000.0
+PressureList[atm]                      0.01  0.03  0.1  0.3  1.0  3.0  10.0  30.0  100.0
+!
+ModelEnergyLimit[kcal/mol]             800.00
+EnergyStepOverTemperature              0.20
+!
+CalculationMethod                      direct
+!
+WellCutoff                             10
+!WellExtension                          0.0010
+!
+ChemicalEigenvalueMax                  0.20
+!
+ReductionMethod                        diagonalization
+!
+AtomDistanceMin[angstrom]              0.68793
+!
+RateOutput                             rate.out
+!
+!
+!===================================================
+!  BEGIN MASTER EQUATION MODEL
+!===================================================
+!
+Model
+!
+GroundEnergyShiftMax[kcal/mol]  10
+!
+UseShortNames
+!
+!---------------------------------------------------
+!  ENERGY TRANSFER SECTION
+!---------------------------------------------------
+  EnergyRelaxation
+    Exponential
+       Factor[1/cm]                     331.195
+       Power                            0.744
+       ExponentCutoff                   15.000
+  End  ! EneRelax
+  CollisionFrequency
+    LennardJones
+       Epsilons[1/cm]                   168.823    168.823
+       Sigmas[angstrom]                 4.502      4.502
+       Masses[amu]                      103.040    39.962
+  End  ! CollidFreq
+!---------------------------------------------------
+!  REACTION CHANNELS SECTION
+!---------------------------------------------------
+Well C4H7O3LKXdwk0   ! [[CH2]C([C@H](C)OO)=O]
+  Species
+    RRHO
+      Geometry[angstrom]        14
+        C          0.83233      -1.40385       0.88546
+        C          0.96031      -0.36814      -0.09581
+        H         -0.07179      -1.53303       1.45569
+        H          1.66738      -2.07192       1.02421
+        C         -0.18076       0.62969      -0.28838
+        O          1.97989      -0.22669      -0.76930
+        C          0.15387       1.94509       0.39772
+        O         -1.40936       0.20362       0.28756
+        H         -0.30585       0.77636      -1.36248
+        H          0.24894       1.80089       1.47263
+        H         -0.62476       2.68029       0.20965
+        H          1.09860       2.31450       0.00726
+        O         -1.82194      -0.99352      -0.43128
+        H         -2.59570      -0.65111      -0.89670
+      Core RigidRotor
+        SymmetryFactor          0.5
+      End  ! Core
+      Frequencies[1/cm]         36
+        55      138     208     220     227     274
+        298     380     468     489     553     625
+        766     800     869     929     979     1031
+        1082    1147    1267    1298    1310    1339
+        1373    1435    1460    1471    1592    2932
+        2934    3004    3018    3045    3159    3592
+      ElectronicLevels[1/cm]    1
+        0.0  2
+      ZeroEnergy[kcal/mol]      0.00
+  End  ! Species
+    EnergyRelaxation
+      Exponential
+         Factor[1/cm]                     331.195
+         Power                            0.744
+         ExponentCutoff                   15.000
+    End  ! EneRelax
+    CollisionFrequency
+      LennardJones
+         Epsilons[1/cm]                   168.823    168.823
+         Sigmas[angstrom]                 4.502      4.502
+         Masses[amu]                      103.040    39.962
+    End  ! CollidFreq
+End  ! Well
+Bimolecular C2H4OALD-UPQWKw+OH+C2H2OALKE-UPQlDf   ! [CC=O + [OH] + C=C=O]
+  Dummy
+  ! ZeroEnergy[kcal/mol]      -11.02
+Barrier ts_6_63 C4H7O3LKXdwk0 C2H4OALD-UPQWKw+OH+C2H2OALKE-UPQlDf
+  RRHO
+    Geometry[angstrom]        14
+      C         -2.37477       0.39734       0.25973
+      C         -1.39160      -0.43138      -0.05683
+      H         -3.38173       0.05724       0.06296
+      H         -2.20844       1.36137       0.69818
+      C          0.43510       0.77693       0.49570
+      O         -0.87173      -1.42055      -0.46795
+      C          0.68888       1.54157      -0.75502
+      O          1.27916      -0.19400       0.91176
+      H          0.06077       1.27801       1.37965
+      H          1.65779       2.04701      -0.69725
+      H         -0.08925       2.28875      -0.88166
+      H          0.70549       0.89462      -1.62686
+      O          1.84424      -0.90297      -0.21582
+      H          1.09634      -1.49360      -0.42039
+    Core RigidRotor
+      SymmetryFactor          0.5
+    End  ! Core
+    Frequencies[1/cm]         35
+      38      150     168     190     236     294
+      305     330     444     470     560     601
+      617     758     859     921     957     1038
+      1102    1124    1185    1360    1390    1396
+      1402    1440    1455    1956    2895    2986
+      3024    3034    3043    3158    3461
+    ElectronicLevels[1/cm]    1
+      0.0  2
+    ZeroEnergy[kcal/mol]      29.10
+    Tunneling  Eckart
+      ImaginaryFrequency[1/cm]  151
+      WellDepth[kcal/mol]       29.10
+      WellDepth[kcal/mol]       29.10
+  End
+End  ! Barrier
+End  ! Model
+!
+!===================================================
+!  END MASTER EQUATION MODEL
+!===================================================
+
+User requested well extension scheme for rates...
+  - Running MESS base job at path /lcrc/project/PACC/AutoMech/data/run/MESS/RATE/C4H7O3_6_3/basev1
+  - Reading input and output from base MESSRATE job at /lcrc/project/PACC/AutoMech/data/run/MESS/RATE/C4H7O3_6_3/basev1
+  - Setting up the well-extended MESSRATE input
+
+***********************************************
+
+Obtaining information for well W1 at P=1.0
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (7.33e-09, 9.44e-06, 0.00207, 0.139, 4.08, 65.1, 658.0, 4680.0, 25200.0, 109000.0, 391000.0, 1210000.0, 3310000.0, 8160000.0, 18400000.0))
+- New max temperature for well: 1000.0 K
+- from reaction W1->P1
+
+Max temperature at highest value from run. No cap needed.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Writing New Well-Extended MESS input file at path /lcrc/project/PACC/AutoMech/data/run/MESS/RATE/C4H7O3_6_3/basev1
+  - Warning, old base input overwritten.
+Debug:  MESS Input:
+
+!===================================================
+!  GLOBAL KEYWORDS
+!===================================================
+TemperatureList[K]                     300.0  350.0  400.0  450.0  500.0  550.0  600.0  650.0  700.0  750.0  800.0  850.0  900.0  950.0  1000.0
+PressureList[atm]                      0.01  0.03  0.1  0.3  1.0  3.0  10.0  30.0  100.0
+!
+ModelEnergyLimit[kcal/mol]             800.00
+EnergyStepOverTemperature              0.20
+!
+CalculationMethod                      direct
+!
+WellCutoff                             10
+WellExtension                          0.0010
+!
+ChemicalEigenvalueMax                  0.20
+!
+ReductionMethod                        diagonalization
+!
+AtomDistanceMin[angstrom]              0.68793
+!
+RateOutput                             rate.out
+!
+!
+!===================================================
+!  BEGIN MASTER EQUATION MODEL
+!===================================================
+!
+ExtensionCorrection    0.6
+Model
+!
+GroundEnergyShiftMax[kcal/mol]  10
+!
+UseShortNames
+!
+!---------------------------------------------------
+!  ENERGY TRANSFER SECTION
+!---------------------------------------------------
+  EnergyRelaxation
+    Exponential
+       Factor[1/cm]                     331.195
+       Power                            0.744
+       ExponentCutoff                   15.000
+  End  ! EneRelax
+  CollisionFrequency
+    LennardJones
+       Epsilons[1/cm]                   168.823    168.823
+       Sigmas[angstrom]                 4.502      4.502
+       Masses[amu]                      103.040    39.962
+  End  ! CollidFreq
+!---------------------------------------------------
+!  REACTION CHANNELS SECTION
+!---------------------------------------------------
+Well C4H7O3LKXdwk0   ! [[CH2]C([C@H](C)OO)=O]
+  Species
+    RRHO
+      Geometry[angstrom]        14
+        C          0.83233      -1.40385       0.88546
+        C          0.96031      -0.36814      -0.09581
+        H         -0.07179      -1.53303       1.45569
+        H          1.66738      -2.07192       1.02421
+        C         -0.18076       0.62969      -0.28838
+        O          1.97989      -0.22669      -0.76930
+        C          0.15387       1.94509       0.39772
+        O         -1.40936       0.20362       0.28756
+        H         -0.30585       0.77636      -1.36248
+        H          0.24894       1.80089       1.47263
+        H         -0.62476       2.68029       0.20965
+        H          1.09860       2.31450       0.00726
+        O         -1.82194      -0.99352      -0.43128
+        H         -2.59570      -0.65111      -0.89670
+      Core RigidRotor
+        SymmetryFactor          0.5
+      End  ! Core
+      Frequencies[1/cm]         36
+        55      138     208     220     227     274
+        298     380     468     489     553     625
+        766     800     869     929     979     1031
+        1082    1147    1267    1298    1310    1339
+        1373    1435    1460    1471    1592    2932
+        2934    3004    3018    3045    3159    3592
+      ElectronicLevels[1/cm]    1
+        0.0  2
+      ZeroEnergy[kcal/mol]      0.00
+  End  ! Species
+    EnergyRelaxation
+      Exponential
+         Factor[1/cm]                     331.195
+         Power                            0.744
+         ExponentCutoff                   15.000
+    End  ! EneRelax
+    CollisionFrequency
+      LennardJones
+         Epsilons[1/cm]                   168.823    168.823
+         Sigmas[angstrom]                 4.502      4.502
+         Masses[amu]                      103.040    39.962
+    End  ! CollidFreq
+End  ! Well
+Bimolecular C2H4OALD-UPQWKw+OH+C2H2OALKE-UPQlDf   ! [CC=O + [OH] + C=C=O]
+  Dummy
+  ! ZeroEnergy[kcal/mol]      -11.02
+Barrier ts_6_63 C4H7O3LKXdwk0 C2H4OALD-UPQWKw+OH+C2H2OALKE-UPQlDf
+  RRHO
+    Geometry[angstrom]        14
+      C         -2.37477       0.39734       0.25973
+      C         -1.39160      -0.43138      -0.05683
+      H         -3.38173       0.05724       0.06296
+      H         -2.20844       1.36137       0.69818
+      C          0.43510       0.77693       0.49570
+      O         -0.87173      -1.42055      -0.46795
+      C          0.68888       1.54157      -0.75502
+      O          1.27916      -0.19400       0.91176
+      H          0.06077       1.27801       1.37965
+      H          1.65779       2.04701      -0.69725
+      H         -0.08925       2.28875      -0.88166
+      H          0.70549       0.89462      -1.62686
+      O          1.84424      -0.90297      -0.21582
+      H          1.09634      -1.49360      -0.42039
+    Core RigidRotor
+      SymmetryFactor          0.5
+    End  ! Core
+    Frequencies[1/cm]         35
+      38      150     168     190     236     294
+      305     330     444     470     560     601
+      617     758     859     921     957     1038
+      1102    1124    1185    1360    1390    1396
+      1402    1440    1455    1956    2895    2986
+      3024    3034    3043    3158    3461
+    ElectronicLevels[1/cm]    1
+      0.0  2
+    ZeroEnergy[kcal/mol]      29.10
+    Tunneling  Eckart
+      ImaginaryFrequency[1/cm]  151
+      WellDepth[kcal/mol]       29.10
+      WellDepth[kcal/mol]       29.10
+  End
+End  ! Barrier
+End  ! Model
+!
+!===================================================
+!  END MASTER EQUATION MODEL
+!===================================================
+  - Running MESS base job at path /lcrc/project/PACC/AutoMech/data/run/MESS/RATE/C4H7O3_6_3/basev1
+  - Warning, old base results overwritten.
+  - Setting up the well-extended MESSRATE input with
+   lumping/extension Scheme for P=1.0 atm, T=300.0 K
+
+***********************************************
+
+Obtaining information for well W1 at P=1.0
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (7.33e-09, 9.44e-06, 0.00207, 0.139, 4.08, 65.1, 658.0, 4680.0, 25200.0, 109000.0, 391000.0, 1210000.0, 3310000.0, 8160000.0, 18400000.0))
+- New max temperature for well: 1000.0 K
+- from reaction W1->P1
+
+Max temperature at highest value from run. No cap needed.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Writing New Well-Extended MESS input file at path /lcrc/project/PACC/AutoMech/data/run/MESS/RATE/C4H7O3_6_3/wextv1
+Debug:  MESS Input:
+
+!===================================================
+!  GLOBAL KEYWORDS
+!===================================================
+TemperatureList[K]                     300.0  350.0  400.0  450.0  500.0  550.0  600.0  650.0  700.0  750.0  800.0  850.0  900.0  950.0  1000.0
+PressureList[atm]                      0.01  0.03  0.1  0.3  1.0  3.0  10.0  30.0  100.0
+!
+ModelEnergyLimit[kcal/mol]             800.00
+EnergyStepOverTemperature              0.20
+!
+CalculationMethod                      direct
+!
+WellCutoff                             10
+WellExtension                          0.0010
+!
+ChemicalEigenvalueMax                  0.20
+!
+ReductionMethod                        diagonalization
+!
+AtomDistanceMin[angstrom]              0.68793
+!
+RateOutput                             rate.out
+!
+!
+!===================================================
+!  BEGIN MASTER EQUATION MODEL
+!===================================================
+!
+ExtensionCorrection    0.6
+Model
+!
+GroundEnergyShiftMax[kcal/mol]  10
+!
+UseShortNames
+!
+!---------------------------------------------------
+!  ENERGY TRANSFER SECTION
+!---------------------------------------------------
+  EnergyRelaxation
+    Exponential
+       Factor[1/cm]                     331.195
+       Power                            0.744
+       ExponentCutoff                   15.000
+  End  ! EneRelax
+  CollisionFrequency
+    LennardJones
+       Epsilons[1/cm]                   168.823    168.823
+       Sigmas[angstrom]                 4.502      4.502
+       Masses[amu]                      103.040    39.962
+  End  ! CollidFreq
+!---------------------------------------------------
+!  REACTION CHANNELS SECTION
+!---------------------------------------------------
+Well C4H7O3LKXdwk0   ! [[CH2]C([C@H](C)OO)=O]
+  Species
+    RRHO
+      Geometry[angstrom]        14
+        C          0.83233      -1.40385       0.88546
+        C          0.96031      -0.36814      -0.09581
+        H         -0.07179      -1.53303       1.45569
+        H          1.66738      -2.07192       1.02421
+        C         -0.18076       0.62969      -0.28838
+        O          1.97989      -0.22669      -0.76930
+        C          0.15387       1.94509       0.39772
+        O         -1.40936       0.20362       0.28756
+        H         -0.30585       0.77636      -1.36248
+        H          0.24894       1.80089       1.47263
+        H         -0.62476       2.68029       0.20965
+        H          1.09860       2.31450       0.00726
+        O         -1.82194      -0.99352      -0.43128
+        H         -2.59570      -0.65111      -0.89670
+      Core RigidRotor
+        SymmetryFactor          0.5
+      End  ! Core
+      Frequencies[1/cm]         36
+        55      138     208     220     227     274
+        298     380     468     489     553     625
+        766     800     869     929     979     1031
+        1082    1147    1267    1298    1310    1339
+        1373    1435    1460    1471    1592    2932
+        2934    3004    3018    3045    3159    3592
+      ElectronicLevels[1/cm]    1
+        0.0  2
+      ZeroEnergy[kcal/mol]      0.00
+  End  ! Species
+    EnergyRelaxation
+      Exponential
+         Factor[1/cm]                     331.195
+         Power                            0.744
+         ExponentCutoff                   15.000
+    End  ! EneRelax
+    CollisionFrequency
+      LennardJones
+         Epsilons[1/cm]                   168.823    168.823
+         Sigmas[angstrom]                 4.502      4.502
+         Masses[amu]                      103.040    39.962
+    End  ! CollidFreq
+End  ! Well
+Bimolecular C2H4OALD-UPQWKw+OH+C2H2OALKE-UPQlDf   ! [CC=O + [OH] + C=C=O]
+  Dummy
+  ! ZeroEnergy[kcal/mol]      -11.02
+Barrier ts_6_63 C4H7O3LKXdwk0 C2H4OALD-UPQWKw+OH+C2H2OALKE-UPQlDf
+  RRHO
+    Geometry[angstrom]        14
+      C         -2.37477       0.39734       0.25973
+      C         -1.39160      -0.43138      -0.05683
+      H         -3.38173       0.05724       0.06296
+      H         -2.20844       1.36137       0.69818
+      C          0.43510       0.77693       0.49570
+      O         -0.87173      -1.42055      -0.46795
+      C          0.68888       1.54157      -0.75502
+      O          1.27916      -0.19400       0.91176
+      H          0.06077       1.27801       1.37965
+      H          1.65779       2.04701      -0.69725
+      H         -0.08925       2.28875      -0.88166
+      H          0.70549       0.89462      -1.62686
+      O          1.84424      -0.90297      -0.21582
+      H          1.09634      -1.49360      -0.42039
+    Core RigidRotor
+      SymmetryFactor          0.5
+    End  ! Core
+    Frequencies[1/cm]         35
+      38      150     168     190     236     294
+      305     330     444     470     560     601
+      617     758     859     921     957     1038
+      1102    1124    1185    1360    1390    1396
+      1402    1440    1455    1956    2895    2986
+      3024    3034    3043    3158    3461
+    ElectronicLevels[1/cm]    1
+      0.0  2
+    ZeroEnergy[kcal/mol]      29.10
+    Tunneling  Eckart
+      ImaginaryFrequency[1/cm]  151
+      WellDepth[kcal/mol]       29.10
+      WellDepth[kcal/mol]       29.10
+  End
+End  ! Barrier
+End  ! Model
+!
+!===================================================
+!  END MASTER EQUATION MODEL
+!===================================================
+
+
+
+--------------------------------------------------------------------------------------
+Running MESS well-extended input with version v1 at /lcrc/project/PACC/AutoMech/data/run/MESS/RATE/C4H7O3_6_3/wextv1
+
+
+
+--------------------------------------------------------------------------------------
+
+Reading Rate Constants from MESS outputs
+Fitting rates for single PES...
+Fitting rates from /lcrc/project/PACC/AutoMech/data/run/MESS/RATE/C4H7O3_6_3/wextv1
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (7.33e-09, 9.44e-06, 0.00207, 0.139, 4.08, 65.1, 658.0, 4680.0, 25200.0, 109000.0, 391000.0, 1210000.0, 3310000.0, 8160000.0, 18400000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (None, None, None, None, None, None, None, None, None, None, None, None, None, None, None))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+Reaction dict test
+dict_keys([(('C4H7O3LKXdwk0',), ('C2H4OALD-UPQWKw', 'OH', 'C2H2OALKE-UPQlDf'), (None,))])
+
+Fitting Rate Constants for PES to Functional Forms
+
+Fitting Reaction: C4H7O3LKXdwk0 = C2H4OALD-UPQWKw + OH + C2H2OALKE-UPQlDf
+Reaction found to be pressure dependent. Fitting all k(T)s from all pressures.
+
+Pressure dependence found. Fitting to PLOG form...
+Attempting double fit...
+Double fit obtained with max error of 3.7% after 1 iteration(s).
+Attempting double fit...
+Double fit obtained with max error of 4.9% after 1 iteration(s).
+Attempting double fit...
+Double fit obtained with max error of 5.0% after 1 iteration(s).
+Attempting double fit...
+Double fit obtained with max error of 5.6% after 1 iteration(s).
+Attempting double fit...
+Double fit obtained with max error of 4.7% after 1 iteration(s).
+Attempting double fit...
+Double fit obtained with max error of 3.9% after 1 iteration(s).
+Single fit error is 13.9%, which is less than the input limit of 15.0%. Using single fit.
+Single fit error is 7.6%, which is less than the input limit of 15.0%. Using single fit.
+Single fit error is 3.6%, which is less than the input limit of 15.0%. Using single fit.
+--------------------------------
+
+
+=========================================================
+EXITING kTPDRIVER
+=========================================================
+
+
+
+
+
+          ================================================================
+          ==                    EXITING AUTOMECHANIC                    ==
+          ================================================================
+

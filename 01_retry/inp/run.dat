@@ -1,0 +1,46 @@
+input
+    run_prefix  = /lcrc/project/PACC/AutoMech/data/run
+    save_prefix  = /lcrc/project/PACC/AutoMech/data/save
+    canonical = True
+end input
+
+pes
+ 1: 4-9
+ 5: 1
+end pes
+
+#els
+# spc init_geom     runlvl=lvl_wbs   inplvl=lvl_wbs 
+# spc conf_samp     runlvl=lvl_wbs   inplvl=lvl_wbs
+# spc conf_hess     runlvl=lvl_wbs   inplvl=lvl_wbs cnf_range=n100
+# spc conf_opt      runlvl=lvl_b2t   inplvl=lvl_wbs cnf_range=min sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700)
+# spc conf_hess     runlvl=lvl_b2t   inplvl=lvl_b2t cnf_range=min sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700)
+# spc hr_scan       runlvl=lvl_wbm   inplvl=lvl_b2t tors_model=1dhrf sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700)
+# spc conf_energy   runlvl=cc_lvl_tf  inplvl=lvl_b2t cnf_range=min sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700)
+  ts find_ts       runlvl=lvl_b2d    inplvl=lvl_b2d
+  ts conf_samp     runlvl=lvl_b2d    inplvl=lvl_b2d
+  ts conf_hess     runlvl=lvl_b2d   inplvl=lvl_b2d cnf_range=n100 
+  ts conf_opt      runlvl=lvl_b2t    inplvl=lvl_b2d  cnf_range=min sort=freqs(lvl_b2d),sp(lvl_b2d),gibbs(700)
+  ts conf_hess     runlvl=lvl_b2t    inplvl=lvl_b2t  cnf_range=min sort=freqs(lvl_b2d),sp(lvl_b2d),gibbs(700)
+  ts conf_energy   runlvl=cc_lvl_tf  inplvl=lvl_b2t tors_model=1dhrf cnf_range=min sort=freqs(lvl_b2d),sp(lvl_b2d),gibbs(700)
+  ts hr_scan       runlvl=lvl_wbt    inplvl=lvl_b2t tors_model=1dhrf cnf_range=min sort=freqs(lvl_b2d),sp(lvl_b2d),gibbs(700)
+end els
+
+#proc
+end proc
+
+#thermo
+    write_mess      kin_model=global  spc_model=global sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700) cnf_range=min nprocs=8
+    run_mess        kin_model=global  spc_model=global sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700) cnf_range=min nprocs=8
+    run_fits        kin_model=global  spc_model=global sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700) cnf_range=min nprocs=8
+end thermo
+
+ktp
+    write_mess      kin_model=global  spc_model=global sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700) cnf_range=min nprocs=8 well_extension=True
+    run_mess        kin_model=global  spc_model=global sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700) cnf_range=min nprocs=8 well_extension=True
+    run_fits        kin_model=global  spc_model=global sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700) cnf_range=min nprocs=8 well_extension=True
+end ktp
+
+
+
+# pes index; species index

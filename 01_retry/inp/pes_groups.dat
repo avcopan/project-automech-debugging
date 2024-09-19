@@ -1,0 +1,7 @@
+grp 1
+	 idxs = [5:1, 1:1] 
+	 peds = [['C4H8ORvEsWvAA0+CH3O-S58cwB=C4H7ORvE4fmAA0+CH4O-S58WKw'], []] 
+	 hot = [[], ['C4H7ORvE4fmAA0']] 
+	 modeltype = rovib_dos 
+	 bf_threshold = 0.1 
+end grp 

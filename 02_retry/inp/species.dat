@@ -1,0 +1,78 @@
+spc global
+    kickoff = [0.1, False]
+    mc_nsamp = [True, 3, 1, 3, 300, 25]
+    hind_inc = 15.0
+    hbond_cutoffs = [4.61, 1.92]
+    #hbond_cutoffs = [4.92, 1.92]
+    #hbond_cutoffs = [5.3, 1.92]
+    tau_nsamp = [False, 1, 1, 1, 1, 10000]
+end spc
+
+spc ts_6_94_0
+   ts_search = pst
+   kt_pst = 4.0e-12
+   temp_pst = 300.0
+   n_pst = 6.0
+end spc
+
+spc ts_6_38_0
+   ts_search = pst
+   kt_pst = 4.0e-12
+   temp_pst = 300.0
+   n_pst = 6.0
+end spc
+
+spc ts_6_39_0
+   ts_search = pst
+   kt_pst = 4.0e-12
+   temp_pst = 300.0
+   n_pst = 6.0
+end spc
+
+spc ts_6_79_0
+   conf_id = [rNk4BBd6DduXc, c0xQpUzESLLMH]
+end spc
+
+spc ts_6_81_0
+   conf_id = [ry8zhkJkBORaa, c-whdHzs6O0gr]
+end spc
+
+spc ts_6_82_0
+   conf_id = [rpVxgryxx8P_I, cJJt1UOj5qo2-]
+end spc
+
+spc ts_6_83_0
+   conf_id = [r9frQiARXT8n7, cKKGTGxoIynzS]
+end spc
+
+spc ts_6_85_0
+   conf_id = [rwVRvJUgk6XRg, cA634tl9cijzZ]
+end spc
+
+spc ts_6_88_0
+   conf_id = [r2-kEBscgWM63, canX_GuebqE3q]
+end spc
+
+spc ts_6_93_0
+   conf_id = [rb8DsbOuhjuZi, cNxpUj1xGjgey]
+end spc
+
+spc ts_6_57_0
+   conf_id = [rVZqTfEhqW0R4, cXIXC7vV467G8]
+end spc
+
+spc ts_6_58_0
+   conf_id = [rE-Q22CjHmd50, cm_3F6D7R941M]
+end spc
+
+spc ts_6_61_0
+   conf_id = [rKWZE8hB3228q, c5EZzkXwAsWR6]
+end spc
+
+spc ts_6_63_0
+   conf_id = [rIO7dIvveo3Rm, cca7vdzuZy9_U]
+end spc
+
+spc ts_6_76_0
+   conf_id = [rDgbrkobH0R-s, cm6Wn8BqxdP1U]
+end spc
