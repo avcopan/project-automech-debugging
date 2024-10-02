@@ -1,0 +1,1299 @@
+Running on csed-0009 in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/03_vtst
+Process ID: 2534780
+Run command: automech run
+
+          ================================================================
+          ==                        AUTOMECHANIC                        ==
+          ===         Andreas Copan, Sarah Elliott, Kevin Moore,       ===
+          ===            Luna Pratali Maffei, Daniel Moberg,           ===
+          ===            Carlo Cavallotti, Yuri Georgievski,           ===
+          ==       Ahren Jasper, Murat Keceli, Stephen Klippenstein     ==
+          ================================================================
+
+                                        _,--._
+                                      ,'      `.
+                              |\     /          \     /|
+                              )o),/ ( ,--,  ,--, ) \.(o(
+                             /o/// /|            |\ \\ \\o\\
+                            / / |\ \(   .----,   )/ /| \ \\
+                            | | \o`-/    `--'    \-'o/ | |
+                            \ \  `,'              `.'  / /
+                         \.  \ `-'  ,'|   /\   |`.  `-' /  ,/
+                          \`. `.__,' /   /  \   \ `.__,' ,'/
+                           \o\     ,'  ,'    `.  `.     /o/
+                            \o`---'  ,'        `.  `---'o/
+                             `.____,'           `.____,'  
+
+
+
+
+=========================================================
+HOST: csed-0009
+PID: 2534780
+=========================================================
+
+=========================================================
+PARSING INPUT
+=========================================================
+
+Reading files provided in the inp directory...
+_pes_grp_dct output None
+  FOUND run.dat
+  FOUND theory.dat
+  FOUND models.dat
+  FOUND species.csv
+  FOUND mechanism.dat
+  MISSING pes_groups.dat
+  FOUND species.dat
+  No .xyz files for species/TSs were found.
+  No active space templates for TSs were found.
+
+Parsing input files for runtime parameters...
+dat blocks {'global': '\n    kickoff = [0.1, False]\n    mc_nsamp = [True, 3, 1, 3, 300, 25]\n    hind_inc = 15.0\n    hbond_cutoffs = [4.61, 1.92]\n    \n    \n    tau_nsamp = [False, 1, 1, 1, 1, 10000]\n', 'ts_3_1_0': '\n   ts_search = pst\n   kt_pst = 4.0e-12\n   temp_pst = 300.0\n   n_pst = 6.0\n', 'ts_3_2_0': '\n   ts_search = pst\n   kt_pst = 4.0e-12\n   temp_pst = 300.0\n   n_pst = 6.0\n', 'ts_3_37_0': '\n   ts_search = pst\n   kt_pst = 4.0e-12\n   temp_pst = 300.0\n   n_pst = 6.0\n', 'ts_3_38_0': '\n   ts_search = pst\n   kt_pst = 4.0e-12\n   temp_pst = 300.0\n   n_pst = 6.0\n', 'ts_1_2_0': '\n   conf_id = [rwLf1BukoS86Q, cb81wiG1ucZEE]\n', 'ts_1_5_0': '\n   conf_id = [rXHSiLbzWoSqG, cvPZbZ1spvnDf]\n', 'ts_9_3_0': '\n   conf_id = [rGoi5SjNmOHBG, cKMdqW-Wlqoa0]\n'}
+dat dct {'global': {'kickoff': (0.1, False), 'mc_nsamp': (True, 3, 1, 3, 300, 25), 'hind_inc': 15.0, 'hbond_cutoffs': (4.61, 1.92), 'tau_nsamp': (False, 1, 1, 1, 1, 10000)}, 'ts_3_1_0': {'ts_search': 'pst', 'kt_pst': 4e-12, 'temp_pst': 300.0, 'n_pst': 6.0}, 'ts_3_2_0': {'ts_search': 'pst', 'kt_pst': 4e-12, 'temp_pst': 300.0, 'n_pst': 6.0}, 'ts_3_37_0': {'ts_search': 'pst', 'kt_pst': 4e-12, 'temp_pst': 300.0, 'n_pst': 6.0}, 'ts_3_38_0': {'ts_search': 'pst', 'kt_pst': 4e-12, 'temp_pst': 300.0, 'n_pst': 6.0}, 'ts_1_2_0': {'conf_id': ('rwLf1BukoS86Q', 'cb81wiG1ucZEE')}, 'ts_1_5_0': {'conf_id': ('rXHSiLbzWoSqG', 'cvPZbZ1spvnDf')}, 'ts_9_3_0': {'conf_id': ('rGoi5SjNmOHBG', 'cKMdqW-Wlqoa0')}}
+Building PES dictionary from input file specification
+   C4H7ORvE0BQ0 = C4H7O4H70BQZ             # fml.pes.subpes.channel C4H7O.1.1.1
+   C4H7ORvE0BQ0 = C4H7O4H70BQE             # fml.pes.subpes.channel C4H7O.1.1.2
+   C4H7ORvE0BQ0 = C3H4O-P55WKw + CH3       # fml.pes.subpes.channel C4H7O.1.1.3
+   C4H7ORvE4fmAB0 = C4H7O4H74fm1           # fml.pes.subpes.channel C4H7O.1.2.4
+   C4H7ORvE4fmAB0 = C4H7O-kSV4fm           # fml.pes.subpes.channel C4H7O.1.2.5
+   C4H7ORvE4fmAA0 = C4H7O4H74fm0           # fml.pes.subpes.channel C4H7O.1.2.6
+   C4H7ORvE4fmAA0 = C4H7O-kSV4fm           # fml.pes.subpes.channel C4H7O.1.2.7
+   C4H8ORvEsWvAA0 + OH = C4H7ORvE0BQ0 + H2O# fml.pes.subpes.channel C4H9O2.2.1.1
+   C4H8ORvEsWvAA0 + OH = C4H7ORvE4fmAA0 + H2O# fml.pes.subpes.channel C4H9O2.2.2.2
+   C4H8ORvEsWvAB + OH = C4H7ORvE0BQ0 + H2O # fml.pes.subpes.channel C4H9O2.2.3.3
+   C4H8ORvEsWvAB + OH = C4H7ORvE4fmAB0 + H2O# fml.pes.subpes.channel C4H9O2.2.4.4
+   C4H7ORvE4fmAB1 + O2-S58TcY = C4H7O3-0vR8pfAB0# fml.pes.subpes.channel C4H7O3.3.1.1
+   C4H7ORvE4fmAA0 + O2-S58TcY = C4H7O3-0vR8pfAA0# fml.pes.subpes.channel C4H7O3.3.1.2
+   C4H7O30vRsim0 = C4H7O3-aiQBlaZ          # fml.pes.subpes.channel C4H7O3.3.1.3
+   C4H7O30vRsim0 = C4H7O3-aiQBlaE          # fml.pes.subpes.channel C4H7O3.3.1.4
+   C4H7O30vRsim0 = C4H6O2-uEU6xFAB0 + OH   # fml.pes.subpes.channel C4H7O3.3.1.5
+   C4H7O30vRsim0 = C4H6O2-uEU6xFAA0 + OH   # fml.pes.subpes.channel C4H7O3.3.1.6
+   C4H7O30vRsim0 = C3H4O-P55WKw + CH3O2QOOH-2LTQF7# fml.pes.subpes.channel C4H7O3.3.1.7
+   C4H7O30vRPs7AB0 = C4H7O3-tIYLi0         # fml.pes.subpes.channel C4H7O3.3.1.8
+   C4H7O30vRPs7AB0 = C4H7O3-rtmoOQ0        # fml.pes.subpes.channel C4H7O3.3.1.9
+   C4H7O30vRPs7AA0 = C4H7O3-tIYLi0         # fml.pes.subpes.channel C4H7O3.3.1.10
+   C4H7O30vRPs7AA0 = C4H7O3-rtmoOQ1        # fml.pes.subpes.channel C4H7O3.3.1.11
+   C4H7O30vRN0EAB0 = C4H7O3-tIYN0EZ        # fml.pes.subpes.channel C4H7O3.3.1.12
+   C4H7O30vRN0EAB0 = C4H7O3-tIYN0EE        # fml.pes.subpes.channel C4H7O3.3.1.13
+   C4H7O30vRN0EAB0 = C4H7O3-aiQKk6Z0       # fml.pes.subpes.channel C4H7O3.3.1.14
+   C4H7O30vRN0EAB0 = C4H7O3-aiQKk6E0       # fml.pes.subpes.channel C4H7O3.3.1.15
+   C4H7O30vRN0EAB0 = C4H6O2-CLZRGeAB0 + OH # fml.pes.subpes.channel C4H7O3.3.1.16
+   C4H7O30vRN0EAA0 = C4H7O3-tIYN0EZ        # fml.pes.subpes.channel C4H7O3.3.1.17
+   C4H7O30vRN0EAA0 = C4H7O3-tIYN0EE        # fml.pes.subpes.channel C4H7O3.3.1.18
+   C4H7O30vRN0EAA0 = C4H7O3-aiQKk6Z0       # fml.pes.subpes.channel C4H7O3.3.1.19
+   C4H7O30vRN0EAA0 = C4H7O3-aiQKk6E0       # fml.pes.subpes.channel C4H7O3.3.1.20
+   C4H7O30vRN0EAA0 = C4H6O2-CLZRGeAA0 + OH # fml.pes.subpes.channel C4H7O3.3.1.21
+   C4H7O30vRHhi0 = C4H7O3-rtmBlaZ          # fml.pes.subpes.channel C4H7O3.3.1.22
+   C4H7O30vRHhi0 = C4H7O3-rtmBlaE          # fml.pes.subpes.channel C4H7O3.3.1.23
+   C4H7O30vRHhi0 = C4H6O2-q8d6xFAB0 + OH   # fml.pes.subpes.channel C4H7O3.3.1.24
+   C4H7O30vRHhi0 = C4H6O2-q8d6xFAA0 + OH   # fml.pes.subpes.channel C4H7O3.3.1.25
+   C4H7O30vRHhi0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.1.26
+   C4H7O3-0vR8pfAB0 = C4H7O30vRsim1        # fml.pes.subpes.channel C4H7O3.3.1.27
+   C4H7O3-0vR8pfAB0 = C4H7O30vRPs7AB0      # fml.pes.subpes.channel C4H7O3.3.1.28
+   C4H7O3-0vR8pfAB0 = C4H7O30vRN0EAB0      # fml.pes.subpes.channel C4H7O3.3.1.29
+   C4H7O3-0vR8pfAB0 = C4H7O30vRHhi0        # fml.pes.subpes.channel C4H7O3.3.1.30
+   C4H7O3-0vR8pfAB0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.1.31
+   C4H7O3-0vR8pfAA0 = C4H7O30vRsim0        # fml.pes.subpes.channel C4H7O3.3.1.32
+   C4H7O3-0vR8pfAA0 = C4H7O30vRPs7AA0      # fml.pes.subpes.channel C4H7O3.3.1.33
+   C4H7O3-0vR8pfAA0 = C4H7O30vRN0EAA0      # fml.pes.subpes.channel C4H7O3.3.1.34
+   C4H7O3-0vR8pfAA0 = C4H7O30vRHhi0        # fml.pes.subpes.channel C4H7O3.3.1.35
+   C4H7O3-0vR8pfAA0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.1.36
+   C4H7ORvE0BQ0 + O2-S58TcY = C4H7O3-lIr0BQAB0# fml.pes.subpes.channel C4H7O3.3.2.37
+   C4H7ORvE0BQ0 + O2-S58TcY = C4H7O3-lIr0BQAA0# fml.pes.subpes.channel C4H7O3.3.2.38
+   C4H7O3lIrHhiAB0 = C4H7O3-LKXYSe0        # fml.pes.subpes.channel C4H7O3.3.2.39
+   C4H7O3lIrHhiAB0 = C4H7O3-KBiHhi         # fml.pes.subpes.channel C4H7O3.3.2.40
+   C4H7O3lIrHhiAB0 = C4H6O2-q8d6xFAA0 + OH # fml.pes.subpes.channel C4H7O3.3.2.41
+   C4H7O3lIrHhiAB0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.42
+   C4H7O3lIrHhiAA0 = C4H7O3-LKXYSe0        # fml.pes.subpes.channel C4H7O3.3.2.43
+   C4H7O3lIrHhiAA0 = C4H7O3-KBiHhi         # fml.pes.subpes.channel C4H7O3.3.2.44
+   C4H7O3lIrHhiAA0 = C4H6O2-q8d6xFAB0 + OH # fml.pes.subpes.channel C4H7O3.3.2.45
+   C4H7O3lIrHhiAA0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.46
+   C4H7O3lIr96JAB0 = C4H7O3-rMBwIC1        # fml.pes.subpes.channel C4H7O3.3.2.47
+   C4H7O3lIr96JAB0 = C4H7O3-KBi96J         # fml.pes.subpes.channel C4H7O3.3.2.48
+   C4H7O3lIr96JAB0 = C4H6O2-uEU6xFAA0 + OH # fml.pes.subpes.channel C4H7O3.3.2.49
+   C4H7O3lIr96JAA0 = C4H7O3-rMBwIC0        # fml.pes.subpes.channel C4H7O3.3.2.50
+   C4H7O3lIr96JAA0 = C4H7O3-KBi96J         # fml.pes.subpes.channel C4H7O3.3.2.51
+   C4H7O3lIr96JAA0 = C4H6O2-uEU6xFAB0 + OH # fml.pes.subpes.channel C4H7O3.3.2.52
+   C4H7O3lIr1Yq0 = C4H7O3-LKXXbmZ          # fml.pes.subpes.channel C4H7O3.3.2.53
+   C4H7O3lIr1Yq0 = C4H7O3-LKXXbmE          # fml.pes.subpes.channel C4H7O3.3.2.54
+   C4H7O3lIr1Yq0 = C4H6O2-h6G0v8 + OH      # fml.pes.subpes.channel C4H7O3.3.2.55
+   C4H6O-RvE0v8 + HO2-S580KW = C4H7O3lIr1Yq0# fml.pes.subpes.channel C4H7O3.3.2.56
+   C4H7O3-lIr0BQAB0 = C4H7O3lIrHhiAB0      # fml.pes.subpes.channel C4H7O3.3.2.57
+   C4H7O3-lIr0BQAB0 = C4H7O3lIr96JAB0      # fml.pes.subpes.channel C4H7O3.3.2.58
+   C4H7O3-lIr0BQAB0 = C4H7O3lIr1Yq1        # fml.pes.subpes.channel C4H7O3.3.2.59
+   C4H7O3-lIr0BQAB0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.60
+   C4H7O3-lIr0BQAB0 = C4H6O-RvE0v8 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.61
+   C4H7O3-lIr0BQAA0 = C4H7O3lIrHhiAA0      # fml.pes.subpes.channel C4H7O3.3.2.62
+   C4H7O3-lIr0BQAA0 = C4H7O3lIr96JAA0      # fml.pes.subpes.channel C4H7O3.3.2.63
+   C4H7O3-lIr0BQAA0 = C4H7O3lIr1Yq0        # fml.pes.subpes.channel C4H7O3.3.2.64
+   C4H7O3-lIr0BQAA0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.65
+   C4H7O3-lIr0BQAA0 = C4H6O-RvE0v8 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.66
+   C4H8ORvEsWvAA0 + O2-S58TcY = C4H7ORvE0BQ0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.4.1.1
+   C4H8ORvEsWvAA0 + O2-S58TcY = C4H7ORvE4fmAA0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.4.2.2
+   C4H8ORvEsWvAB + O2-S58TcY = C4H7ORvE0BQ0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.4.3.3
+   C4H8ORvEsWvAB + O2-S58TcY = C4H7ORvE4fmAB0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.4.4.4
+   C4H8ORvEsWvAA0 + HO2-S580KW = C4H7ORvE0BQ0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.5.1.1
+   C4H8ORvEsWvAA0 + HO2-S580KW = C4H7ORvE4fmAA0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.5.2.2
+   C4H8ORvEsWvAB + HO2-S580KW = C4H7ORvE0BQ0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.5.3.3
+   C4H8ORvEsWvAB + HO2-S580KW = C4H7ORvE4fmAB0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.5.4.4
+   C4H7O3-lIr0BQAA0 + HO2-S580KW = C4H8O3lIr3cEAA0 + O2-S58TcY# fml.pes.subpes.channel C4H8O5.6.1.1
+   C4H7O3-lIr0BQAB0 + HO2-S580KW = C4H8O3lIr3cEAB0 + O2-S58TcY# fml.pes.subpes.channel C4H8O5.6.2.2
+   C4H8ORvEsWvAA0 + CH3 = C4H7ORvE0BQ0 + CH4# fml.pes.subpes.channel C5H11O.7.1.1
+   C4H8ORvEsWvAA0 + CH3 = C4H7ORvE4fmAA0 + CH4# fml.pes.subpes.channel C5H11O.7.2.2
+   C4H8ORvEsWvAB + CH3 = C4H7ORvE0BQ0 + CH4# fml.pes.subpes.channel C5H11O.7.3.3
+   C4H8ORvEsWvAB + CH3 = C4H7ORvE4fmAB0 + CH4# fml.pes.subpes.channel C5H11O.7.4.4
+   C4H8ORvEsWvAA0 + CH3O2RO2-2LTcwB = C4H7ORvE0BQ0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.8.1.1
+   C4H8ORvEsWvAA0 + CH3O2RO2-2LTcwB = C4H7ORvE4fmAA0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.8.2.2
+   C4H8ORvEsWvAB + CH3O2RO2-2LTcwB = C4H7ORvE0BQ0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.8.3.3
+   C4H8ORvEsWvAB + CH3O2RO2-2LTcwB = C4H7ORvE4fmAB0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.8.4.4
+   C4H8ORvEsWvAA0 + Cl = C4H7ORvE0BQ0 + HCl# fml.pes.subpes.channel C4H8ClO.9.1.1
+   C4H8ORvEsWvAA0 + Cl = C4H7ORvE4fmAA0 + HCl# fml.pes.subpes.channel C4H8ClO.9.2.2
+   C4H8ORvEsWvAB + Cl = C4H7ORvE0BQ0 + HCl # fml.pes.subpes.channel C4H8ClO.9.3.3
+   C4H8ORvEsWvAB + Cl = C4H7ORvE4fmAB0 + HCl# fml.pes.subpes.channel C4H8ClO.9.4.4
+
+Final check if all required input provided...
+
+Building the base Run-Save filesystems at
+        /lcrc/project/PACC/AutoMech/data/run
+        /lcrc/project/PACC/AutoMech/data/save
+
+=========================================================
+ESDRIVER
+Sarah Elliott, Andreas Copan, Kevin Moore,
+Carlo Cavolotti, Stephen Klippenstein
+=========================================================
+=========================================
+
+Running PES 9: C4H8ClO, SUB PES 3
+Running Channel 3: C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+
+Tasks for transition states requested...
+Identifying reaction classes for transition states...
+
+  Preparing TS for PES-Channel 9-3 : C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+    User requested forward direction.
+    Running reaction as: C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+    Trying to find class info from fileysystem...
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin hydrogen abstraction
+    There are 1 configuration(s) of transition state
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: rpath_scan ts_9_3_0
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+rxncoord: irc    
+
+
+
+alg set test irc-sadpt
+ - Z-Matrix found.
+ - Reading Z-Matrix from path /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/zmat.zmat
+Found IRC directory at /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC
+ - Reading successful output...
+ - Reading successful output...
+ - Saving...
+ - Save path: /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC
+Updating scan trajectory file at /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/scan.t.xyz
+Found IRC directory at /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC
+ - Reading successful output...
+ - Reading successful output...
+ - Saving...
+ - Save path: /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC
+Updating scan trajectory file at /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/scan.t.xyz
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: rpath_hess ts_9_3_0
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+rxncoord: irc    
+
+
+
+alg set test irc-sadpt
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-124.83
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-124.83
+
+Harmonic frequencies [cm-1]:
+     -74.100      26.400      64.600     160.600     166.000     265.800
+     336.600     454.400     520.400     793.400     800.900     939.200
+     993.400    1036.400    1057.900    1151.700    1156.000    1207.300
+    1211.700    1332.800    1412.200    1449.900    1459.400    1506.700
+    1511.200    1523.400    1536.000    1566.000    3074.700    3078.000
+    3106.200    3129.600    3148.200    3149.200    3173.000    3182.400
+
+Harmonic ZPVE [kcal mol-1]: 72.347053269755
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-187.17
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-187.17
+
+Harmonic frequencies [cm-1]:
+     -67.400      30.700      80.300     162.300     166.700     259.400
+     340.500     454.200     520.700     792.100     803.800     939.200
+     992.500    1036.800    1057.900    1152.400    1156.000    1207.700
+    1213.800    1333.600    1412.800    1448.900    1459.900    1506.800
+    1511.300    1523.200    1535.300    1565.800    3075.500    3078.500
+    3121.300    3133.600    3148.800    3149.900    3173.600    3182.300
+
+Harmonic ZPVE [kcal mol-1]: 72.42310648783436
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-249.51
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-249.51
+
+Harmonic frequencies [cm-1]:
+     -69.700      34.700      90.500     161.100     166.300     257.400
+     342.700     454.400     520.900     791.100     804.900     938.500
+     993.600    1038.300    1057.800    1152.900    1155.900    1207.800
+    1221.800    1334.300    1412.700    1448.500    1460.000    1506.600
+    1511.200    1523.200    1534.800    1565.500    3075.900    3078.800
+    3124.000    3136.800    3149.000    3150.100    3174.700    3182.900
+
+Harmonic ZPVE [kcal mol-1]: 72.4648499834719
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-311.87
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-311.87
+
+Harmonic frequencies [cm-1]:
+     -73.100      36.500      79.000     158.100     166.900     263.500
+     341.000     454.400     520.800     790.200     803.400     937.400
+     992.300    1034.800    1056.500    1152.300    1155.500    1206.600
+    1211.900    1332.200    1412.400    1449.400    1459.800    1506.300
+    1510.900    1523.400    1535.400    1565.800    3075.900    3078.900
+    3126.100    3139.600    3148.800    3150.000    3175.400    3184.000
+
+Harmonic ZPVE [kcal mol-1]: 72.42539380266382
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-374.26
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-374.26
+
+Harmonic frequencies [cm-1]:
+     -66.600      43.300      91.700     156.600     167.800     271.400
+     343.400     457.500     521.500     789.400     805.000     936.500
+     996.200    1036.300    1056.500    1152.300    1155.800    1207.400
+    1219.400    1333.500    1412.500    1450.500    1459.800    1506.200
+    1510.700    1523.800    1536.600    1566.400    3075.900    3079.000
+    3128.800    3144.400    3149.000    3150.100    3175.600    3184.800
+
+Harmonic ZPVE [kcal mol-1]: 72.52074623961668
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-436.72
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-436.72
+
+Harmonic frequencies [cm-1]:
+     -64.500      45.000      61.800     156.000     167.700     272.300
+     338.900     455.400     521.200     788.000     801.000     935.200
+     989.600    1029.800    1054.200    1151.100    1154.600    1197.300
+    1207.700    1330.500    1412.700    1450.500    1460.000    1505.800
+    1510.600    1523.800    1536.600    1566.100    3076.100    3079.300
+    3130.300    3143.400    3149.500    3150.600    3175.800    3184.900
+
+Harmonic ZPVE [kcal mol-1]: 72.40609458379028
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-499.19
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-499.19
+
+Harmonic frequencies [cm-1]:
+     -71.800      49.600     100.800     155.200     166.700     266.500
+     345.100     457.400     522.200     786.100     806.100     934.600
+     996.900    1036.700    1055.400    1150.500    1156.000    1206.600
+    1225.100    1333.200    1412.300    1449.500    1460.100    1505.500
+    1510.600    1523.400    1535.700    1565.000    3076.600    3079.600
+    3133.000    3146.700    3150.200    3151.200    3176.600    3184.900
+
+Harmonic ZPVE [kcal mol-1]: 72.53618561471548
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-561.67
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-561.67
+
+Harmonic frequencies [cm-1]:
+     -70.700      53.500      90.900     154.900     165.100     267.600
+     343.100     456.600     522.000     784.300     804.300     933.600
+     995.000    1033.700    1053.400    1149.800    1155.600    1205.900
+    1215.400    1331.200    1412.200    1449.500    1460.000    1505.000
+    1510.500    1523.500    1535.800    1564.500    3076.900    3080.100
+    3135.300    3147.600    3150.700    3151.800    3177.200    3185.700
+
+Harmonic ZPVE [kcal mol-1]: 72.49572873366952
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-62.45
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-62.45
+
+Harmonic frequencies [cm-1]:
+    -104.300      21.700      51.500     156.800     164.200     272.200
+     331.500     454.900     520.200     794.100     795.800     938.400
+     995.000    1037.300    1056.500    1149.100    1156.000    1206.400
+    1211.200    1330.800    1410.800    1450.900    1458.000    1506.200
+    1511.200    1523.300    1536.300    1565.300    3062.100    3075.800
+    3079.600    3129.400    3148.000    3149.200    3173.800    3183.500
+
+Harmonic ZPVE [kcal mol-1]: 72.19723414842574
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-624.15
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-624.15
+
+Harmonic frequencies [cm-1]:
+     -66.600      59.700      88.800     153.700     163.700     279.700
+     342.700     458.900     522.300     782.800     803.800     932.300
+     997.500    1032.200    1051.900    1149.900    1155.100    1205.400
+    1212.300    1330.000    1412.300    1451.400    1459.800    1504.400
+    1510.200    1523.900    1537.400    1565.500    3077.200    3080.700
+    3138.400    3150.400    3151.000    3152.200    3177.700    3187.800
+
+Harmonic ZPVE [kcal mol-1]: 72.5313250707029
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/0.00
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/0.00
+
+Harmonic frequencies [cm-1]:
+    -118.000      26.600      43.900     151.800     161.700     277.800
+     330.200     455.000     519.700     785.500     797.800     938.600
+     992.000    1033.800    1054.100    1146.400    1157.500    1199.700
+    1205.900    1325.600    1407.900    1451.700    1455.300    1504.700
+    1511.000    1523.000    1536.300    1563.600    3010.300    3076.200
+    3080.200    3131.500    3148.400    3151.400    3174.600    3185.100
+
+Harmonic ZPVE [kcal mol-1]: 72.04584249815123
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/124.80
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/124.80
+
+Harmonic frequencies [cm-1]:
+     -80.100      42.700      60.600     146.600     158.300     276.400
+     336.200     456.100     521.600     785.500     798.400     941.800
+     983.500    1028.800    1054.800    1142.600    1160.500    1186.400
+    1204.800    1317.800    1402.000    1450.100    1452.400    1502.500
+    1510.500    1522.000    1534.800    1560.000    2947.300    3077.400
+    3081.700    3136.300    3150.000    3155.400    3175.000    3185.400
+
+Harmonic ZPVE [kcal mol-1]: 72.00195464486109
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/187.27
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/187.27
+
+Harmonic frequencies [cm-1]:
+     -52.500      47.900      69.300     145.100     156.100     270.400
+     339.400     455.900     522.800     787.000     798.400     943.000
+     982.500    1028.500    1055.500    1140.500    1161.000    1186.000
+    1204.100    1314.800    1399.200    1448.700    1451.100    1501.800
+    1510.200    1521.300    1533.200    1557.900    2910.800    3078.200
+    3083.000    3138.700    3150.900    3158.000    3175.800    3185.500
+
+Harmonic ZPVE [kcal mol-1]: 71.9932342570738
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/249.75
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/249.75
+
+Harmonic frequencies [cm-1]:
+     -66.900      53.100      71.700     144.200     153.700     265.400
+     338.700     454.800     523.200     785.200     796.500     943.800
+     971.000    1024.500    1055.700    1136.400    1161.500    1178.700
+    1203.500    1312.100    1396.200    1447.600    1449.500    1501.100
+    1509.700    1520.700    1531.600    1556.400    2861.300    3078.500
+    3084.400    3142.000    3151.300    3160.900    3176.200    3185.300
+
+Harmonic ZPVE [kcal mol-1]: 71.8495622943487
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/312.23
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/312.23
+
+Harmonic frequencies [cm-1]:
+     -37.700      57.800      80.700     143.900     153.200     264.400
+     341.300     455.900     524.800     786.700     796.100     944.700
+     971.700    1024.200    1056.300    1133.800    1162.400    1179.400
+    1203.300    1309.300    1393.400    1445.500    1450.000    1500.600
+    1509.000    1520.000    1530.600    1556.100    2810.700    3078.500
+    3084.300    3146.400    3151.600    3162.500    3175.200    3184.500
+
+Harmonic ZPVE [kcal mol-1]: 71.83755389149404
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/374.71
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/374.71
+
+Harmonic frequencies [cm-1]:
+     -42.600      60.700      86.200     144.900     153.800     262.600
+     340.900     455.400     526.000     785.100     794.700     945.100
+     963.600    1022.300    1056.400    1130.400    1162.600    1176.700
+    1203.300    1305.400    1390.100    1443.100    1450.100    1500.100
+    1508.300    1519.300    1530.000    1555.800    2748.800    3078.900
+    3084.100    3151.000    3152.400    3163.600    3174.800    3184.100
+
+Harmonic ZPVE [kcal mol-1]: 71.71875647753927
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/437.19
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/437.19
+
+Harmonic frequencies [cm-1]:
+     -21.200      63.900      93.800     147.400     155.300     259.800
+     341.600     455.200     527.800     784.500     794.700     945.400
+     959.900    1021.500    1056.800    1128.000    1162.200    1176.400
+    1203.600    1301.200    1387.200    1441.500    1449.700    1500.000
+    1507.800    1518.600    1529.500    1555.500    2678.000    3079.700
+    3085.100    3153.000    3154.800    3166.000    3175.900    3184.500
+
+Harmonic ZPVE [kcal mol-1]: 71.65671306279033
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/499.67
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/499.67
+
+Harmonic frequencies [cm-1]:
+     -45.900      68.000      94.800     150.000     157.900     260.300
+     340.500     454.800     529.000     781.500     792.300     945.100
+     950.000    1020.600    1057.100    1126.000    1162.100    1174.700
+    1204.100    1297.000    1384.200    1440.400    1450.400    1500.000
+    1507.500    1518.100    1529.200    1555.900    2587.600    3080.300
+    3086.200    3153.900    3157.300    3168.500    3176.300    3185.100
+
+Harmonic ZPVE [kcal mol-1]: 71.4797320778613
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/562.15
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/562.15
+
+Harmonic frequencies [cm-1]:
+      18.100      70.700     108.400     150.800     158.800     259.400
+     342.100     455.500     531.800     782.100     793.900     945.900
+     950.900    1020.600    1057.200    1125.200    1161.600    1175.700
+    1204.800    1291.900    1381.700    1439.600    1450.800    1500.100
+    1506.900    1517.600    1528.600    1556.300    2504.200    3080.500
+    3085.900    3154.400    3160.200    3170.100    3175.400    3184.800
+
+Harmonic ZPVE [kcal mol-1]: 71.4821623498676
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/62.32
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/62.32
+
+Harmonic frequencies [cm-1]:
+     -84.100      36.200      58.000     148.600     160.100     278.900
+     335.400     456.700     521.000     786.200     799.000     940.500
+     991.300    1033.200    1054.200    1145.100    1159.400    1196.600
+    1205.300    1321.300    1404.900    1451.500    1453.300    1503.500
+    1510.800    1522.500    1535.700    1561.800    2979.900    3076.700
+    3081.100    3134.100    3149.100    3153.700    3174.700    3185.400
+
+Harmonic ZPVE [kcal mol-1]: 72.08129587800777
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/624.63
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/624.63
+
+Harmonic frequencies [cm-1]:
+     -11.600      73.900     108.900     151.600     158.700     251.800
+     341.800     453.000     532.900     780.900     792.000     942.600
+     948.000    1019.700    1056.900    1124.100    1159.300    1174.900
+    1205.700    1285.800    1379.200    1438.800    1449.000    1500.100
+    1506.200    1517.000    1527.200    1555.400    2389.700    3080.300
+    3086.500    3154.900    3163.700    3172.500    3175.600    3183.800
+
+Harmonic ZPVE [kcal mol-1]: 71.23670487723179
+
+
+
+
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: rpath_energy ts_9_3_0
+
+Options for electronic structure task:
+runlvl: cc_lvl_tf    (ccsd(t)-f12/cc-pvtz-f12)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+rxncoord: irc    
+
+
+
+No conformers located in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/0zlOGvR/TS/00/CONFS
+alg set test irc-sadpt
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-124.83/SP/0zlOGvR
+
+Energy [au]: -691.72990356   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-187.17/SP/0zlOGvR
+
+Energy [au]: -691.72915769   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-249.51/SP/0zlOGvR
+
+Energy [au]: -691.72869060   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-311.87/SP/0zlOGvR
+
+Energy [au]: -691.72852782   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-374.26/SP/0zlOGvR
+
+Energy [au]: -691.72860305   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-436.72/SP/0zlOGvR
+
+Energy [au]: -691.72871561   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-499.19/SP/0zlOGvR
+
+Energy [au]: -691.72885032   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-561.67/SP/0zlOGvR
+
+Energy [au]: -691.72883880   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-62.45/SP/0zlOGvR
+
+Energy [au]: -691.73101991   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-624.15/SP/0zlOGvR
+
+Energy [au]: -691.83532641   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/0.00/SP/0zlOGvR
+
+Energy [au]: -691.73244697   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/124.80/SP/0zlOGvR
+
+Energy [au]: -691.83156820   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/187.27/SP/0zlOGvR
+
+Energy [au]: -691.83134044   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/249.75/SP/0zlOGvR
+
+Energy [au]: -691.83113557   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/312.23/SP/0zlOGvR
+
+Energy [au]: -691.83094539   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/374.71/SP/0zlOGvR
+
+Energy [au]: -691.83078547   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/437.19/SP/0zlOGvR
+
+Energy [au]: -691.83066309   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/499.67/SP/0zlOGvR
+
+Energy [au]: -691.83059225   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/562.15/SP/0zlOGvR
+
+Energy [au]: -691.83060019   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/62.32/SP/0zlOGvR
+
+Energy [au]: -691.83184306   
+
+
+
+
+  - Energy found and saved previously in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/624.63/SP/0zlOGvR
+
+Energy [au]: -691.83068708   
+
+
+
+
+
+--- END TASK ------------------------------------------------------------------------------
+
+=========================================================
+EXITING ESDRIVER
+=========================================================
+
+
+=========================================================
+kTPDRIVER
+
+Sarah Elliott, Kevin Moore, Andreas Copan,
+Daniel Moberg, Carlo Cavallotti, Yuri Georgievski,
+Ahren Jasper, Stephen Klippenstein
+=========================================================
+WORKING ON PES
+{('C4H8ClO', 8, 2): ((2, (('C4H8ORvEsWvAB', 'Cl'), ('C4H7ORvE0BQ0', 'HCl'))),)} None
+Identifying reaction classes for transition states...
+
+  Preparing TS for PES-Channel 9-3 : C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+    User requested forward direction.
+    Running reaction as: C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+    Trying to find class info from fileysystem...
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+currently allowing exception 'num' in existing to avoid crashes from  CONF/cid in RUN
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/hJUn9NU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin hydrogen abstraction
+    There are 1 configuration(s) of transition state
+
+Identifying stability of all species...
+=========================================
+
+Running PES 9: C4H8ClO, SUB PES 3
+Running Channel 3: C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+Preparing reaction channel section for MESS input... 
+
+Calculating reference energy for PES
+
+Determining the reference energy for PES...
+ - Reference species assumed to be the  first set of reactants on PES: C4H8ORvEsWvAB+Cl
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rvp-eg1qdD-Og   c--H_7isVp-1g   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C4H8ORvEsWvAB
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/hJUn9NR/CONFS/rvp-eg1qdD-Og/c--H_7isVp-1g
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/hJUn9NR/CONFS/rvp-eg1qdD-Og/c--H_7isVp-1g
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+     153.480     165.930     267.280     339.720     447.730     512.450
+     752.800     788.320     909.240     981.180    1018.960    1037.060
+    1134.380    1142.370    1190.510    1198.770    1311.000    1394.380
+    1427.560    1434.530    1476.710    1489.720    1502.340    1514.680
+    1533.570    3055.520    3058.490    3106.750    3117.140    3117.900
+    3119.790    3151.250    3163.820
+
+Harmonic ZPVE [kcal mol-1]: 71.50050375565628
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/hJUn9NR/CONFS/rvp-eg1qdD-Og/c--H_7isVp-1g/SP/0zlOGvR
+  - Ene = 1.000 x -232.130598428492 Eh
+Final electronic energy: -232.130598428492 Eh
+Process 2535098 prepping species: C4H8ORvEsWvAB
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C4H8ORvEsWvAB
+Debug:  Energy will be determined for basis species:  InChI=1S/H2/h1H
+Debug:  Energy will be determined for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy will be determined for basis species:  InChI=1S/H2O/h1H2
+Process 2535100 reading energy for species: ['InChI=1S/H2/h1H' 'InChI=1S/CH4/h1H4' 'InChI=1S/H2O/h1H2']
+Debug:  bases energies test: InChI=1S/H2/h1H REF_1
+
+Calculating energy for basis REF_1...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy/SP/0zlOGvR
+  - Ene = 1.000 x -1.174043609727 Eh
+Final electronic energy: -1.174043609727 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    4465.050
+
+Harmonic ZPVE [kcal mol-1]: 6.383109424534299
+
+Final ZPE: 0.010033791360085153 Eh
+Debug:  bases energies test: InChI=1S/CH4/h1H4 CH4
+
+Calculating energy for basis CH4...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rbpV5y_m2CiIq/cCZ0Vl0o8-H9D/SP/0zlOGvR
+  - Ene = 1.000 x -40.454355702394 Eh
+Final electronic energy: -40.454355702394 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rbpV5y_m2CiIq/cCZ0Vl0o8-H9D
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    1352.800    1352.800    1352.800    1575.910    1575.910    3052.940
+    3165.440    3165.440    3165.440
+
+Harmonic ZPVE [kcal mol-1]: 28.247594766440912
+
+Final ZPE: 0.04440319810612991 Eh
+Debug:  bases energies test: InChI=1S/H2O/h1H2 H2O
+
+Calculating energy for basis H2O...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r1yMQskfHvGYF/c-QWtQ06e5lSW/SP/0zlOGvR
+  - Ene = 1.000 x -76.369837596599 Eh
+Final electronic energy: -76.369837596599 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/r1yMQskfHvGYF/c-QWtQ06e5lSW
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    1651.430    3830.150    3937.850
+
+Harmonic ZPVE [kcal mol-1]: 13.465751202504142
+
+Final ZPE: 0.021167197534389733 Eh
+hbasis list ({'InChI=1S/H2/h1H': -1.1640098183669148, 'InChI=1S/CH4/h1H4': -40.409952504287865, 'InChI=1S/H2O/h1H2': -76.3486703990646},)
+[-1.1640098183669148, -40.409952504287865, -76.3486703990646]
+Basis H contribution InChI=1S/H2/h1H -5.0 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -232.01820475181967
+Hf0K Energy (hart):  -0.17643479932116576
+
+Determining energy transfer parameters...
+  - No bath provided, using Argon bath as default
+
+- Determining the masses...
+  - Obtaining masses from geometries...
+
+- Determining the Lennard-Jones model parameters...
+- Estimating the parameters...
+    - Series to use for estimation: frozenset({'InChI=1S/Ar', 'cyclic_ether'})
+    - Heavy atom count: 5
+
+- Determining the energy-down transfer model parameters...
+  - Estimating the parameters...
+    - Series to use for estimation: frozenset({'InChI=1S/Ar', 'cyclic_ether'})
+    - Found effective rotor count: 2.00
+    - Using following LJ parameters for collisional frequency and alpha calculation:
+       eps=167.71 cm-1, sigma=4.20 Ang,
+       mass1=72.06 amu, mass2=39.96 amu
+edown_vec test: [ 358.19398852 1347.50525228 2147.79961779] 358.1939885215363
+    - E_down prefactor (after dividing by empirical factor of 2.0): 358.1939885215363
+    - E_down power: 0.99
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rThhObIrYR_ZG   crJYusA6fkR7a   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for Cl
+
+Obtaining the geometry...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/Cl/ZAMOUSCENKQFHK/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/rThhObIrYR_ZG/crJYusA6fkR7a
+
+Obtaining the electronic energy...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/Cl/ZAMOUSCENKQFHK/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/rThhObIrYR_ZG/crJYusA6fkR7a/SP/0zlOGvR
+  - Ene = 1.000 x -459.699684152036 Eh
+Final electronic energy: -459.699684152036 Eh
+Process 2535114 prepping species: Cl
+[H][H]
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: Cl
+Debug:  Energy will be determined for basis species:  InChI=1S/H2/h1H
+Debug:  Energy will be determined for basis species:  InChI=1S/ClH/h1H
+Process 2535116 reading energy for species: ['InChI=1S/H2/h1H' 'InChI=1S/ClH/h1H']
+Debug:  bases energies test: InChI=1S/H2/h1H REF_1
+
+Calculating energy for basis REF_1...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy/SP/0zlOGvR
+  - Ene = 1.000 x -1.174043609727 Eh
+Final electronic energy: -1.174043609727 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    4465.050
+
+Harmonic ZPVE [kcal mol-1]: 6.383109424534299
+
+Final ZPE: 0.010033791360085153 Eh
+Debug:  bases energies test: InChI=1S/ClH/h1H HCl
+
+Calculating energy for basis HCl...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rmkcDrnP4xJtV/c3wUAzrWjtB0u/SP/0zlOGvR
+  - Ene = 1.000 x -460.370121510368 Eh
+Final electronic energy: -460.370121510368 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rmkcDrnP4xJtV/c3wUAzrWjtB0u
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    2993.730
+
+Harmonic ZPVE [kcal mol-1]: 4.27975189023887
+
+Final ZPE: 0.006727463792886467 Eh
+hbasis list ({'InChI=1S/H2/h1H': -1.1640098183669148, 'InChI=1S/ClH/h1H': -460.3633940465751},)
+[-1.1640098183669148, -460.3633940465751]
+Basis H contribution InChI=1S/H2/h1H -0.5 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.3633940465751
+ABS Energy  (hart):  -459.699684152036
+Hf0K Energy (hart):  -0.27148814419838574
+
+
+
+Reading PES electronic structure data
+Running Channel 3: C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rvp-eg1qdD-Og   c--H_7isVp-1g   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C4H8ORvEsWvAB
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/hJUn9NR/CONFS/rvp-eg1qdD-Og/c--H_7isVp-1g
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/hJUn9NR/CONFS/rvp-eg1qdD-Og/c--H_7isVp-1g
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+     153.480     165.930     267.280     339.720     447.730     512.450
+     752.800     788.320     909.240     981.180    1018.960    1037.060
+    1134.380    1142.370    1190.510    1198.770    1311.000    1394.380
+    1427.560    1434.530    1476.710    1489.720    1502.340    1514.680
+    1533.570    3055.520    3058.490    3106.750    3117.140    3117.900
+    3119.790    3151.250    3163.820
+
+Harmonic ZPVE [kcal mol-1]: 71.50050375565628
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/hJUn9NR/CONFS/rvp-eg1qdD-Og/c--H_7isVp-1g/SP/0zlOGvR
+  - Ene = 1.000 x -232.130598428492 Eh
+Final electronic energy: -232.130598428492 Eh
+Process 2535142 prepping species: C4H8ORvEsWvAB
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C4H8ORvEsWvAB
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -5.0 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -232.01820475181967
+Hf0K Energy (hart):  -0.17643479932116576
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rThhObIrYR_ZG   crJYusA6fkR7a   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for Cl
+
+Obtaining the geometry...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/Cl/ZAMOUSCENKQFHK/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/rThhObIrYR_ZG/crJYusA6fkR7a
+
+Obtaining the electronic energy...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/Cl/ZAMOUSCENKQFHK/0/2/UHFFFAOYSA-N/hJUn9NU/CONFS/rThhObIrYR_ZG/crJYusA6fkR7a/SP/0zlOGvR
+  - Ene = 1.000 x -459.699684152036 Eh
+Final electronic energy: -459.699684152036 Eh
+Process 2535144 prepping species: Cl
+[H][H]
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: Cl
+Debug:  Energy will be determined for basis species:  InChI=1S/H2/h1H
+Debug:  Energy will be determined for basis species:  InChI=1S/ClH/h1H
+Process 2535146 reading energy for species: ['InChI=1S/H2/h1H' 'InChI=1S/ClH/h1H']
+Debug:  bases energies test: InChI=1S/H2/h1H REF_1
+
+Calculating energy for basis REF_1...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy/SP/0zlOGvR
+  - Ene = 1.000 x -1.174043609727 Eh
+Final electronic energy: -1.174043609727 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    4465.050
+
+Harmonic ZPVE [kcal mol-1]: 6.383109424534299
+
+Final ZPE: 0.010033791360085153 Eh
+Debug:  bases energies test: InChI=1S/ClH/h1H HCl
+
+Calculating energy for basis HCl...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rmkcDrnP4xJtV/c3wUAzrWjtB0u/SP/0zlOGvR
+  - Ene = 1.000 x -460.370121510368 Eh
+Final electronic energy: -460.370121510368 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rmkcDrnP4xJtV/c3wUAzrWjtB0u
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    2993.730
+
+Harmonic ZPVE [kcal mol-1]: 4.27975189023887
+
+Final ZPE: 0.006727463792886467 Eh
+hbasis list ({'InChI=1S/H2/h1H': -1.1640098183669148, 'InChI=1S/ClH/h1H': -460.3633940465751},)
+[-1.1640098183669148, -460.3633940465751]
+Basis H contribution InChI=1S/H2/h1H -0.5 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.3633940465751
+ABS Energy  (hart):  -459.699684152036
+Hf0K Energy (hart):  -0.27148814419838574
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rq-CduTwhSyN0   cu5mMy4kyOHo0   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C4H7ORvE0BQ0
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/hJUn9NU/CONFS/rq-CduTwhSyN0/cu5mMy4kyOHo0
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/hJUn9NU/CONFS/rq-CduTwhSyN0/cu5mMy4kyOHo0
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+     150.060     173.280     203.370     351.910     411.990     502.580
+     691.440     805.480     928.790     998.670    1032.290    1072.160
+    1126.300    1138.710    1199.330    1358.320    1408.460    1419.210
+    1483.400    1486.000    1490.150    1506.000    1539.600    3009.910
+    3053.670    3100.480    3116.170    3135.240    3139.540    3153.320
+
+Harmonic ZPVE [kcal mol-1]: 63.16681513171642
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/hJUn9NU/CONFS/rq-CduTwhSyN0/cu5mMy4kyOHo0/SP/0zlOGvR
+  - Ene = 1.000 x -231.45846127078 Eh
+Final electronic energy: -231.45846127078 Eh
+Process 2535160 prepping species: C4H7ORvE0BQ0
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C4H7ORvE0BQ0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.409952504287865
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.3486703990646
+ABS Energy  (hart):  -231.35916755642245
+Hf0K Energy (hart):  0.14586828619716619
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rmkcDrnP4xJtV   c3wUAzrWjtB0u   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for HCl
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/AutoMech/data/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rmkcDrnP4xJtV/c3wUAzrWjtB0u
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rmkcDrnP4xJtV/c3wUAzrWjtB0u
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    2993.730
+
+Harmonic ZPVE [kcal mol-1]: 4.27975189023887
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rmkcDrnP4xJtV/c3wUAzrWjtB0u/SP/0zlOGvR
+  - Ene = 1.000 x -460.370121510368 Eh
+Final electronic energy: -460.370121510368 Eh
+Process 2535168 prepping species: HCl
+[H][H]
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: HCl
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy will be determined for basis species:  InChI=1S/ClH/h1H
+Process 2535170 reading energy for species: ['InChI=1S/H2/h1H' 'InChI=1S/ClH/h1H']
+Debug:  bases energies test: InChI=1S/H2/h1H REF_1
+
+Calculating energy for basis REF_1...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy/SP/0zlOGvR
+  - Ene = 1.000 x -1.174043609727 Eh
+Final electronic energy: -1.174043609727 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rltA3tJnYkadM/cfHm_J4NvVMIy
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    4465.050
+
+Harmonic ZPVE [kcal mol-1]: 6.383109424534299
+
+Final ZPE: 0.010033791360085153 Eh
+Debug:  bases energies test: InChI=1S/ClH/h1H HCl
+
+Calculating energy for basis HCl...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/AutoMech/data/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rmkcDrnP4xJtV/c3wUAzrWjtB0u/SP/0zlOGvR
+  - Ene = 1.000 x -460.370121510368 Eh
+Final electronic energy: -460.370121510368 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/hJUn9NR/CONFS/rmkcDrnP4xJtV/c3wUAzrWjtB0u
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    2993.730
+
+Harmonic ZPVE [kcal mol-1]: 4.27975189023887
+
+Final ZPE: 0.006727463792886467 Eh
+hbasis list ({'InChI=1S/H2/h1H': -1.1640098183669148, 'InChI=1S/ClH/h1H': -460.3633940465751},)
+[-1.1640098183669148, -460.3633940465751]
+Basis H contribution InChI=1S/H2/h1H 0.0 0.0 -1.1640098183669148
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.3633940465751
+ABS Energy  (hart):  -460.3633940465751
+Hf0K Energy (hart):  -0.6133418029262162
+Using user specified conformer IDs
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading Reading filesystem info for ts_9_3_0
+Using conformer from path /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/hJUn9NU/TS/00/CONFS/rGoi5SjNmOHBG/cTAnAYtGDwoRq
+WARNING:  using energy {scn_ene_info}, assuming no composite energy for variational for now.
+Reading molecular data across the potential
+Scan potential name = IRC
+potential test:
+names ['IRC']
+grids [[]]
+Reading Hessian at /lcrc/project/PACC/AutoMech/data/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/hJUn9NU/TS/00/CONFS/rGoi5SjNmOHBG/cTAnAYtGDwoRq
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+      74.630      94.810     170.410     181.010     236.150     365.790
+     446.410     555.920     711.590     804.980     878.340     946.750
+    1008.260    1023.850    1101.870    1120.580    1143.440    1157.890
+    1217.240    1260.030    1359.280    1408.270    1423.780    1469.260
+    1490.070    1499.790    1505.380    1523.510    3058.820    3064.690
+    3124.910    3140.160    3144.280    3156.860    3171.390
+
+Harmonic ZPVE [kcal mol-1]: 68.67719958307242
+
+scn_vals = []
+Traceback (most recent call last):
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/bin/automech", line 8, in <module>
+    sys.exit(main())
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/lib/python3.10/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/lib/python3.10/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/lib/python3.10/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/lcrc/project/PACC/copan/amech-dev/.pixi/envs/default/lib/python3.10/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/automech/cli.py", line 30, in run_
+    run(path=path, safemode_off=safemode_off)
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/automech/base/_0run.py", line 110, in run
+    ktpdriver.run(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/drivers/ktpdriver.py", line 99, in run
+    pes_param_dct = ktp_tasks.write_messrate_task(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/ktp/tsk.py", line 51, in write_messrate_task
+    rxn_chan_str, dats, hot_enes_dct = make_pes_mess_str(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/ktp/rates.py", line 334, in make_pes_mess_str
+    chnl_infs, chn_basis_ene_dct = get_channel_data(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/ktp/rates.py", line 816, in get_channel_data
+    inf_dct, model_basis_energy_dct = build.read_ts_data(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/models/build.py", line 201, in read_ts_data
+    inf_dct, chn_basis_ene_dct = rpvtst_sadpt(
+  File "/lcrc/project/PACC/copan/amech-dev/src/mechdriver/mechroutines/models/build.py", line 558, in rpvtst_sadpt
+    inf_dct.update({'ts_idx': scn_vals.index(0.00)})
+ValueError: 0.0 is not in list

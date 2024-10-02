@@ -1,0 +1,3816 @@
+Running on csed-0006 in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low
+Process ID: 2713982
+Run command: automech run
+
+          ================================================================
+          ==                        AUTOMECHANIC                        ==
+          ===         Andreas Copan, Sarah Elliott, Kevin Moore,       ===
+          ===            Luna Pratali Maffei, Daniel Moberg,           ===
+          ===            Carlo Cavallotti, Yuri Georgievski,           ===
+          ==       Ahren Jasper, Murat Keceli, Stephen Klippenstein     ==
+          ================================================================
+
+                                        _,--._
+                                      ,'      `.
+                              |\     /          \     /|
+                              )o),/ ( ,--,  ,--, ) \.(o(
+                             /o/// /|            |\ \\ \\o\\
+                            / / |\ \(   .----,   )/ /| \ \\
+                            | | \o`-/    `--'    \-'o/ | |
+                            \ \  `,'              `.'  / /
+                         \.  \ `-'  ,'|   /\   |`.  `-' /  ,/
+                          \`. `.__,' /   /  \   \ `.__,' ,'/
+                           \o\     ,'  ,'    `.  `.     /o/
+                            \o`---'  ,'        `.  `---'o/
+                             `.____,'           `.____,'  
+
+
+
+
+=========================================================
+HOST: csed-0006
+PID: 2713982
+=========================================================
+
+=========================================================
+PARSING INPUT
+=========================================================
+
+Reading files provided in the inp directory...
+_pes_grp_dct output None
+  FOUND run.dat
+  FOUND theory.dat
+  FOUND models.dat
+  FOUND species.csv
+  FOUND mechanism.dat
+  MISSING pes_groups.dat
+  FOUND species.dat
+  No .xyz files for species/TSs were found.
+  No active space templates for TSs were found.
+
+Parsing input files for runtime parameters...
+dat blocks {'global': '\n    kickoff = [0.1, False]\n    mc_nsamp = [True, 3, 1, 3, 300, 25]\n    hind_inc = 15.0\n    hbond_cutoffs = [4.61, 1.92]\n    \n    \n    tau_nsamp = [False, 1, 1, 1, 1, 10000]\n', 'ts_3_1_0': '\n   ts_search = pst\n   kt_pst = 4.0e-12\n   temp_pst = 300.0\n   n_pst = 6.0\n', 'ts_3_2_0': '\n   ts_search = pst\n   kt_pst = 4.0e-12\n   temp_pst = 300.0\n   n_pst = 6.0\n', 'ts_3_37_0': '\n   ts_search = pst\n   kt_pst = 4.0e-12\n   temp_pst = 300.0\n   n_pst = 6.0\n', 'ts_3_38_0': '\n   ts_search = pst\n   kt_pst = 4.0e-12\n   temp_pst = 300.0\n   n_pst = 6.0\n', 'ts_1_2_0': '\n   conf_id = [rwLf1BukoS86Q, cb81wiG1ucZEE]\n', 'ts_1_5_0': '\n   conf_id = [rXHSiLbzWoSqG, cvPZbZ1spvnDf]\n'}
+dat dct {'global': {'kickoff': (0.1, False), 'mc_nsamp': (True, 3, 1, 3, 300, 25), 'hind_inc': 15.0, 'hbond_cutoffs': (4.61, 1.92), 'tau_nsamp': (False, 1, 1, 1, 1, 10000)}, 'ts_3_1_0': {'ts_search': 'pst', 'kt_pst': 4e-12, 'temp_pst': 300.0, 'n_pst': 6.0}, 'ts_3_2_0': {'ts_search': 'pst', 'kt_pst': 4e-12, 'temp_pst': 300.0, 'n_pst': 6.0}, 'ts_3_37_0': {'ts_search': 'pst', 'kt_pst': 4e-12, 'temp_pst': 300.0, 'n_pst': 6.0}, 'ts_3_38_0': {'ts_search': 'pst', 'kt_pst': 4e-12, 'temp_pst': 300.0, 'n_pst': 6.0}, 'ts_1_2_0': {'conf_id': ('rwLf1BukoS86Q', 'cb81wiG1ucZEE')}, 'ts_1_5_0': {'conf_id': ('rXHSiLbzWoSqG', 'cvPZbZ1spvnDf')}}
+No # pes.subpes.channel comment type found in mech: resorting ...
+reminder: ! pes.subpes.channel format does not work!! # mandatory
+*ktp dct vals not found - derived for sorting purposes derived at [300:10:2010] K at 1 atm
+   C4H7ORvE0BQ0 = C4H7O4H70BQZ             # fml.pes.subpes.channel C4H7O1.1.1.1
+   C4H7ORvE0BQ0 = C4H7O4H70BQE             # fml.pes.subpes.channel C4H7O1.1.1.2
+   C4H7ORvE0BQ0 = C3H4O-P55WKw + CH3       # fml.pes.subpes.channel C4H7O1.1.1.3
+   C4H7ORvE4fmAB0 = C4H7O4H74fm1           # fml.pes.subpes.channel C4H7O1.1.2.4
+   C4H7ORvE4fmAB0 = C4H7O-kSV4fm           # fml.pes.subpes.channel C4H7O1.1.2.5
+   C4H7ORvE4fmAA0 = C4H7O4H74fm0           # fml.pes.subpes.channel C4H7O1.1.2.6
+   C4H7ORvE4fmAA0 = C4H7O-kSV4fm           # fml.pes.subpes.channel C4H7O1.1.2.7
+   C4H8ORvEsWvAA0 + OH = C4H7ORvE0BQ0 + H2O# fml.pes.subpes.channel C4H9O2.2.1.1
+   C4H8ORvEsWvAA0 + OH = C4H7ORvE4fmAA0 + H2O# fml.pes.subpes.channel C4H9O2.2.2.2
+   C4H8ORvEsWvAB + OH = C4H7ORvE0BQ0 + H2O # fml.pes.subpes.channel C4H9O2.2.3.3
+   C4H8ORvEsWvAB + OH = C4H7ORvE4fmAB0 + H2O# fml.pes.subpes.channel C4H9O2.2.4.4
+   C4H7ORvE4fmAB1 + O2-S58TcY = C4H7O3-0vR8pfAB0# fml.pes.subpes.channel C4H7O3.3.1.1
+   C4H7ORvE4fmAA0 + O2-S58TcY = C4H7O3-0vR8pfAA0# fml.pes.subpes.channel C4H7O3.3.1.2
+   C4H7O30vRsim0 = C4H7O3-aiQBlaZ          # fml.pes.subpes.channel C4H7O3.3.1.3
+   C4H7O30vRsim0 = C4H7O3-aiQBlaE          # fml.pes.subpes.channel C4H7O3.3.1.4
+   C4H7O30vRsim0 = C4H6O2-uEU6xFAB0 + OH   # fml.pes.subpes.channel C4H7O3.3.1.5
+   C4H7O30vRsim0 = C4H6O2-uEU6xFAA0 + OH   # fml.pes.subpes.channel C4H7O3.3.1.6
+   C4H7O30vRsim0 = C3H4O-P55WKw + CH3O2QOOH-2LTQF7# fml.pes.subpes.channel C4H7O3.3.1.7
+   C4H7O30vRPs7AB0 = C4H7O3-tIYLi0         # fml.pes.subpes.channel C4H7O3.3.1.8
+   C4H7O30vRPs7AB0 = C4H7O3-rtmoOQ0        # fml.pes.subpes.channel C4H7O3.3.1.9
+   C4H7O30vRPs7AA0 = C4H7O3-tIYLi0         # fml.pes.subpes.channel C4H7O3.3.1.10
+   C4H7O30vRPs7AA0 = C4H7O3-rtmoOQ1        # fml.pes.subpes.channel C4H7O3.3.1.11
+   C4H7O30vRN0EAB0 = C4H7O3-tIYN0EZ        # fml.pes.subpes.channel C4H7O3.3.1.12
+   C4H7O30vRN0EAB0 = C4H7O3-tIYN0EE        # fml.pes.subpes.channel C4H7O3.3.1.13
+   C4H7O30vRN0EAB0 = C4H7O3-aiQKk6Z0       # fml.pes.subpes.channel C4H7O3.3.1.14
+   C4H7O30vRN0EAB0 = C4H7O3-aiQKk6E0       # fml.pes.subpes.channel C4H7O3.3.1.15
+   C4H7O30vRN0EAB0 = C4H6O2-CLZRGeAB0 + OH # fml.pes.subpes.channel C4H7O3.3.1.16
+   C4H7O30vRN0EAA0 = C4H7O3-tIYN0EZ        # fml.pes.subpes.channel C4H7O3.3.1.17
+   C4H7O30vRN0EAA0 = C4H7O3-tIYN0EE        # fml.pes.subpes.channel C4H7O3.3.1.18
+   C4H7O30vRN0EAA0 = C4H7O3-aiQKk6Z0       # fml.pes.subpes.channel C4H7O3.3.1.19
+   C4H7O30vRN0EAA0 = C4H7O3-aiQKk6E0       # fml.pes.subpes.channel C4H7O3.3.1.20
+   C4H7O30vRN0EAA0 = C4H6O2-CLZRGeAA0 + OH # fml.pes.subpes.channel C4H7O3.3.1.21
+   C4H7O30vRHhi0 = C4H7O3-rtmBlaZ          # fml.pes.subpes.channel C4H7O3.3.1.22
+   C4H7O30vRHhi0 = C4H7O3-rtmBlaE          # fml.pes.subpes.channel C4H7O3.3.1.23
+   C4H7O30vRHhi0 = C4H6O2-q8d6xFAB0 + OH   # fml.pes.subpes.channel C4H7O3.3.1.24
+   C4H7O30vRHhi0 = C4H6O2-q8d6xFAA0 + OH   # fml.pes.subpes.channel C4H7O3.3.1.25
+   C4H7O30vRHhi0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.1.26
+   C4H7O3-0vR8pfAB0 = C4H7O30vRsim1        # fml.pes.subpes.channel C4H7O3.3.1.27
+   C4H7O3-0vR8pfAB0 = C4H7O30vRPs7AB0      # fml.pes.subpes.channel C4H7O3.3.1.28
+   C4H7O3-0vR8pfAB0 = C4H7O30vRN0EAB0      # fml.pes.subpes.channel C4H7O3.3.1.29
+   C4H7O3-0vR8pfAB0 = C4H7O30vRHhi0        # fml.pes.subpes.channel C4H7O3.3.1.30
+   C4H7O3-0vR8pfAB0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.1.31
+   C4H7O3-0vR8pfAA0 = C4H7O30vRsim0        # fml.pes.subpes.channel C4H7O3.3.1.32
+   C4H7O3-0vR8pfAA0 = C4H7O30vRPs7AA0      # fml.pes.subpes.channel C4H7O3.3.1.33
+   C4H7O3-0vR8pfAA0 = C4H7O30vRN0EAA0      # fml.pes.subpes.channel C4H7O3.3.1.34
+   C4H7O3-0vR8pfAA0 = C4H7O30vRHhi0        # fml.pes.subpes.channel C4H7O3.3.1.35
+   C4H7O3-0vR8pfAA0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.1.36
+   C4H7ORvE0BQ0 + O2-S58TcY = C4H7O3-lIr0BQAB0# fml.pes.subpes.channel C4H7O3.3.2.37
+   C4H7ORvE0BQ0 + O2-S58TcY = C4H7O3-lIr0BQAA0# fml.pes.subpes.channel C4H7O3.3.2.38
+   C4H7O3lIrHhiAB0 = C4H7O3-LKXYSe0        # fml.pes.subpes.channel C4H7O3.3.2.39
+   C4H7O3lIrHhiAB0 = C4H7O3-KBiHhi         # fml.pes.subpes.channel C4H7O3.3.2.40
+   C4H7O3lIrHhiAB0 = C4H6O2-q8d6xFAA0 + OH # fml.pes.subpes.channel C4H7O3.3.2.41
+   C4H7O3lIrHhiAB0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.42
+   C4H7O3lIrHhiAA0 = C4H7O3-LKXYSe0        # fml.pes.subpes.channel C4H7O3.3.2.43
+   C4H7O3lIrHhiAA0 = C4H7O3-KBiHhi         # fml.pes.subpes.channel C4H7O3.3.2.44
+   C4H7O3lIrHhiAA0 = C4H6O2-q8d6xFAB0 + OH # fml.pes.subpes.channel C4H7O3.3.2.45
+   C4H7O3lIrHhiAA0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.46
+   C4H7O3lIr96JAB0 = C4H7O3-rMBwIC1        # fml.pes.subpes.channel C4H7O3.3.2.47
+   C4H7O3lIr96JAB0 = C4H7O3-KBi96J         # fml.pes.subpes.channel C4H7O3.3.2.48
+   C4H7O3lIr96JAB0 = C4H6O2-uEU6xFAA0 + OH # fml.pes.subpes.channel C4H7O3.3.2.49
+   C4H7O3lIr96JAA0 = C4H7O3-rMBwIC0        # fml.pes.subpes.channel C4H7O3.3.2.50
+   C4H7O3lIr96JAA0 = C4H7O3-KBi96J         # fml.pes.subpes.channel C4H7O3.3.2.51
+   C4H7O3lIr96JAA0 = C4H6O2-uEU6xFAB0 + OH # fml.pes.subpes.channel C4H7O3.3.2.52
+   C4H7O3lIr1Yq0 = C4H7O3-LKXXbmZ          # fml.pes.subpes.channel C4H7O3.3.2.53
+   C4H7O3lIr1Yq0 = C4H7O3-LKXXbmE          # fml.pes.subpes.channel C4H7O3.3.2.54
+   C4H7O3lIr1Yq0 = C4H6O2-h6G0v8 + OH      # fml.pes.subpes.channel C4H7O3.3.2.55
+   C4H7O3lIr1Yq0 = C4H6O-RvE0v8 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.56
+   C4H7O3-lIr0BQAB0 = C4H7O3lIrHhiAB0      # fml.pes.subpes.channel C4H7O3.3.2.57
+   C4H7O3-lIr0BQAB0 = C4H7O3lIr96JAB0      # fml.pes.subpes.channel C4H7O3.3.2.58
+   C4H7O3-lIr0BQAB0 = C4H7O3lIr1Yq1        # fml.pes.subpes.channel C4H7O3.3.2.59
+   C4H7O3-lIr0BQAB0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.60
+   C4H7O3-lIr0BQAB0 = C4H6O-RvE0v8 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.61
+   C4H7O3-lIr0BQAA0 = C4H7O3lIrHhiAA0      # fml.pes.subpes.channel C4H7O3.3.2.62
+   C4H7O3-lIr0BQAA0 = C4H7O3lIr96JAA0      # fml.pes.subpes.channel C4H7O3.3.2.63
+   C4H7O3-lIr0BQAA0 = C4H7O3lIr1Yq0        # fml.pes.subpes.channel C4H7O3.3.2.64
+   C4H7O3-lIr0BQAA0 = C4H6O-RvErx50 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.65
+   C4H7O3-lIr0BQAA0 = C4H6O-RvE0v8 + HO2-S580KW# fml.pes.subpes.channel C4H7O3.3.2.66
+   C4H8ORvEsWvAA0 + O2-S58TcY = C4H7ORvE0BQ0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.4.1.1
+   C4H8ORvEsWvAA0 + O2-S58TcY = C4H7ORvE4fmAA0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.4.2.2
+   C4H8ORvEsWvAB + O2-S58TcY = C4H7ORvE0BQ0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.4.3.3
+   C4H8ORvEsWvAB + O2-S58TcY = C4H7ORvE4fmAB0 + HO2-S580KW# fml.pes.subpes.channel C4H8O3.4.4.4
+   C4H8ORvEsWvAA0 + HO2-S580KW = C4H7ORvE0BQ0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.5.1.1
+   C4H8ORvEsWvAA0 + HO2-S580KW = C4H7ORvE4fmAA0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.5.2.2
+   C4H8ORvEsWvAB + HO2-S580KW = C4H7ORvE0BQ0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.5.3.3
+   C4H8ORvEsWvAB + HO2-S580KW = C4H7ORvE4fmAB0 + H2O2-S58pAY# fml.pes.subpes.channel C4H9O3.5.4.4
+   C4H7O3-lIr0BQAA0 + HO2-S580KW = C4H8O3lIr3cEAA0 + O2-S58TcY# fml.pes.subpes.channel C4H8O5.6.1.1
+   C4H7O3-lIr0BQAB0 + HO2-S580KW = C4H8O3lIr3cEAB0 + O2-S58TcY# fml.pes.subpes.channel C4H8O5.6.2.2
+   C4H8ORvEsWvAA0 + CH3 = C4H7ORvE0BQ0 + CH4# fml.pes.subpes.channel C5H11O1.7.1.1
+   C4H8ORvEsWvAA0 + CH3 = C4H7ORvE4fmAA0 + CH4# fml.pes.subpes.channel C5H11O1.7.2.2
+   C4H8ORvEsWvAB + CH3 = C4H7ORvE0BQ0 + CH4# fml.pes.subpes.channel C5H11O1.7.3.3
+   C4H8ORvEsWvAB + CH3 = C4H7ORvE4fmAB0 + CH4# fml.pes.subpes.channel C5H11O1.7.4.4
+   C4H8ORvEsWvAA0 + CH3O2RO2-2LTcwB = C4H7ORvE0BQ0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.8.1.1
+   C4H8ORvEsWvAA0 + CH3O2RO2-2LTcwB = C4H7ORvE4fmAA0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.8.2.2
+   C4H8ORvEsWvAB + CH3O2RO2-2LTcwB = C4H7ORvE0BQ0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.8.3.3
+   C4H8ORvEsWvAB + CH3O2RO2-2LTcwB = C4H7ORvE4fmAB0 + CH4O2QOOH-2LTWKw# fml.pes.subpes.channel C5H11O3.8.4.4
+   C4H8ORvEsWvAA0 + Cl = C4H7ORvE0BQ0 + HCl# fml.pes.subpes.channel C4Cl1H8O1.9.1.1
+   C4H8ORvEsWvAA0 + Cl = C4H7ORvE4fmAA0 + HCl# fml.pes.subpes.channel C4Cl1H8O1.9.2.2
+   C4H8ORvEsWvAB + Cl = C4H7ORvE0BQ0 + HCl # fml.pes.subpes.channel C4Cl1H8O1.9.3.3
+   C4H8ORvEsWvAB + Cl = C4H7ORvE4fmAB0 + HCl# fml.pes.subpes.channel C4Cl1H8O1.9.4.4
+
+Final check if all required input provided...
+
+Building the base Run-Save filesystems at
+        ./run
+        ./save
+
+=========================================================
+ESDRIVER
+Sarah Elliott, Andreas Copan, Kevin Moore,
+Carlo Cavolotti, Stephen Klippenstein
+=========================================================
+=========================================
+
+Running PES 9: C4Cl1H8O1, SUB PES 3
+Running Channel 3: C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: init_geom C4H8ORvEsWvAB
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+
+
+
+  - Initial geometry found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: init_geom Cl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+
+
+
+  - Initial geometry found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/Cl/ZAMOUSCENKQFHK/0/2/UHFFFAOYSA-N/u-ulpJU/CONFS/rnKMLoWKKc9k9/c5DJl8hNOVgLq
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: init_geom C4H7ORvE0BQ0
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+
+
+
+  - Initial geometry found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: init_geom HCl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+
+
+
+  - Initial geometry found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_samp C4H8ORvEsWvAB
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: min    
+sort: None    
+resave: False    
+
+
+
+Sampling started using geom from /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+ - Number of samples that have been currently run: 4
+ - Number of samples requested: 4
+Requested number of samples have been completed. Conformer search complete.
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_samp Cl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: min    
+sort: None    
+resave: False    
+
+
+
+
+Skipping task for an atom...
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_samp C4H7ORvE0BQ0
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: min    
+sort: None    
+resave: False    
+
+
+
+Sampling started using geom from /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+ - Number of samples that have been currently run: 4
+ - Number of samples requested: 4
+Requested number of samples have been completed. Conformer search complete.
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_samp HCl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: min    
+sort: None    
+resave: False    
+
+
+
+Sampling started using geom from /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+ - No torsional coordinates. Setting nsamp to 1.
+ - Number of samples that have been currently run: 1
+ - Number of samples requested: 1
+Requested number of samples have been completed. Conformer search complete.
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_hess C4H8ORvEsWvAB
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: n100    
+sort: None    
+
+
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rz7twHxyFkPt5   cDGtj9FN3XQ7T   0.00  *  
+
+Going over all requested conformers for task...
+
+Running task for geometry at  /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+
+Harmonic frequencies [cm-1]:
+     152.800     159.900     271.200     339.300     456.200     519.200
+     800.300     801.800     944.100     990.900    1033.700    1061.100
+    1151.600    1161.800    1203.800    1214.800    1331.300    1412.200
+    1451.300    1460.100    1507.500    1512.200    1523.300    1536.400
+    1567.200    3075.600    3079.000    3116.900    3130.500    3148.100
+    3149.100    3173.100    3184.000
+
+Harmonic ZPVE [kcal mol-1]: 72.36535178839063
+
+
+ === FINISHED CONF ===
+
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_hess Cl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: n100    
+sort: None    
+
+
+
+
+Skipping task for an atom...
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_hess C4H7ORvE0BQ0
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: n100    
+sort: None    
+
+
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rny1a4XrRUfu1   cGGrSPxWhSvPN   0.00  *  
+
+Going over all requested conformers for task...
+
+Running task for geometry at  /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+
+Harmonic frequencies [cm-1]:
+     161.800     183.900     228.400     267.400     448.200     461.500
+     749.000     830.600     956.000     999.800    1070.500    1107.700
+    1127.300    1154.300    1237.100    1368.300    1432.500    1444.800
+    1508.600    1512.700    1515.300    1524.600    1582.800    3028.000
+    3072.900    3124.500    3125.200    3147.800    3165.700    3173.100
+
+Harmonic ZPVE [kcal mol-1]: 63.91658263709384
+
+
+ === FINISHED CONF ===
+
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_hess HCl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: n100    
+sort: None    
+
+
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rpRdl29NCulNT   cLqAkt-jh8zts   0.00  *  
+
+Going over all requested conformers for task...
+
+Running task for geometry at  /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+
+Harmonic frequencies [cm-1]:
+    2986.600
+
+Harmonic ZPVE [kcal mol-1]: 4.269559043530115
+
+
+ === FINISHED CONF ===
+
+
+--- END TASK ------------------------------------------------------------------------------
+
+Tasks for transition states requested...
+Identifying reaction classes for transition states...
+
+  Preparing TS for PES-Channel 9-3 : C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+    User requested forward direction.
+    Running reaction as: C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+    Trying to find class info from fileysystem...
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin hydrogen abstraction
+    There are 1 configuration(s) of transition state
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: rpath_scan ts_9_3_0
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+rxncoord: irc    
+
+
+
+alg set test irc-sadpt
+ - Z-Matrix found.
+ - Reading Z-Matrix from path /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/zmat.zmat
+Found IRC directory at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC
+ - Reading successful output...
+ - Reading successful output...
+ - Saving...
+ - Save path: /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC
+Updating scan trajectory file at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/scan.t.xyz
+Found IRC directory at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC
+ - Reading successful output...
+ - Reading successful output...
+ - Saving...
+ - Save path: /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC
+Updating scan trajectory file at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/scan.t.xyz
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: rpath_hess ts_9_3_0
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+rxncoord: irc    
+
+
+
+alg set test irc-sadpt
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-124.83
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-124.83
+
+Harmonic frequencies [cm-1]:
+     -74.100      26.400      64.600     160.600     166.000     265.800
+     336.600     454.400     520.400     793.400     800.900     939.200
+     993.400    1036.400    1057.900    1151.700    1156.000    1207.300
+    1211.700    1332.800    1412.200    1449.900    1459.400    1506.700
+    1511.200    1523.400    1536.000    1566.000    3074.700    3078.000
+    3106.200    3129.600    3148.200    3149.200    3173.000    3182.400
+
+Harmonic ZPVE [kcal mol-1]: 72.347053269755
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-187.17
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-187.17
+
+Harmonic frequencies [cm-1]:
+     -67.400      30.700      80.300     162.300     166.700     259.400
+     340.500     454.200     520.700     792.100     803.800     939.200
+     992.500    1036.800    1057.900    1152.400    1156.000    1207.700
+    1213.800    1333.600    1412.800    1448.900    1459.900    1506.800
+    1511.300    1523.200    1535.300    1565.800    3075.500    3078.500
+    3121.300    3133.600    3148.800    3149.900    3173.600    3182.300
+
+Harmonic ZPVE [kcal mol-1]: 72.42310648783436
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-249.51
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-249.51
+
+Harmonic frequencies [cm-1]:
+     -69.700      34.700      90.500     161.100     166.300     257.400
+     342.700     454.400     520.900     791.100     804.900     938.500
+     993.600    1038.300    1057.800    1152.900    1155.900    1207.800
+    1221.800    1334.300    1412.700    1448.500    1460.000    1506.600
+    1511.200    1523.200    1534.800    1565.500    3075.900    3078.800
+    3124.000    3136.800    3149.000    3150.100    3174.700    3182.900
+
+Harmonic ZPVE [kcal mol-1]: 72.4648499834719
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-311.87
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-311.87
+
+Harmonic frequencies [cm-1]:
+     -73.100      36.500      79.000     158.100     166.900     263.500
+     341.000     454.400     520.800     790.200     803.400     937.400
+     992.300    1034.800    1056.500    1152.300    1155.500    1206.600
+    1211.900    1332.200    1412.400    1449.400    1459.800    1506.300
+    1510.900    1523.400    1535.400    1565.800    3075.900    3078.900
+    3126.100    3139.600    3148.800    3150.000    3175.400    3184.000
+
+Harmonic ZPVE [kcal mol-1]: 72.42539380266382
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-374.26
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-374.26
+
+Harmonic frequencies [cm-1]:
+     -66.600      43.300      91.700     156.600     167.800     271.400
+     343.400     457.500     521.500     789.400     805.000     936.500
+     996.200    1036.300    1056.500    1152.300    1155.800    1207.400
+    1219.400    1333.500    1412.500    1450.500    1459.800    1506.200
+    1510.700    1523.800    1536.600    1566.400    3075.900    3079.000
+    3128.800    3144.400    3149.000    3150.100    3175.600    3184.800
+
+Harmonic ZPVE [kcal mol-1]: 72.52074623961668
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-436.72
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-436.72
+
+Harmonic frequencies [cm-1]:
+     -64.500      45.000      61.800     156.000     167.700     272.300
+     338.900     455.400     521.200     788.000     801.000     935.200
+     989.600    1029.800    1054.200    1151.100    1154.600    1197.300
+    1207.700    1330.500    1412.700    1450.500    1460.000    1505.800
+    1510.600    1523.800    1536.600    1566.100    3076.100    3079.300
+    3130.300    3143.400    3149.500    3150.600    3175.800    3184.900
+
+Harmonic ZPVE [kcal mol-1]: 72.40609458379028
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-499.19
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-499.19
+
+Harmonic frequencies [cm-1]:
+     -71.800      49.600     100.800     155.200     166.700     266.500
+     345.100     457.400     522.200     786.100     806.100     934.600
+     996.900    1036.700    1055.400    1150.500    1156.000    1206.600
+    1225.100    1333.200    1412.300    1449.500    1460.100    1505.500
+    1510.600    1523.400    1535.700    1565.000    3076.600    3079.600
+    3133.000    3146.700    3150.200    3151.200    3176.600    3184.900
+
+Harmonic ZPVE [kcal mol-1]: 72.53618561471548
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-561.67
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-561.67
+
+Harmonic frequencies [cm-1]:
+     -70.700      53.500      90.900     154.900     165.100     267.600
+     343.100     456.600     522.000     784.300     804.300     933.600
+     995.000    1033.700    1053.400    1149.800    1155.600    1205.900
+    1215.400    1331.200    1412.200    1449.500    1460.000    1505.000
+    1510.500    1523.500    1535.800    1564.500    3076.900    3080.100
+    3135.300    3147.600    3150.700    3151.800    3177.200    3185.700
+
+Harmonic ZPVE [kcal mol-1]: 72.49572873366952
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-62.45
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-62.45
+
+Harmonic frequencies [cm-1]:
+    -104.300      21.700      51.500     156.800     164.100     272.200
+     331.500     454.900     520.200     794.100     795.800     938.400
+     995.000    1037.300    1056.500    1149.100    1156.000    1206.400
+    1211.200    1330.800    1410.800    1450.900    1458.000    1506.200
+    1511.200    1523.300    1536.300    1565.300    3062.100    3075.800
+    3079.600    3129.400    3148.000    3149.200    3173.800    3183.500
+
+Harmonic ZPVE [kcal mol-1]: 72.1970911912489
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-624.15
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-624.15
+
+Harmonic frequencies [cm-1]:
+     -66.600      59.700      88.800     153.700     163.700     279.700
+     342.700     458.900     522.300     782.800     803.800     932.300
+     997.500    1032.200    1051.900    1149.900    1155.100    1205.400
+    1212.300    1330.000    1412.300    1451.400    1459.800    1504.400
+    1510.200    1523.900    1537.400    1565.500    3077.200    3080.700
+    3138.400    3150.400    3151.000    3152.200    3177.700    3187.800
+
+Harmonic ZPVE [kcal mol-1]: 72.5313250707029
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-686.64
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-686.64
+
+Harmonic frequencies [cm-1]:
+     -52.200      69.000      92.000     150.700     162.400     279.300
+     343.700     460.100     522.100     781.600     803.500     930.800
+     997.600    1031.600    1051.000    1149.100    1154.600    1204.600
+    1212.500    1329.300    1412.100    1451.500    1459.400    1503.700
+    1509.900    1523.200    1537.000    1564.800    3077.400    3080.800
+    3141.800    3151.100    3152.700    3153.900    3178.100    3188.500
+
+Harmonic ZPVE [kcal mol-1]: 72.56391930702264
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-749.13
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/-749.13
+
+Harmonic frequencies [cm-1]:
+     -45.000      76.100      95.000     153.300     162.200     277.300
+     344.200     460.100     521.800     780.500     802.800     929.300
+     997.100    1031.200    1050.100    1147.600    1154.400    1204.100
+    1212.100    1328.500    1411.800    1450.700    1459.100    1503.100
+    1509.900    1522.900    1536.700    1563.600    3077.700    3081.100
+    3144.900    3151.800    3153.200    3156.600    3178.500    3188.700
+
+Harmonic ZPVE [kcal mol-1]: 72.58364739742666
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/0.00
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/0.00
+
+Harmonic frequencies [cm-1]:
+    -118.000      26.600      43.900     151.800     161.700     277.800
+     330.200     455.000     519.700     785.500     797.800     938.600
+     992.000    1033.800    1054.100    1146.400    1157.500    1199.700
+    1205.900    1325.600    1407.900    1451.700    1455.300    1504.700
+    1511.000    1523.000    1536.300    1563.600    3010.300    3076.200
+    3080.200    3131.500    3148.400    3151.400    3174.600    3185.100
+
+Harmonic ZPVE [kcal mol-1]: 72.04584249815123
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/124.80
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/124.80
+
+Harmonic frequencies [cm-1]:
+     -80.100      42.700      60.600     146.600     158.300     276.500
+     336.200     456.100     521.600     785.400     798.400     941.800
+     983.500    1028.800    1054.800    1142.600    1160.500    1186.400
+    1204.800    1317.800    1402.000    1450.100    1452.400    1502.500
+    1510.500    1522.000    1534.800    1560.000    2947.300    3077.400
+    3081.700    3136.300    3150.000    3155.400    3175.000    3185.400
+
+Harmonic ZPVE [kcal mol-1]: 72.00195464486109
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/187.27
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/187.27
+
+Harmonic frequencies [cm-1]:
+     -52.500      47.900      69.300     145.100     156.100     270.400
+     339.400     455.900     522.800     787.000     798.400     943.000
+     982.500    1028.500    1055.500    1140.500    1161.000    1186.000
+    1204.100    1314.800    1399.200    1448.700    1451.100    1501.800
+    1510.200    1521.300    1533.200    1557.900    2910.800    3078.200
+    3083.000    3138.700    3150.900    3158.000    3175.800    3185.500
+
+Harmonic ZPVE [kcal mol-1]: 71.9932342570738
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/249.75
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/249.75
+
+Harmonic frequencies [cm-1]:
+     -66.900      53.100      71.700     144.200     153.700     265.400
+     338.700     454.700     523.200     785.200     796.500     943.800
+     971.000    1024.500    1055.700    1136.400    1161.500    1178.700
+    1203.500    1312.100    1396.200    1447.600    1449.500    1501.100
+    1509.700    1520.700    1531.600    1556.400    2861.300    3078.500
+    3084.400    3142.000    3151.300    3160.900    3176.200    3185.300
+
+Harmonic ZPVE [kcal mol-1]: 71.84941933717185
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/312.23
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/312.23
+
+Harmonic frequencies [cm-1]:
+     -37.700      57.800      80.700     143.900     153.200     264.400
+     341.300     455.900     524.800     786.700     796.100     944.700
+     971.700    1024.200    1056.300    1133.800    1162.400    1179.400
+    1203.300    1309.300    1393.400    1445.500    1450.000    1500.600
+    1509.000    1520.000    1530.600    1556.100    2810.700    3078.500
+    3084.300    3146.400    3151.600    3162.500    3175.200    3184.500
+
+Harmonic ZPVE [kcal mol-1]: 71.83755389149404
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/374.71
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/374.71
+
+Harmonic frequencies [cm-1]:
+     -42.600      60.700      86.200     144.900     153.800     262.600
+     340.900     455.400     526.000     785.100     794.700     945.100
+     963.600    1022.300    1056.400    1130.400    1162.600    1176.700
+    1203.300    1305.400    1390.100    1443.100    1450.100    1500.100
+    1508.300    1519.300    1530.000    1555.800    2748.800    3078.900
+    3084.100    3151.000    3152.400    3163.600    3174.800    3184.100
+
+Harmonic ZPVE [kcal mol-1]: 71.71875647753927
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/437.19
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/437.19
+
+Harmonic frequencies [cm-1]:
+     -21.200      63.900      93.800     147.400     155.300     259.800
+     341.600     455.200     527.800     784.500     794.800     945.400
+     959.900    1021.500    1056.800    1128.000    1162.200    1176.400
+    1203.600    1301.200    1387.200    1441.500    1449.700    1500.000
+    1507.800    1518.600    1529.500    1555.500    2678.000    3079.700
+    3085.100    3153.000    3154.800    3166.000    3175.900    3184.500
+
+Harmonic ZPVE [kcal mol-1]: 71.65685601996718
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/499.67
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/499.67
+
+Harmonic frequencies [cm-1]:
+     -45.900      68.000      94.800     150.000     157.900     260.300
+     340.500     454.800     529.000     781.500     792.300     945.100
+     950.000    1020.600    1057.100    1126.000    1162.100    1174.700
+    1204.100    1297.000    1384.200    1440.400    1450.400    1500.000
+    1507.500    1518.100    1529.200    1555.900    2587.600    3080.300
+    3086.200    3153.900    3157.300    3168.500    3176.300    3185.100
+
+Harmonic ZPVE [kcal mol-1]: 71.4797320778613
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/562.14
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/562.14
+
+Harmonic frequencies [cm-1]:
+      18.100      70.700     108.400     150.800     158.800     259.400
+     342.100     455.500     531.800     782.100     793.900     945.900
+     950.900    1020.600    1057.200    1125.200    1161.600    1175.700
+    1204.800    1291.900    1381.700    1439.600    1450.800    1500.100
+    1506.900    1517.600    1528.600    1556.300    2504.200    3080.500
+    3085.900    3154.400    3160.200    3170.100    3175.400    3184.800
+
+Harmonic ZPVE [kcal mol-1]: 71.4821623498676
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/62.32
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/62.32
+
+Harmonic frequencies [cm-1]:
+     -84.100      36.200      58.000     148.600     160.100     278.900
+     335.400     456.700     521.000     786.200     799.000     940.500
+     991.300    1033.200    1054.200    1145.100    1159.400    1196.600
+    1205.300    1321.300    1404.900    1451.500    1453.300    1503.500
+    1510.800    1522.500    1535.700    1561.800    2979.900    3076.700
+    3081.100    3134.100    3149.100    3153.700    3174.700    3185.400
+
+Harmonic ZPVE [kcal mol-1]: 72.08129587800777
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/624.63
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/624.63
+
+Harmonic frequencies [cm-1]:
+     -11.700      73.900     108.900     151.600     158.700     251.800
+     341.800     453.000     532.900     780.900     792.000     942.600
+     948.000    1019.700    1056.900    1124.100    1159.300    1174.900
+    1205.700    1285.800    1379.200    1438.800    1449.000    1500.100
+    1506.200    1517.000    1527.200    1555.400    2389.700    3080.300
+    3086.500    3154.900    3163.700    3172.500    3175.600    3183.800
+
+Harmonic ZPVE [kcal mol-1]: 71.23656192005494
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/687.10
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/687.10
+
+Harmonic frequencies [cm-1]:
+      37.900      76.300     121.100     154.000     159.100     254.200
+     342.900     453.500     535.400     780.900     795.000     944.800
+     949.300    1020.200    1056.600    1124.100    1159.000    1175.400
+    1206.700    1279.400    1378.200    1438.400    1449.400    1500.500
+    1505.700    1516.600    1527.500    1556.700    2290.000    3080.500
+    3087.600    3155.500    3166.200    3174.300    3176.800    3184.300
+
+Harmonic ZPVE [kcal mol-1]: 71.21268807152252
+
+
+
+
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/749.58
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0/Z/00/SCANS/IRC/749.58
+
+Harmonic frequencies [cm-1]:
+      39.200      78.700     121.300     155.600     160.400     260.400
+     343.700     454.600     536.400     780.400     795.600     945.500
+     950.500    1021.000    1056.300    1124.500    1160.000    1174.900
+    1207.300    1272.000    1377.600    1438.000    1451.400    1501.000
+    1505.500    1516.300    1528.600    1559.300    2170.600    3081.000
+    3087.300    3155.900    3166.900    3174.200    3177.000    3185.000
+
+Harmonic ZPVE [kcal mol-1]: 71.06958793750478
+
+
+
+
+
+--- END TASK ------------------------------------------------------------------------------
+=========================================
+Running SPC 17: C4H7ORvE0BQ0
+Running SPC 30: C4H8ORvEsWvAB
+Running SPC 69: Cl
+Running SPC 70: HCl
+Running SPC 4: H2O
+Running SPC 7: CH4
+Running SPC 71: H2
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: init_geom C4H7ORvE0BQ0
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+
+
+
+  - Initial geometry found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: init_geom C4H8ORvEsWvAB
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+
+
+
+  - Initial geometry found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: init_geom Cl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+
+
+
+  - Initial geometry found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/Cl/ZAMOUSCENKQFHK/0/2/UHFFFAOYSA-N/u-ulpJU/CONFS/rnKMLoWKKc9k9/c5DJl8hNOVgLq
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: init_geom HCl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+
+
+
+  - Initial geometry found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: init_geom H2O
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+
+
+
+  - Initial geometry found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rUednCuy2TNy_/cIDlRhwiXGf80
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: init_geom CH4
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+
+
+
+  - Initial geometry found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/r1f1MtGGDJILb/cu495whEuUkwF
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: init_geom H2
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+
+
+
+  - Initial geometry found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_samp C4H7ORvE0BQ0
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: min    
+sort: None    
+resave: False    
+
+
+
+Sampling started using geom from /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+ - Number of samples that have been currently run: 4
+ - Number of samples requested: 4
+Requested number of samples have been completed. Conformer search complete.
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_samp C4H8ORvEsWvAB
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: min    
+sort: None    
+resave: False    
+
+
+
+Sampling started using geom from /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+ - Number of samples that have been currently run: 4
+ - Number of samples requested: 4
+Requested number of samples have been completed. Conformer search complete.
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_samp Cl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: min    
+sort: None    
+resave: False    
+
+
+
+
+Skipping task for an atom...
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_samp HCl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: min    
+sort: None    
+resave: False    
+
+
+
+Sampling started using geom from /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+ - No torsional coordinates. Setting nsamp to 1.
+ - Number of samples that have been currently run: 1
+ - Number of samples requested: 1
+Requested number of samples have been completed. Conformer search complete.
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_samp H2O
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: min    
+sort: None    
+resave: False    
+
+
+
+Sampling started using geom from /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rUednCuy2TNy_/cIDlRhwiXGf80
+ - No torsional coordinates. Setting nsamp to 1.
+ - Number of samples that have been currently run: 1
+ - Number of samples requested: 1
+Requested number of samples have been completed. Conformer search complete.
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_samp CH4
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: min    
+sort: None    
+resave: False    
+
+
+
+Sampling started using geom from /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/r1f1MtGGDJILb/cu495whEuUkwF
+ - No torsional coordinates. Setting nsamp to 1.
+ - Number of samples that have been currently run: 1
+ - Number of samples requested: 1
+Requested number of samples have been completed. Conformer search complete.
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_samp H2
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: min    
+sort: None    
+resave: False    
+
+
+
+Sampling started using geom from /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP
+ - No torsional coordinates. Setting nsamp to 1.
+ - Number of samples that have been currently run: 1
+ - Number of samples requested: 1
+Requested number of samples have been completed. Conformer search complete.
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_hess C4H7ORvE0BQ0
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: n100    
+sort: None    
+
+
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rny1a4XrRUfu1   cGGrSPxWhSvPN   0.00  *  
+
+Going over all requested conformers for task...
+
+Running task for geometry at  /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+
+Harmonic frequencies [cm-1]:
+     161.800     183.900     228.400     267.400     448.200     461.500
+     749.000     830.600     956.000     999.800    1070.500    1107.700
+    1127.300    1154.300    1237.100    1368.300    1432.500    1444.800
+    1508.600    1512.700    1515.300    1524.600    1582.800    3028.000
+    3072.900    3124.500    3125.200    3147.800    3165.700    3173.100
+
+Harmonic ZPVE [kcal mol-1]: 63.91658263709384
+
+
+ === FINISHED CONF ===
+
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_hess C4H8ORvEsWvAB
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: n100    
+sort: None    
+
+
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rz7twHxyFkPt5   cDGtj9FN3XQ7T   0.00  *  
+
+Going over all requested conformers for task...
+
+Running task for geometry at  /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+
+Harmonic frequencies [cm-1]:
+     152.800     159.900     271.200     339.300     456.200     519.200
+     800.300     801.800     944.100     990.900    1033.700    1061.100
+    1151.600    1161.800    1203.800    1214.800    1331.300    1412.200
+    1451.300    1460.100    1507.500    1512.200    1523.300    1536.400
+    1567.200    3075.600    3079.000    3116.900    3130.500    3148.100
+    3149.100    3173.100    3184.000
+
+Harmonic ZPVE [kcal mol-1]: 72.36535178839063
+
+
+ === FINISHED CONF ===
+
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_hess Cl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: n100    
+sort: None    
+
+
+
+
+Skipping task for an atom...
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_hess HCl
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: n100    
+sort: None    
+
+
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rpRdl29NCulNT   cLqAkt-jh8zts   0.00  *  
+
+Going over all requested conformers for task...
+
+Running task for geometry at  /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+
+Harmonic frequencies [cm-1]:
+    2986.600
+
+Harmonic ZPVE [kcal mol-1]: 4.269559043530115
+
+
+ === FINISHED CONF ===
+
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_hess H2O
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: n100    
+sort: None    
+
+
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rUednCuy2TNy_   cIDlRhwiXGf80   0.00  *  
+
+Going over all requested conformers for task...
+
+Running task for geometry at  /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rUednCuy2TNy_/cIDlRhwiXGf80
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rUednCuy2TNy_/cIDlRhwiXGf80
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rUednCuy2TNy_/cIDlRhwiXGf80
+
+Harmonic frequencies [cm-1]:
+    1723.800    3829.800    3956.700
+
+Harmonic ZPVE [kcal mol-1]: 13.59565638909946
+
+
+ === FINISHED CONF ===
+
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_hess CH4
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: n100    
+sort: None    
+
+
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+r1f1MtGGDJILb   cu495whEuUkwF   0.00  *  
+
+Going over all requested conformers for task...
+
+Running task for geometry at  /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/r1f1MtGGDJILb/cu495whEuUkwF
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/r1f1MtGGDJILb/cu495whEuUkwF
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/r1f1MtGGDJILb/cu495whEuUkwF
+
+Harmonic frequencies [cm-1]:
+    1376.900    1377.200    1377.300    1597.600    1597.700    3069.000
+    3192.700    3193.600    3194.000
+
+Harmonic ZPVE [kcal mol-1]: 28.557125645736814
+
+
+ === FINISHED CONF ===
+
+
+--- END TASK ------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------
+
+Task: conf_hess H2
+
+Options for electronic structure task:
+runlvl: lvl_wbs    (wb97xd/6-31g*)
+inplvl: lvl_wbs    (wb97xd/6-31g*)
+retryfail: True    
+overwrite: False    
+cnf_range: n100    
+sort: None    
+
+
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+ri-TqN_-MWKPr   cnuZcfyS4P7YP   0.00  *  
+
+Going over all requested conformers for task...
+
+Running task for geometry at  /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP
+  - Hessian found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP
+  - Harmonic frequencies found and saved previously in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP
+
+Harmonic frequencies [cm-1]:
+    4462.300
+
+Harmonic ZPVE [kcal mol-1]: 6.379178102171175
+
+
+ === FINISHED CONF ===
+
+
+--- END TASK ------------------------------------------------------------------------------
+
+=========================================================
+EXITING ESDRIVER
+=========================================================
+
+
+=========================================================
+kTPDRIVER
+
+Sarah Elliott, Kevin Moore, Andreas Copan,
+Daniel Moberg, Carlo Cavallotti, Yuri Georgievski,
+Ahren Jasper, Stephen Klippenstein
+=========================================================
+WORKING ON PES
+{('C4Cl1H8O1', 8, 2): ((2, (('C4H8ORvEsWvAB', 'Cl'), ('C4H7ORvE0BQ0', 'HCl'))),)} None
+Identifying reaction classes for transition states...
+
+  Preparing TS for PES-Channel 9-3 : C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+    User requested forward direction.
+    Running reaction as: C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+    Trying to find class info from fileysystem...
+    - Checking for TS info in CONFS/Z in /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00
+    Info found. Reading from fileysystem...
+    Reaction class identified as: high-spin hydrogen abstraction
+    There are 1 configuration(s) of transition state
+
+Identifying stability of all species...
+=========================================
+
+Running PES 9: C4Cl1H8O1, SUB PES 3
+Running Channel 3: C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+Preparing reaction channel section for MESS input... 
+
+Calculating reference energy for PES
+
+Determining the reference energy for PES...
+ - Reference species assumed to be the  first set of reactants on PES: C4H8ORvEsWvAB+Cl
+
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rz7twHxyFkPt5   cDGtj9FN3XQ7T   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C4H8ORvEsWvAB
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+     152.760     159.920     271.180     339.260     456.240     519.170
+     800.260     801.810     944.150     990.940    1033.700    1061.100
+    1151.590    1161.840    1203.800    1214.780    1331.330    1412.150
+    1451.340    1460.060    1507.510    1512.170    1523.330    1536.420
+    1567.150    3075.590    3079.030    3116.870    3130.490    3148.090
+    3149.100    3173.050    3183.960
+
+Harmonic ZPVE [kcal mol-1]: 72.36512305690769
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T/SP/u-ulpJR
+  - Ene = 1.000 x -232.356344651 Eh
+Final electronic energy: -232.356344651 Eh
+Process 2714383 prepping species: C4H8ORvEsWvAB
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C4H8ORvEsWvAB
+Debug:  Energy will be determined for basis species:  InChI=1S/H2/h1H
+Debug:  Energy will be determined for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy will be determined for basis species:  InChI=1S/H2O/h1H2
+Process 2714387 reading energy for species: ['InChI=1S/H2/h1H' 'InChI=1S/CH4/h1H4' 'InChI=1S/H2O/h1H2']
+Debug:  bases energies test: InChI=1S/H2/h1H H2
+
+Calculating energy for basis H2...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP/SP/u-ulpJR
+  - Ene = 1.000 x -1.17193002316 Eh
+Final electronic energy: -1.17193002316 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    4462.300
+
+Harmonic ZPVE [kcal mol-1]: 6.379178102171175
+
+Final ZPE: 0.0097116360657744 Eh
+Debug:  bases energies test: InChI=1S/CH4/h1H4 CH4
+
+Calculating energy for basis CH4...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/r1f1MtGGDJILb/cu495whEuUkwF/SP/u-ulpJR
+  - Ene = 1.000 x -40.5018608194 Eh
+Final electronic energy: -40.5018608194 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/CH4/VNWKTOKETHGBQD/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/r1f1MtGGDJILb/cu495whEuUkwF
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    1376.890    1377.220    1377.330    1597.560    1597.700    3069.010
+    3192.720    3193.570    3194.030
+
+Harmonic ZPVE [kcal mol-1]: 28.557168532889865
+
+Final ZPE: 0.043473681546723465 Eh
+Debug:  bases energies test: InChI=1S/H2O/h1H2 H2O
+
+Calculating energy for basis H2O...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rUednCuy2TNy_/cIDlRhwiXGf80/SP/u-ulpJR
+  - Ene = 1.000 x -76.3870697993 Eh
+Final electronic energy: -76.3870697993 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2O/XLYOFNOQVPJJNP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rUednCuy2TNy_/cIDlRhwiXGf80
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    1723.790    3829.800    3956.700
+
+Harmonic ZPVE [kcal mol-1]: 13.595642093381779
+
+Final ZPE: 0.02069759806291896 Eh
+hbasis list ({'InChI=1S/H2/h1H': -1.1622183870942258, 'InChI=1S/CH4/h1H4': -40.45838713785328, 'InChI=1S/H2O/h1H2': -76.36637220123707},)
+[-1.1622183870942258, -40.45838713785328, -76.36637220123707]
+Basis H contribution InChI=1S/H2/h1H -5.0 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+ABS Energy  (hart):  -232.246181970535
+Hf0K Energy (hart):  -0.20814837256109367
+
+Determining energy transfer parameters...
+  - No bath provided, using Argon bath as default
+
+- Determining the masses...
+  - Obtaining masses from geometries...
+
+- Determining the Lennard-Jones model parameters...
+- Estimating the parameters...
+    - Series to use for estimation: frozenset({'cyclic_ether', 'InChI=1S/Ar'})
+    - Heavy atom count: 5
+
+- Determining the energy-down transfer model parameters...
+  - Estimating the parameters...
+    - Series to use for estimation: frozenset({'cyclic_ether', 'InChI=1S/Ar'})
+    - Found effective rotor count: 2.00
+    - Using following LJ parameters for collisional frequency and alpha calculation:
+       eps=167.71 cm-1, sigma=4.20 Ang,
+       mass1=72.06 amu, mass2=39.96 amu
+edown_vec test: [ 358.19398852 1347.50525228 2147.79961779] 358.1939885215363
+    - E_down prefactor (after dividing by empirical factor of 2.0): 358.1939885215363
+    - E_down power: 0.99
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rnKMLoWKKc9k9   c5DJl8hNOVgLq   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for Cl
+
+Obtaining the geometry...
+Reading geometry at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/Cl/ZAMOUSCENKQFHK/0/2/UHFFFAOYSA-N/u-ulpJU/CONFS/rnKMLoWKKc9k9/c5DJl8hNOVgLq
+
+Obtaining the electronic energy...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/Cl/ZAMOUSCENKQFHK/0/2/UHFFFAOYSA-N/u-ulpJU/CONFS/rnKMLoWKKc9k9/c5DJl8hNOVgLq/SP/u-ulpJU
+  - Ene = 1.000 x -460.116620149 Eh
+Final electronic energy: -460.116620149 Eh
+Process 2714413 prepping species: Cl
+[H][H]
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: Cl
+Debug:  Energy will be determined for basis species:  InChI=1S/H2/h1H
+Debug:  Energy will be determined for basis species:  InChI=1S/ClH/h1H
+Process 2714415 reading energy for species: ['InChI=1S/H2/h1H' 'InChI=1S/ClH/h1H']
+Debug:  bases energies test: InChI=1S/H2/h1H H2
+
+Calculating energy for basis H2...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP/SP/u-ulpJR
+  - Ene = 1.000 x -1.17193002316 Eh
+Final electronic energy: -1.17193002316 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    4462.300
+
+Harmonic ZPVE [kcal mol-1]: 6.379178102171175
+
+Final ZPE: 0.0097116360657744 Eh
+Debug:  bases energies test: InChI=1S/ClH/h1H HCl
+
+Calculating energy for basis HCl...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts/SP/u-ulpJR
+  - Ene = 1.000 x -460.777828999 Eh
+Final electronic energy: -460.777828999 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    2986.610
+
+Harmonic ZPVE [kcal mol-1]: 4.269573339247799
+
+Final ZPE: 0.006499824348336848 Eh
+hbasis list ({'InChI=1S/H2/h1H': -1.1622183870942258, 'InChI=1S/ClH/h1H': -460.77132917465167},)
+[-1.1622183870942258, -460.77132917465167]
+Basis H contribution InChI=1S/H2/h1H -0.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -460.116620149
+Hf0K Energy (hart):  -0.30540010540078494
+
+
+
+Reading PES electronic structure data
+Running Channel 3: C4H8ORvEsWvAB+Cl = C4H7ORvE0BQ0+HCl
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rz7twHxyFkPt5   cDGtj9FN3XQ7T   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C4H8ORvEsWvAB
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+     152.760     159.920     271.180     339.260     456.240     519.170
+     800.260     801.810     944.150     990.940    1033.700    1061.100
+    1151.590    1161.840    1203.800    1214.780    1331.330    1412.150
+    1451.340    1460.060    1507.510    1512.170    1523.330    1536.420
+    1567.150    3075.590    3079.030    3116.870    3130.490    3148.090
+    3149.100    3173.050    3183.960
+
+Harmonic ZPVE [kcal mol-1]: 72.36512305690769
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H8O/PQXKWPLDPFFDJP/0/1/ZXZARUISSA-N/u-ulpJR/CONFS/rz7twHxyFkPt5/cDGtj9FN3XQ7T/SP/u-ulpJR
+  - Ene = 1.000 x -232.356344651 Eh
+Final electronic energy: -232.356344651 Eh
+Process 2714431 prepping species: C4H8ORvEsWvAB
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C4H8ORvEsWvAB
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -5.0 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+ABS Energy  (hart):  -232.246181970535
+Hf0K Energy (hart):  -0.20814837256109367
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rnKMLoWKKc9k9   c5DJl8hNOVgLq   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for Cl
+
+Obtaining the geometry...
+Reading geometry at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/Cl/ZAMOUSCENKQFHK/0/2/UHFFFAOYSA-N/u-ulpJU/CONFS/rnKMLoWKKc9k9/c5DJl8hNOVgLq
+
+Obtaining the electronic energy...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/Cl/ZAMOUSCENKQFHK/0/2/UHFFFAOYSA-N/u-ulpJU/CONFS/rnKMLoWKKc9k9/c5DJl8hNOVgLq/SP/u-ulpJU
+  - Ene = 1.000 x -460.116620149 Eh
+Final electronic energy: -460.116620149 Eh
+Process 2714433 prepping species: Cl
+[H][H]
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: Cl
+Debug:  Energy will be determined for basis species:  InChI=1S/H2/h1H
+Debug:  Energy will be determined for basis species:  InChI=1S/ClH/h1H
+Process 2714435 reading energy for species: ['InChI=1S/H2/h1H' 'InChI=1S/ClH/h1H']
+Debug:  bases energies test: InChI=1S/H2/h1H H2
+
+Calculating energy for basis H2...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP/SP/u-ulpJR
+  - Ene = 1.000 x -1.17193002316 Eh
+Final electronic energy: -1.17193002316 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    4462.300
+
+Harmonic ZPVE [kcal mol-1]: 6.379178102171175
+
+Final ZPE: 0.0097116360657744 Eh
+Debug:  bases energies test: InChI=1S/ClH/h1H HCl
+
+Calculating energy for basis HCl...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts/SP/u-ulpJR
+  - Ene = 1.000 x -460.777828999 Eh
+Final electronic energy: -460.777828999 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    2986.610
+
+Harmonic ZPVE [kcal mol-1]: 4.269573339247799
+
+Final ZPE: 0.006499824348336848 Eh
+hbasis list ({'InChI=1S/H2/h1H': -1.1622183870942258, 'InChI=1S/ClH/h1H': -460.77132917465167},)
+[-1.1622183870942258, -460.77132917465167]
+Basis H contribution InChI=1S/H2/h1H -0.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -460.116620149
+Hf0K Energy (hart):  -0.30540010540078494
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rny1a4XrRUfu1   cGGrSPxWhSvPN   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for C4H7ORvE0BQ0
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+     161.770     183.870     228.390     267.410     448.190     461.530
+     749.040     830.590     956.040     999.800    1070.530    1107.720
+    1127.280    1154.280    1237.080    1368.350    1432.510    1444.790
+    1508.600    1512.710    1515.300    1524.610    1582.810    3027.990
+    3072.930    3124.540    3125.180    3147.850    3165.700    3173.110
+
+Harmonic ZPVE [kcal mol-1]: 63.91686855144753
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/C4H7O/KLYQZSTZDPBCEU/0/2/VKHMYHEASA-N/u-ulpJU/CONFS/rny1a4XrRUfu1/cGGrSPxWhSvPN/SP/u-ulpJU
+  - Ene = 1.000 x -231.686319982 Eh
+Final electronic energy: -231.686319982 Eh
+Process 2714449 prepping species: C4H7ORvE0BQ0
+[H][H]
+C
+O
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: C4H7ORvE0BQ0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+ABS Energy  (hart):  -231.58901830862715
+Hf0K Energy (hart):  0.11006352306017392
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rpRdl29NCulNT   cLqAkt-jh8zts   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading filesystem info for HCl
+
+Obtaining info for rotation partition function...
+Reading geometry at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+
+Preparing internal rotor info building partition functions...
+
+Obtaining the vibrational frequencies and zpves...
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    2986.610
+
+Harmonic ZPVE [kcal mol-1]: 4.269573339247799
+
+
+Determining the symmetry factor...
+Setting symmetry factors as racemic= True
+
+Obtaining the electronic energy + zpve...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts/SP/u-ulpJR
+  - Ene = 1.000 x -460.777828999 Eh
+Final electronic energy: -460.777828999 Eh
+Process 2714455 prepping species: HCl
+[H][H]
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: HCl
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy will be determined for basis species:  InChI=1S/ClH/h1H
+Process 2714457 reading energy for species: ['InChI=1S/H2/h1H' 'InChI=1S/ClH/h1H']
+Debug:  bases energies test: InChI=1S/H2/h1H H2
+
+Calculating energy for basis H2...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP/SP/u-ulpJR
+  - Ene = 1.000 x -1.17193002316 Eh
+Final electronic energy: -1.17193002316 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/H2/UFHFLCQGNIYNRP/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/ri-TqN_-MWKPr/cnuZcfyS4P7YP
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    4462.300
+
+Harmonic ZPVE [kcal mol-1]: 6.379178102171175
+
+Final ZPE: 0.0097116360657744 Eh
+Debug:  bases energies test: InChI=1S/ClH/h1H HCl
+
+Calculating energy for basis HCl...
+- Calculating electronic energy
+Reading Energy at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts/SP/u-ulpJR
+  - Ene = 1.000 x -460.777828999 Eh
+Final electronic energy: -460.777828999 Eh
+- Calculating zero-point energy
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/SPC/ClH/VEXZGXHMUGYJMC/0/1/UHFFFAOYSA-N/u-ulpJR/CONFS/rpRdl29NCulNT/cLqAkt-jh8zts
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+    2986.610
+
+Harmonic ZPVE [kcal mol-1]: 4.269573339247799
+
+Final ZPE: 0.006499824348336848 Eh
+hbasis list ({'InChI=1S/H2/h1H': -1.1622183870942258, 'InChI=1S/ClH/h1H': -460.77132917465167},)
+[-1.1622183870942258, -460.77132917465167]
+Basis H contribution InChI=1S/H2/h1H 0.0 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -460.77132917465167
+Hf0K Energy (hart):  -0.6133418029262162
+
+Conformer Ordering for all conformers
+rid             cid             energy[kcal/mol]
+-------         -------         -------         
+rGoi5SjNmOHBG   cKMdqW-Wlqoa0   0.00  *  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Reading Reading filesystem info for ts_9_3_0
+Using conformer from path /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0
+WARNING:  using energy {scn_ene_info}, assuming no composite energy for variational for now.
+Reading molecular data across the potential
+Scan potential name = IRC
+potential test:
+names ['IRC']
+grids [[-749.1310000000001, -686.641, -624.154, -561.669, -499.193, -436.723, -374.265, -311.86600000000004, -249.512, -187.166, -124.825, -62.446999999999996, 0.0, 62.32, 124.797, 187.27100000000002, 249.751, 312.225, 374.71000000000004, 437.19, 499.669, 562.145, 624.6260000000001, 687.099, 749.577]]
+
+Determining variational values for R = -749.1310000000001 Bohr
+Process 2714566 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3654178065763
+Hf0K Energy (hart):  -0.5244925125424952
+
+Determining variational values for R = -686.641 Bohr
+Process 2714568 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.364641407237
+Hf0K Energy (hart):  -0.5212440577063235
+
+Determining variational values for R = -624.154 Bohr
+Process 2714570 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3639010678236
+Hf0K Energy (hart):  -0.5181464776007879
+
+Determining variational values for R = -561.669 Bohr
+Process 2714574 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3632491599423
+Hf0K Energy (hart):  -0.5154188950253457
+
+Determining variational values for R = -499.193 Bohr
+Process 2714576 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3625517717438
+Hf0K Energy (hart):  -0.5125010228031052
+
+Determining variational values for R = -436.723 Bohr
+Process 2714578 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.362195328333
+Hf0K Energy (hart):  -0.5110096635725795
+
+Determining variational values for R = -374.265 Bohr
+Process 2714580 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3614983135525
+Hf0K Energy (hart):  -0.5080933537305545
+
+Determining variational values for R = -311.86600000000004 Bohr
+Process 2714583 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3611753225535
+Hf0K Energy (hart):  -0.5067419593909954
+
+Determining variational values for R = -249.512 Bohr
+Process 2714585 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3607100314252
+Hf0K Energy (hart):  -0.5047951813106328
+
+Determining variational values for R = -187.166 Bohr
+Process 2714589 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.360402044304
+Hf0K Energy (hart):  -0.5035065631953975
+
+Determining variational values for R = -124.825 Bohr
+Process 2714601 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3601578651902
+Hf0K Energy (hart):  -0.5024849177828137
+
+Determining variational values for R = -62.446999999999996 Bohr
+Process 2714603 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3600482949104
+Hf0K Energy (hart):  -0.5020264757319356
+
+Determining variational values for R = 0.0 Bohr
+Process 2714605 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3601377496419
+Hf0K Energy (hart):  -0.5024007543287453
+
+Determining variational values for R = 62.32 Bohr
+Process 2714607 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3602480936788
+Hf0K Energy (hart):  -0.5028624337796018
+
+Determining variational values for R = 124.797 Bohr
+Process 2714611 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3606046014829
+Hf0K Energy (hart):  -0.504354062431953
+
+Determining variational values for R = 187.27100000000002 Bohr
+Process 2714613 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3609809428802
+Hf0K Energy (hart):  -0.5059286748378954
+
+Determining variational values for R = 249.751 Bohr
+Process 2714616 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3615173664929
+Hf0K Energy (hart):  -0.5081730712331383
+
+Determining variational values for R = 312.225 Bohr
+Process 2714618 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3619821143286
+Hf0K Energy (hart):  -0.5101175761783315
+
+Determining variational values for R = 374.71000000000004 Bohr
+Process 2714620 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3625601531286
+Hf0K Energy (hart):  -0.5125360905169392
+
+Determining variational values for R = 437.19 Bohr
+Process 2714622 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3631286440946
+Hf0K Energy (hart):  -0.5149146567190537
+
+Determining variational values for R = 499.669 Bohr
+Process 2714624 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3637744560696
+Hf0K Energy (hart):  -0.517616734021999
+
+Determining variational values for R = 562.145 Bohr
+Process 2714628 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3643148776986
+Hf0K Energy (hart):  -0.519877858117784
+
+Determining variational values for R = 624.6260000000001 Bohr
+Process 2714640 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3651098173707
+Hf0K Energy (hart):  -0.5232038857064044
+
+Determining variational values for R = 687.099 Bohr
+Process 2714642 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3655846995847
+Hf0K Energy (hart):  -0.5251907928893352
+
+Determining variational values for R = 749.577 Bohr
+Process 2714644 prepping species: ts_9_3_0
+[H][H]
+C
+O
+Cl
+
+Determining reference molecules for scheme: basic
+
+Determining basis for species: ts_9_3_0
+Debug:  Energy already found for basis species:  InChI=1S/H2/h1H
+Debug:  Energy already found for basis species:  InChI=1S/CH4/h1H4
+Debug:  Energy already found for basis species:  InChI=1S/H2O/h1H2
+Debug:  Energy already found for basis species:  InChI=1S/ClH/h1H
+Basis H contribution InChI=1S/H2/h1H -5.5 0.0 -1.1622183870942258
+Basis H contribution InChI=1S/CH4/h1H4 4.0 -0.025347824478645156 -40.45838713785328
+Basis H contribution InChI=1S/H2O/h1H2 1.0 -0.09100420373931285 -76.36637220123707
+Basis H contribution InChI=1S/ClH/h1H 1.0 -0.1465922091123859 -460.77132917465167
+ABS Energy  (hart):  -692.3662020834954
+Hf0K Energy (hart):  -0.5277739271722122
+Reading Hessian at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/save/RXN/C4H7O.ClH/LDWMUHCKAHUBHY/0_0/2_1/DFWYDOINSA-N/C4H8O.Cl/YVAVETQEMWSGBK/0_0/1_2/HKTIBRIUSA-N/2/u-ulpJU/TS/00/CONFS/rGoi5SjNmOHBG/cKMdqW-Wlqoa0
+Calling ProjRot to diagonalize Hessian and get freqs...
+
+Harmonic frequencies [cm-1]:
+      26.530      43.910     151.800     161.680     277.830     330.250
+     455.040     519.730     785.540     797.750     938.650     992.010
+    1033.850    1054.050    1146.380    1157.490    1199.670    1205.890
+    1325.560    1407.870    1451.680    1455.260    1504.720    1510.990
+    1523.010    1536.330    1563.570    3010.320    3076.160    3080.190
+    3131.460    3148.400    3151.430    3174.640    3185.090
+
+Harmonic ZPVE [kcal mol-1]: 72.2144318967997
+
+
+
+Getting energies for the reaction channel...
+reac ene -0.04974865500982162 -0.04974865500982162
+reac ene -0.07299237700783578 -0.07299237700783578
+prod ene 0.026305813350901985 0.026305813350901985
+prod ene -0.14659220911238435 -0.14659220911238435
+Debug:  REAC HoF (0 K) spc lvl kcal/mol:  -77.02116041231207
+Debug:  REAC HoF (0 K) ts lvl kcal/mol:  -77.02116041231207
+Debug:  PROD HoF (0 K) spc lvl kcal/mol:  -75.48085290688441
+Debug:  PROD HoF (0 K) ts lvl kcal/mol:  -75.48085290688441
+Debug:  TS HoF (0 K) ts lvl kcal/mol:  -78.66252881113758
+Debug:  TS HoF (0 K) approx spc lvl kcal/mol:  -78.66252881113758
+Preparing global energy transfer section for MESS input...
+- Determining reference well species...
+  - Using C4H8ORvEsWvAB for global collision target for PES
+- Determining information for the bath species...
+  - No bath provided, using Argon bath as default
+
+- Determining the masses...
+  - Obtaining masses from geometries...
+
+- Determining the Lennard-Jones model parameters...
+- Estimating the parameters...
+    - Series to use for estimation: frozenset({'cyclic_ether', 'InChI=1S/Ar'})
+    - Heavy atom count: 5
+
+- Determining the energy-down transfer model parameters...
+  - Estimating the parameters...
+    - Series to use for estimation: frozenset({'cyclic_ether', 'InChI=1S/Ar'})
+    - Found effective rotor count: 2.00
+    - Using following LJ parameters for collisional frequency and alpha calculation:
+       eps=167.71 cm-1, sigma=4.20 Ang,
+       mass1=72.06 amu, mass2=39.96 amu
+edown_vec test: [ 358.19398852 1347.50525228 2147.79961779] 358.1939885215363
+    - E_down prefactor (after dividing by empirical factor of 2.0): 358.1939885215363
+    - E_down power: 0.99
+Preparing global keywords section for MESS input...
+ - Using temperatures and pressures defined by user
+ - Using internal AutoMech defaults for other MESS keywords:
+Debug:  EnergyStepOverTemperature, ExcessEnergyOverTemperature, ModelEnergyLimit
+Debug:  CalculationMethod, WellCutoff, ReductionMethod, AtomDistanceMin
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Writing MESS input file at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/run/MESS/RATE/C4CL1H8O1_9_3/basev1
+Debug:  MESS Input:
+
+!===================================================
+!  GLOBAL KEYWORDS
+!===================================================
+TemperatureList[K]                     300.0  350.0  400.0  450.0  500.0  550.0  600.0  650.0  700.0  750.0  800.0  850.0  900.0  950.0  1000.0
+PressureList[atm]                      0.01  0.03  0.1  0.3  1.0  3.0  10.0  30.0  100.0
+!
+ModelEnergyLimit[kcal/mol]             800.00
+EnergyStepOverTemperature              0.20
+!
+CalculationMethod                      direct
+!
+WellCutoff                             10
+!
+ChemicalEigenvalueMax                  0.20
+!
+ReductionMethod                        diagonalization
+!
+AtomDistanceMin[angstrom]              0.68793
+!
+RateOutput                             rate.out
+!
+!
+!===================================================
+!  BEGIN MASTER EQUATION MODEL
+!===================================================
+!
+Model
+!
+GroundEnergyShiftMax[kcal/mol]  10
+!
+UseShortNames
+!
+!---------------------------------------------------
+!  ENERGY TRANSFER SECTION
+!---------------------------------------------------
+  EnergyRelaxation
+    Exponential
+       Factor[1/cm]                     358.194
+       Power                            0.989
+       ExponentCutoff                   15.000
+  End  ! EneRelax
+  CollisionFrequency
+    LennardJones
+       Epsilons[1/cm]                   167.705    167.705
+       Sigmas[angstrom]                 4.199      4.199
+       Masses[amu]                      72.058     39.962
+  End  ! CollidFreq
+!---------------------------------------------------
+!  REACTION CHANNELS SECTION
+!---------------------------------------------------
+Well FakeW-C4H8ORvEsWvAB+Cl   ! Fake Well for C4H8ORvEsWvAB+Cl
+  Species
+    RRHO
+      Geometry[angstrom]        14
+        C          0.73504      -0.32563       0.40284
+        C          1.59526       0.82054      -0.06055
+        C         -0.73535      -0.32581       0.40250
+        H          1.21903      -0.97870       1.13306
+        O          0.00027      -1.03837      -0.58908
+        C         -1.59534       0.82050      -0.06061
+        H         -1.21957      -0.97950       1.13201
+        H          1.88618       1.44626       0.79020
+        H          2.50867       0.43658      -0.52643
+        H          1.08155       1.44401      -0.79546
+        H         -1.07916       1.44806      -0.79032
+        H         -1.89031       1.44291       0.79127
+        H         -2.50613       0.43705      -0.53176
+        Cl         0.00000       0.00000       3.70972
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         36
+        10      20      30      153     160     270
+        336     449     510     779     781     916
+        961     1002    1028    1113    1123    1163
+        1173    1283    1359    1396    1405    1449
+        1454    1464    1476    1505    2912    2915
+        2950    2962    2979    2980    3002    3012
+      ElectronicLevels[1/cm]    2
+        0.0  4
+        883.4  2
+      ZeroEnergy[kcal/mol]      -3.00
+  End  ! Species
+End  ! Well
+Well FakeW-C4H7ORvE0BQ0+HCl   ! Fake Well for C4H7ORvE0BQ0+HCl
+  Species
+    RRHO
+      Geometry[angstrom]        14
+        C         -0.63509      -0.12515       0.44832
+        C         -1.97463      -0.44381      -0.15560
+        C          0.59308      -0.13283      -0.32315
+        H         -0.57467      -0.21207       1.53627
+        O          0.03019       1.08404      -0.03499
+        C          2.00892      -0.45651       0.00290
+        H         -2.24673      -1.48146       0.06660
+        H         -2.75194       0.20845       0.25558
+        H         -1.94333      -0.31596      -1.24053
+        H          2.21737      -1.51102      -0.19679
+        H          2.68852       0.15242      -0.60130
+        H          2.22355      -0.25332       1.06323
+        Cl         0.00000       0.00000       5.76736
+        H          0.00000       0.00000       4.48335
+      Core RigidRotor
+        SymmetryFactor          4.5
+      End  ! Core
+      Frequencies[1/cm]         36
+        10      20      30      40      50      162
+        184     228     266     442     454     731
+        808     928     969     1037    1072    1090
+        1116    1194    1318    1379    1390    1450
+        1454    1457    1465    1520    2867    2909
+        2957    2957    2978    2995    3002    2829
+      ElectronicLevels[1/cm]    1
+        0.0  2
+      ZeroEnergy[kcal/mol]      -1.46
+  End  ! Species
+End  ! Well
+Bimolecular C4H8ORvEsWvAB+Cl   ! [C[C@H]1[C@@H](C)O1 + [Cl]]
+!---------------------------------------------------
+  Fragment C4H8ORvEsWvAB   ! C[C@H]1[C@@H](C)O1
+    RRHO
+      Geometry[angstrom]        13
+        C          0.73504      -0.38381       0.38797
+        C          1.59526       0.76236      -0.07542
+        C         -0.73536      -0.38399       0.38762
+        H          1.21902      -1.03688       1.11819
+        O          0.00027      -1.09655      -0.60395
+        C         -1.59534       0.76232      -0.07548
+        H         -1.21957      -1.03769       1.11713
+        H          1.88617       1.38808       0.77532
+        H          2.50867       0.37840      -0.54131
+        H          1.08155       1.38582      -0.81033
+        H         -1.07916       1.38987      -0.80519
+        H         -1.89031       1.38473       0.77639
+        H         -2.50613       0.37887      -0.54663
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         33
+        153     160     270     336     449     510
+        779     781     916     961     1002    1028
+        1113    1123    1163    1173    1283    1359
+        1396    1405    1449    1454    1464    1476
+        1505    2912    2915    2950    2962    2979
+        2980    3002    3012
+      ElectronicLevels[1/cm]    1
+        0.0  1
+      ZeroEnergy[kcal/mol]    0.0
+  End  ! Frag1
+!---------------------------------------------------
+  Fragment Cl   ! [Cl]
+    Atom
+      Mass[amu]                 34.968852682
+      ElectronicLevels[1/cm]    2
+        0.0  4
+        883.4  2
+  End  ! Frag2
+!---------------------------------------------------
+  GroundEnergy[kcal/mol]    0.00
+End  ! Bimol
+Bimolecular C4H7ORvE0BQ0+HCl   ! [C[C@H]1[C](C)O1 + Cl]
+!---------------------------------------------------
+  Fragment C4H7ORvE0BQ0   ! C[C@H]1[C](C)O1
+    RRHO
+      Geometry[angstrom]        12
+        C         -0.63017      -0.08181       0.43709
+        C         -1.96971      -0.40046      -0.16683
+        C          0.59801      -0.08949      -0.33438
+        H         -0.56975      -0.16873       1.52504
+        O          0.03511       1.12738      -0.04622
+        C          2.01385      -0.41316      -0.00833
+        H         -2.24180      -1.43812       0.05537
+        H         -2.74702       0.25179       0.24435
+        H         -1.93840      -0.27261      -1.25176
+        H          2.22229      -1.46767      -0.20802
+        H          2.69344       0.19576      -0.61253
+        H          2.22847      -0.20998       1.05200
+      Core RigidRotor
+        SymmetryFactor          4.5
+      End  ! Core
+      Frequencies[1/cm]         30
+        162     184     228     266     442     454
+        731     808     928     969     1037    1072
+        1090    1116    1194    1318    1379    1390
+        1450    1454    1457    1465    1520    2867
+        2909    2957    2957    2978    2995    3002
+      ElectronicLevels[1/cm]    1
+        0.0  2
+      ZeroEnergy[kcal/mol]    0.0
+  End  ! Frag1
+!---------------------------------------------------
+  Fragment HCl   ! Cl
+    RRHO
+      Geometry[angstrom]        2
+        Cl         0.00000       0.00000       0.07133
+        H          0.00000       0.00000      -1.21268
+      Core RigidRotor
+        SymmetryFactor          1.0
+      End  ! Core
+      Frequencies[1/cm]         1
+        2829
+      ElectronicLevels[1/cm]    1
+        0.0  1
+      ZeroEnergy[kcal/mol]    0.0
+  End  ! Frag2
+!---------------------------------------------------
+  GroundEnergy[kcal/mol]    1.54
+End  ! Bimol
+Barrier FakeB-C4H8ORvEsWvAB+Cl C4H8ORvEsWvAB+Cl FakeW-C4H8ORvEsWvAB+Cl
+  RRHO
+    Stoichiometry  C4Cl1H8O1
+    Core PhaseSpaceTheory
+      FragmentGeometry[angstrom]    13
+        C          0.73504      -0.38381       0.38797
+        C          1.59526       0.76236      -0.07542
+        C         -0.73536      -0.38399       0.38762
+        H          1.21902      -1.03688       1.11819
+        O          0.00027      -1.09655      -0.60395
+        C         -1.59534       0.76232      -0.07548
+        H         -1.21957      -1.03769       1.11713
+        H          1.88617       1.38808       0.77532
+        H          2.50867       0.37840      -0.54131
+        H          1.08155       1.38582      -0.81033
+        H         -1.07916       1.38987      -0.80519
+        H         -1.89031       1.38473       0.77639
+        H         -2.50613       0.37887      -0.54663
+      FragmentGeometry[angstrom]    1
+        Cl         0.00000       0.00000       0.00000
+      SymmetryFactor                  9.0
+      PotentialPrefactor[au]          10.0
+      PotentialPowerExponent          6.0
+      TSTLevel EJ
+    End  ! Core
+    Frequencies[1/cm]         33
+      153     160     270     336     449     510
+      779     781     916     961     1002    1028
+      1113    1123    1163    1173    1283    1359
+      1396    1405    1449    1454    1464    1476
+      1505    2912    2915    2950    2962    2979
+      2980    3002    3012
+    ElectronicLevels[1/cm]    2
+      0.0  4
+      883.4  2
+    ZeroEnergy[kcal/mol]      0.00
+End  ! Barrier
+Barrier FakeB-C4H7ORvE0BQ0+HCl C4H7ORvE0BQ0+HCl FakeW-C4H7ORvE0BQ0+HCl
+  RRHO
+    Stoichiometry  C4Cl1H8O1
+    Core PhaseSpaceTheory
+      FragmentGeometry[angstrom]    12
+        C         -0.63017      -0.08181       0.43709
+        C         -1.96971      -0.40046      -0.16683
+        C          0.59801      -0.08949      -0.33438
+        H         -0.56975      -0.16873       1.52504
+        O          0.03511       1.12738      -0.04622
+        C          2.01385      -0.41316      -0.00833
+        H         -2.24180      -1.43812       0.05537
+        H         -2.74702       0.25179       0.24435
+        H         -1.93840      -0.27261      -1.25176
+        H          2.22229      -1.46767      -0.20802
+        H          2.69344       0.19576      -0.61253
+        H          2.22847      -0.20998       1.05200
+      FragmentGeometry[angstrom]    2
+        Cl         0.00000       0.00000       0.07133
+        H          0.00000       0.00000      -1.21268
+      SymmetryFactor                  4.5
+      PotentialPrefactor[au]          10.0
+      PotentialPowerExponent          6.0
+      TSTLevel EJ
+    End  ! Core
+    Frequencies[1/cm]         31
+      162     184     228     266     442     454
+      731     808     928     969     1037    1072
+      1090    1116    1194    1318    1379    1390
+      1450    1454    1457    1465    1520    2867
+      2909    2957    2957    2978    2995    3002
+      2829
+    ElectronicLevels[1/cm]    1
+      0.0  2
+    ZeroEnergy[kcal/mol]      1.54
+End  ! Barrier
+Barrier ts_9_3 FakeW-C4H8ORvEsWvAB+Cl FakeW-C4H7ORvE0BQ0+HCl
+  Variational
+    !-----------------------------------------------
+    ! Rxn Path Pt 1: R = -3.96 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.01999       0.54833       1.18025
+        C         -1.18583       0.14695       2.62293
+        C          0.27619       0.78610       0.53320
+        H         -1.87727       1.07115       0.75389
+        O         -0.44976      -0.42293       0.28393
+        C          1.62252       0.63441       1.18375
+        H          0.26700       1.46878      -0.31722
+        H         -0.31804      -0.40124       2.99507
+        H         -1.32570       1.04226       3.23864
+        H         -2.06738      -0.48993       2.74388
+        H          2.33468       0.24254       0.45062
+        H          1.98932       1.60635       1.52997
+        H          1.59560      -0.05471       2.03040
+        Cl         0.29386      -0.66188      -2.41114
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        76      94      153     162     277     344
+        460     521     780     802     929     997
+        1031    1050    1147    1154    1204    1212
+        1328    1411    1450    1459    1503    1509
+        1522    1536    1563    3077    3081    3144
+        3151    3153    3156    3178    3188
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      -1.64
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 2: R = -3.63 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.02806       0.55057       1.20359
+        C         -1.17564       0.16772       2.65333
+        C          0.25963       0.77616       0.53585
+        H         -1.88931       1.07315       0.78450
+        O         -0.47596      -0.43130       0.30955
+        C          1.61372       0.62629       1.17103
+        H          0.24232       1.45121      -0.32067
+        H         -0.30391      -0.37694       3.02151
+        H         -1.30689       1.07066       3.25974
+        H         -2.05624      -0.46664       2.79342
+        H          2.31616       0.22533       0.43337
+        H          1.98775       1.60024       1.50375
+        H          1.59496      -0.05478       2.02440
+        Cl         0.31420      -0.66081      -2.44000
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        69      92      150     162     279     343
+        460     522     781     803     930     997
+        1031    1050    1149    1154    1204    1212
+        1329    1412    1451    1459    1503    1509
+        1523    1536    1564    3077    3080    3141
+        3151    3152    3153    3178    3188
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      -1.15
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 3: R = -3.30 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.03584       0.55246       1.22599
+        C         -1.16593       0.18996       2.68261
+        C          0.24344       0.76483       0.53829
+        H         -1.90083       1.07379       0.81259
+        O         -0.50087      -0.44152       0.33712
+        C          1.60485       0.61839       1.15896
+        H          0.21807       1.43040      -0.32558
+        H         -0.29027      -0.35051       3.04776
+        H         -1.28946       1.10090       3.27857
+        H         -2.04515      -0.44190       2.84176
+        H          2.29807       0.20726       0.41812
+        H          1.98534       1.59496       1.47646
+        H          1.59416      -0.05299       2.02016
+        Cl         0.33397      -0.65896      -2.46905
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        59      88      153     163     279     342
+        458     522     782     803     932     997
+        1032    1051    1149    1155    1205    1212
+        1330    1412    1451    1459    1504    1510
+        1523    1537    1565    3077    3080    3138
+        3150    3150    3152    3177    3187
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      -0.69
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 4: R = -2.97 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.04339       0.55381       1.24730
+        C         -1.15651       0.21384       2.71070
+        C          0.22746       0.75186       0.54013
+        H         -1.91198       1.07292       0.83817
+        O         -0.52469      -0.45371       0.36628
+        C          1.59585       0.61037       1.14695
+        H          0.19392       1.40611      -0.33222
+        H         -0.27711      -0.32207       3.07370
+        H         -1.27262       1.13340       3.29479
+        H         -2.03422      -0.41501       2.88929
+        H          2.28024       0.18794       0.40420
+        H          1.98210       1.59013       1.44736
+        H          1.59331      -0.04953       2.01706
+        Cl         0.35326      -0.65605      -2.49766
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        53      90      154     165     267     343
+        456     522     784     804     933     995
+        1033    1053    1149    1155    1205    1215
+        1331    1412    1449    1460    1504    1510
+        1523    1535    1564    3076    3080    3135
+        3147    3150    3151    3177    3185
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      -0.28
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 5: R = -2.64 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.05079       0.55448       1.26728
+        C         -1.14741       0.23962       2.73739
+        C          0.21163       0.73703       0.54117
+        H         -1.92287       1.07032       0.86099
+        O         -0.54741      -0.46796       0.39686
+        C          1.58675       0.60200       1.13462
+        H          0.16972       1.37810      -0.34071
+        H         -0.26455      -0.29141       3.09928
+        H         -1.25624       1.16857       3.30784
+        H         -2.02359      -0.38543       2.93605
+        H          2.26260       0.16706       0.39121
+        H          1.97811       1.58541       1.41597
+        H          1.59253      -0.04460       2.01467
+        Cl         0.37214      -0.65192      -2.52531
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        49      100     155     166     266     345
+        457     522     786     806     934     996
+        1036    1055    1150    1156    1206    1225
+        1333    1412    1449    1460    1505    1510
+        1523    1535    1564    3076    3079    3132
+        3146    3150    3151    3176    3184
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      0.16
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 6: R = -2.31 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.05794       0.55423       1.28558
+        C         -1.13862       0.26782       2.76237
+        C          0.19607       0.71979       0.54109
+        H         -1.93345       1.06556       0.88051
+        O         -0.56880      -0.48471       0.42868
+        C          1.57761       0.59314       1.12183
+        H          0.14570       1.34551      -0.35147
+        H         -0.25237      -0.25726       3.12476
+        H         -1.24098       1.20714       3.31678
+        H         -2.01295      -0.35291       2.98192
+        H          2.24550       0.14455       0.37930
+        H          1.97308       1.58077       1.38197
+        H          1.59195      -0.03801       2.01297
+        Cl         0.39039      -0.64626      -2.55149
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        44      61      156     167     272     338
+        455     521     788     800     935     989
+        1029    1054    1151    1154    1197    1207
+        1330    1412    1450    1460    1505    1510
+        1523    1536    1566    3076    3079    3130
+        3143    3149    3150    3175    3184
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      0.38
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 7: R = -1.98 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.06488       0.55301       1.30203
+        C         -1.13032       0.29789       2.78520
+        C          0.18092       0.70024       0.53992
+        H         -1.94386       1.05833       0.89652
+        O         -0.58853      -0.50385       0.46206
+        C          1.56858       0.58379       1.10857
+        H          0.12203       1.30782      -0.36476
+        H         -0.24045      -0.21970       3.14956
+        H         -1.22771       1.24817       3.32150
+        H         -2.00216      -0.31855       3.02597
+        H          2.22914       0.12085       0.36824
+        H          1.96710       1.57595       1.34594
+        H          1.59165      -0.03027       2.01140
+        Cl         0.40785      -0.63885      -2.57608
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        43      91      156     167     271     343
+        457     521     789     805     936     996
+        1036    1056    1152    1155    1207    1219
+        1333    1412    1450    1459    1506    1510
+        1523    1536    1566    3075    3079    3128
+        3144    3148    3150    3175    3184
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      0.82
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 8: R = -1.65 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.07167       0.55007       1.31578
+        C         -1.12240       0.33067       2.80508
+        C          0.16614       0.67779       0.53717
+        H         -1.95419       1.04757       0.90796
+        O         -0.60633      -0.52601       0.49619
+        C          1.55967       0.57360       1.09409
+        H          0.09823       1.26586      -0.37981
+        H         -0.22848      -0.17716       3.17330
+        H         -1.21626       1.29314       3.31983
+        H         -1.99102      -0.28110       3.06850
+        H          2.21346       0.09528       0.35750
+        H          1.96019       1.57062       1.30650
+        H          1.59177      -0.02120       2.00947
+        Cl         0.42436      -0.62921      -2.59758
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        36      79      158     166     263     340
+        454     520     790     803     937     992
+        1034    1056    1152    1155    1206    1211
+        1332    1412    1449    1459    1506    1510
+        1523    1535    1565    3075    3078    3126
+        3139    3148    3150    3175    3183
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      1.02
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 9: R = -1.32 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.07807       0.54517       1.32547
+        C         -1.11491       0.36629       2.82041
+        C          0.15223       0.65172       0.53178
+        H         -1.96427       1.03255       0.91311
+        O         -0.62154      -0.55182       0.53076
+        C          1.55117       0.56253       1.07794
+        H          0.07521       1.21684      -0.39897
+        H         -0.21673      -0.12977       3.19431
+        H         -1.20648       1.34196       3.31011
+        H         -1.97982      -0.24000       3.10775
+        H          2.19924       0.06748       0.34736
+        H          1.95229       1.56481       1.26276
+        H          1.59224      -0.01012       2.00700
+        Cl         0.43928      -0.61666      -2.61402
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        34      90      161     166     257     342
+        454     520     791     804     938     993
+        1038    1057    1152    1155    1207    1221
+        1334    1412    1448    1459    1506    1511
+        1523    1534    1565    3075    3078    3123
+        3136    3149    3150    3174    3182
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      1.31
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 10: R = -0.99 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.08377       0.53829       1.33040
+        C         -1.10802       0.40405       2.83008
+        C          0.13988       0.62208       0.52362
+        H         -1.97353       1.01360       0.91143
+        O         -0.63379      -0.58064       0.56478
+        C          1.54358       0.55048       1.06033
+        H          0.05407       1.16161      -0.42169
+        H         -0.20568      -0.07887       3.21119
+        H         -1.19815       1.39342       3.29170
+        H         -1.96911      -0.19555       3.14200
+        H          2.18729       0.03724       0.33848
+        H          1.94389       1.55820       1.21481
+        H          1.59313       0.00321       2.00416
+        Cl         0.45188      -0.60118      -2.62427
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        30      80      162     166     259     340
+        454     520     792     803     939     992
+        1036    1057    1152    1156    1207    1213
+        1333    1412    1448    1459    1506    1511
+        1523    1535    1565    3075    3078    3121
+        3133    3148    3149    3173    3182
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      1.51
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 11: R = -0.66 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.08846       0.53024       1.33044
+        C         -1.10211       0.44250       2.83353
+        C          0.12976       0.58930       0.51279
+        H         -1.98128       0.99224       0.90300
+        O         -0.64315      -0.61111       0.59782
+        C          1.53752       0.53794       1.04142
+        H          0.03559       1.10123      -0.44764
+        H         -0.19628      -0.02718       3.22285
+        H         -1.19141       1.44503       3.26595
+        H         -1.95982      -0.14930       3.16892
+        H          2.17884       0.00601       0.33111
+        H          1.93510       1.55112       1.16381
+        H          1.59468       0.01877       2.00059
+        Cl         0.46177      -0.58342      -2.62796
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        26      64      160     166     265     336
+        454     520     793     800     939     993
+        1036    1057    1151    1155    1207    1211
+        1332    1412    1449    1459    1506    1511
+        1523    1536    1566    3074    3078    3106
+        3129    3148    3149    3173    3182
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      1.66
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 12: R = -0.33 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.09203       0.52222       1.32579
+        C         -1.09768       0.47965       2.83080
+        C          0.12237       0.55341       0.49918
+        H         -1.98698       0.97050       0.88826
+        O         -0.64983      -0.64135       0.62982
+        C          1.53345       0.52540       1.02134
+        H          0.02050       1.03543      -0.47781
+        H         -0.18951       0.02173       3.22863
+        H         -1.18665       1.49351       3.23579
+        H         -1.95291      -0.10408       3.18620
+        H          2.17514      -0.02440       0.32524
+        H          1.92556       1.54404       1.11155
+        H          1.59671       0.03590       1.99561
+        Cl         0.46886      -0.56397      -2.62517
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        21      51      156     164     272     331
+        454     520     794     795     938     995
+        1037    1056    1149    1156    1206    1211
+        1330    1410    1450    1457    1506    1511
+        1523    1536    1565    3062    3075    3079
+        3129    3148    3149    3173    3183
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      1.73
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 13: R = 0.00 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C          0.00000       0.00000       0.00000
+        C          0.00000       0.00000       1.50569
+        C          1.21188       0.00000      -0.83400
+        H         -0.89632       0.43358      -0.44910
+        O          0.44149      -1.18511      -0.65700
+        C          2.62584      -0.00156      -0.31785
+        H          1.10322       0.44839      -1.82996
+        H          0.90960      -0.44725       1.91222
+        H         -0.08950       1.02337       1.88556
+        H         -0.85336      -0.57615       1.87772
+        H          3.26967      -0.56821      -0.99798
+        H          3.00994       1.02238      -0.25993
+        H          2.69419      -0.46016       0.67097
+        Cl         1.56909      -1.05897      -3.93739
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        26      43      151     161     277     330
+        455     519     785     797     938     992
+        1033    1054    1146    1157    1199    1205
+        1325    1407    1451    1455    1504    1511
+        1523    1536    1563    3010    3076    3080
+        3131    3148    3151    3174    3185
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      1.67
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 14: R = 0.33 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.09806       0.50684       1.30943
+        C         -1.09365       0.54985       2.81447
+        C          0.11219       0.47718       0.47111
+        H         -1.99602       0.92330       0.84807
+        O         -0.65400      -0.69824       0.69174
+        C          1.52863       0.50118       0.98046
+        H         -0.00174       0.88974      -0.54328
+        H         -0.18108       0.11730       3.23014
+        H         -1.18709       1.58232       3.16757
+        H         -1.94348      -0.02038       3.20350
+        H          2.17331      -0.08379       0.31713
+        H          1.90591       1.52889       1.00396
+        H          1.60188       0.07538       1.98352
+        Cl         0.47748      -0.52344      -2.61038
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        36      57      148     160     278     335
+        456     521     786     799     940     991
+        1033    1054    1145    1159    1196    1205
+        1321    1404    1451    1453    1503    1510
+        1522    1535    1561    2979    3076    3081
+        3134    3149    3153    3174    3185
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      1.60
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 15: R = 0.66 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.10019       0.49724       1.29786
+        C         -1.09412       0.58412       2.80090
+        C          0.10960       0.44005       0.45885
+        H         -1.99938       0.89522       0.82333
+        O         -0.65122      -0.72622       0.71943
+        C          1.52802       0.48844       0.96094
+        H         -0.00817       0.81738      -0.57198
+        H         -0.17940       0.16688       3.22733
+        H         -1.19148       1.62558       3.12514
+        H         -1.94125       0.02147       3.20654
+        H          2.17296      -0.11496       0.31488
+        H          1.89917       1.51847       0.94904
+        H          1.60606       0.09648       1.97737
+        Cl         0.47858      -0.50239      -2.59892
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        42      60      146     158     276     336
+        456     521     785     798     941     983
+        1028    1054    1142    1160    1186    1204
+        1317    1401    1450    1452    1502    1510
+        1522    1534    1559    2947    3077    3081
+        3136    3150    3155    3174    3185
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      1.38
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 16: R = 0.99 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.10193       0.48684       1.28507
+        C         -1.09608       0.61829       2.78473
+        C          0.10847       0.40346       0.44833
+        H         -2.00197       0.86522       0.79688
+        O         -0.64643      -0.75351       0.74643
+        C          1.52843       0.47539       0.94280
+        H         -0.01184       0.74555      -0.59765
+        H         -0.17974       0.21698       3.22281
+        H         -1.19739       1.66829       3.07863
+        H         -1.94110       0.06443       3.20654
+        H          2.17319      -0.14736       0.31543
+        H          1.89433       1.50607       0.89384
+        H          1.61069       0.11916       1.97202
+        Cl         0.47826      -0.48137      -2.58677
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        47      69      145     156     270     339
+        455     522     786     798     942     982
+        1028    1055    1140    1160    1185    1204
+        1314    1399    1448    1451    1501    1510
+        1521    1533    1557    2910    3078    3083
+        3138    3150    3158    3175    3185
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      1.14
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 17: R = 1.32 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.10330       0.47593       1.27131
+        C         -1.09950       0.65219       2.76623
+        C          0.10878       0.36719       0.43949
+        H         -2.00377       0.83365       0.76909
+        O         -0.63998      -0.77994       0.77335
+        C          1.52982       0.46220       0.92638
+        H         -0.01231       0.67288      -0.62114
+        H         -0.18186       0.26778       3.21657
+        H         -1.20541       1.70996       3.02882
+        H         -1.94270       0.10758       3.20341
+        H          2.17448      -0.18014       0.31924
+        H          1.89089       1.49193       0.83940
+        H          1.61549       0.14314       1.96750
+        Cl         0.47670      -0.46044      -2.57456
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        53      71      144     153     265     338
+        454     523     785     796     943     970
+        1024    1055    1136    1161    1178    1203
+        1312    1396    1447    1449    1501    1509
+        1520    1531    1556    2861    3078    3084
+        3142    3151    3160    3176    3185
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      0.81
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 18: R = 1.65 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.10425       0.46449       1.25651
+        C         -1.10433       0.68560       2.74523
+        C          0.11064       0.33125       0.43246
+        H         -2.00446       0.80072       0.73979
+        O         -0.63197      -0.80549       0.79995
+        C          1.53228       0.44902       0.91172
+        H         -0.01008       0.60105      -0.64164
+        H         -0.18557       0.31921       3.20818
+        H         -1.21557       1.75024       2.97572
+        H         -1.94586       0.15044       3.19700
+        H          2.17724      -0.21234       0.32588
+        H          1.88852       1.47635       0.78666
+        H          1.62066       0.16772       1.96353
+        Cl         0.47383      -0.43962      -2.56213
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        57      80      143     153     264     341
+        455     524     786     796     944     971
+        1024    1056    1133    1162    1179    1203
+        1309    1393    1445    1450    1500    1508
+        1520    1530    1556    2810    3078    3084
+        3146    3151    3162    3175    3184
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      0.51
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 19: R = 1.98 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.10488       0.45262       1.24130
+        C         -1.11050       0.71859       2.72243
+        C          0.11376       0.29555       0.42737
+        H         -2.00433       0.76637       0.70992
+        O         -0.62274      -0.83009       0.82705
+        C          1.53559       0.43586       0.89901
+        H         -0.00470       0.52812      -0.65999
+        H         -0.19081       0.37147       3.19826
+        H         -1.22799       1.78909       2.92013
+        H         -1.95043       0.19287       3.18801
+        H          2.18108      -0.24454       0.33622
+        H          1.88731       1.45911       0.73506
+        H          1.62580       0.19380       1.96049
+        Cl         0.46999      -0.41893      -2.55055
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        60      86      144     153     262     340
+        455     526     785     794     945     963
+        1022    1056    1130    1162    1176    1203
+        1305    1390    1443    1450    1500    1508
+        1519    1530    1555    2748    3078    3084
+        3151    3152    3163    3174    3184
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      0.15
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 20: R = 2.31 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.10493       0.44049       1.22538
+        C         -1.11791       0.75081       2.69759
+        C          0.11840       0.26016       0.42404
+        H         -2.00287       0.73114       0.67914
+        O         -0.61239      -0.85362       0.85417
+        C          1.53995       0.42287       0.88822
+        H          0.00387       0.45527      -0.67597
+        H         -0.19781       0.42366       3.18665
+        H         -1.24209       1.82609       2.86224
+        H         -1.95664       0.23466       3.17581
+        H          2.18649      -0.27610       0.35013
+        H          1.88722       1.44041       0.68506
+        H          1.63100       0.22110       1.95814
+        Cl         0.46492      -0.39846      -2.53931
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        63      93      147     155     259     341
+        455     527     784     794     945     959
+        1021    1056    1127    1162    1176    1203
+        1301    1387    1441    1449    1499    1507
+        1518    1529    1555    2677    3079    3085
+        3152    3154    3165    3175    3184
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      -0.20
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 21: R = 2.64 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.10427       0.42803       1.20896
+        C         -1.12673       0.78228       2.67090
+        C          0.12466       0.22535       0.42260
+        H         -1.99994       0.69502       0.64767
+        O         -0.60092      -0.87601       0.88146
+        C          1.54549       0.40991       0.87971
+        H          0.01612       0.38236      -0.68979
+        H         -0.20706       0.47557       3.17389
+        H         -1.25761       1.86133       2.80200
+        H         -1.96503       0.27622       3.16042
+        H          2.19350      -0.30678       0.36750
+        H          1.88868       1.42016       0.63790
+        H          1.63635       0.24859       1.95660
+        Cl         0.45855      -0.37824      -2.52883
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        68      94      150     157     260     340
+        454     529     781     792     945     949
+        1020    1057    1125    1162    1174    1204
+        1296    1384    1440    1450    1500    1507
+        1518    1529    1555    2587    3080    3086
+        3153    3157    3168    3176    3185
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      -0.61
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 22: R = 2.97 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.10283       0.41536       1.19156
+        C         -1.13657       0.81251       2.64190
+        C          0.13253       0.19122       0.42267
+        H         -1.99525       0.65860       0.61500
+        O         -0.58869      -0.89721       0.90813
+        C          1.55217       0.39710       0.87304
+        H          0.03122       0.31141      -0.70115
+        H         -0.21821       0.52602       3.15909
+        H         -1.27361       1.89430       2.73956
+        H         -1.97535       0.31705       3.14126
+        H          2.20233      -0.33578       0.38733
+        H          1.89129       1.39887       0.59394
+        H          1.64190       0.27565       1.95537
+        Cl         0.45086      -0.35827      -2.51804
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         36
+        18      70      108     150     158     259
+        342     455     531     782     793     945
+        950     1020    1057    1125    1161    1175
+        1204    1291    1381    1439    1450    1500
+        1506    1517    1528    1556    2504    3080
+        3085    3154    3160    3170    3175    3184
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      -0.95
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 23: R = 3.31 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.10054       0.40243       1.17364
+        C         -1.14740       0.84178       2.61119
+        C          0.14193       0.15791       0.42420
+        H         -1.98886       0.62171       0.58181
+        O         -0.57575      -0.91725       0.93454
+        C          1.55983       0.38441       0.86897
+        H          0.04988       0.24133      -0.71089
+        H         -0.23109       0.57610       3.14299
+        H         -1.29068       1.92525       2.67517
+        H         -1.98730       0.35707       3.11907
+        H          2.21263      -0.36391       0.41135
+        H          1.89570       1.37620       0.55336
+        H          1.64678       0.30298       1.95540
+        Cl         0.44194      -0.33865      -2.50788
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         35
+        73      108     151     158     251     341
+        452     532     780     792     942     948
+        1019    1056    1124    1159    1174    1205
+        1285    1379    1438    1448    1500    1506
+        1517    1527    1555    2389    3080    3086
+        3154    3163    3172    3175    3183
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      -1.45
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 24: R = 3.64 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.09726       0.38919       1.15499
+        C         -1.15920       0.86986       2.57836
+        C          0.15297       0.12571       0.42706
+        H         -1.98032       0.58487       0.54762
+        O         -0.56234      -0.93614       0.95998
+        C          1.56872       0.37174       0.86689
+        H          0.07037       0.17575      -0.71778
+        H         -0.24593       0.62532       3.12541
+        H         -1.30843       1.95397       2.60846
+        H         -2.00105       0.39621       3.09330
+        H          2.22451      -0.39038       0.43726
+        H          1.90179       1.35268       0.51689
+        H          1.65215       0.32874       1.95593
+        Cl         0.43171      -0.31943      -2.49746
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         36
+        37      76      121     154     159     254
+        342     453     535     780     794     944
+        949     1020    1056    1124    1158    1175
+        1206    1279    1378    1438    1449    1500
+        1505    1516    1527    1556    2289    3080
+        3087    3155    3166    3174    3176    3184
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      -1.75
+    End  ! RPATH PT
+    !-----------------------------------------------
+    ! Rxn Path Pt 25: R = 3.97 Ang
+    RRHO
+      Geometry[angstrom]        14
+        C         -1.09293       0.37567       1.13599
+        C         -1.17190       0.89679       2.54390
+        C          0.16564       0.09471       0.43119
+        H         -1.96970       0.54793       0.51290
+        O         -0.54841      -0.95380       0.98491
+        C          1.57864       0.35910       0.86787
+        H          0.09350       0.11329      -0.72275
+        H         -0.26276       0.67338       3.10675
+        H         -1.32641       1.98055       2.53997
+        H         -2.01674       0.43462       3.06426
+        H          2.23778      -0.41584       0.46739
+        H          1.91020       1.32812       0.48520
+        H          1.65670       0.35380       1.95829
+        Cl         0.42019      -0.30065      -2.48778
+      Core RigidRotor
+        SymmetryFactor          9.0
+      End  ! Core
+      Frequencies[1/cm]         36
+        39      78      121     155     160     260
+        343     454     536     780     795     945
+        950     1021    1056    1124    1159    1174
+        1207    1272    1377    1438    1451    1501
+        1505    1516    1528    1559    2170    3080
+        3087    3155    3166    3174    3176    3184
+      ElectronicLevels[1/cm]    1
+        0.0  1.0
+      ZeroEnergy[kcal/mol]      -2.13
+    End  ! RPATH PT
+    Tunneling  Eckart
+      ImaginaryFrequency[1/cm]  118
+      WellDepth[kcal/mol]       1.36
+      WellDepth[kcal/mol]       0.10
+  End  ! Variational
+End  ! Barrier
+End  ! Model
+!
+!===================================================
+!  END MASTER EQUATION MODEL
+!===================================================
+
+
+
+
+--------------------------------------------------------------------------------------
+Running MESS base input with version v1 at /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/run/MESS/RATE/C4CL1H8O1_9_3/basev1
+
+
+
+--------------------------------------------------------------------------------------
+
+Reading Rate Constants from MESS outputs
+Fitting rates for single PES...
+Fitting rates from /lcrc/project/PACC/copan/amech-dev/work/project-automech-debugging/04_vtst_low/run/MESS/RATE/C4CL1H8O1_9_3/basev1
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (8030000.0, 23000000.0, 49700000.0, 89200000.0, 141000000.0, 202000000.0, 271000000.0, 346000000.0, 423000000.0, 501000000.0, 578000000.0, 652000000.0, 723000000.0, 790000000.0, 853000000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (14600000000.0, 24900000000.0, 36300000000.0, 47700000000.0, 58500000000.0, 68400000000.0, 77000000000.0, 84500000000.0, 90700000000.0, 96000000000.0, 100000000000.0, 104000000000.0, 106000000000.0, 108000000000.0, 110000000000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (None, None, None, None, None, None, None, None, None, None, None, None, None, None, None))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (1590000.0, 2360000.0, 3030000.0, 3560000.0, 3940000.0, 4200000.0, 4360000.0, 4450000.0, 4490000.0, 4480000.0, 4440000.0, 4380000.0, 4290000.0, 4200000.0, 4100000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (None, None, None, None, None, None, None, None, None, None, None, None, None, None, None))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (4620000000.0, 6960000000.0, 9070000000.0, 10800000000.0, 12100000000.0, 13000000000.0, 13500000000.0, 13800000000.0, 13900000000.0, 13800000000.0, 13600000000.0, 13300000000.0, 12900000000.0, 12500000000.0, 12100000000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (1.71e-10, 1.75e-10, 1.79e-10, 1.83e-10, 1.86e-10, 1.89e-10, 1.92e-10, 1.94e-10, 1.97e-10, 1.99e-10, 2.01e-10, 2.03e-10, 2.05e-10, 2.07e-10, 2.09e-10))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (None, None, None, None, None, None, None, None, None, None, None, None, None, None, None))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (None, None, None, None, None, None, None, None, None, None, None, None, None, None, None))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (None, None, None, None, None, None, None, None, None, None, None, None, None, None, None))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (1.7e-10, 1.74e-10, 1.78e-10, 1.81e-10, 1.85e-10, 1.88e-10, 1.9e-10, 1.93e-10, 1.95e-10, 1.98e-10, 2e-10, 2.02e-10, 2.04e-10, 2.06e-10, 2.07e-10))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (None, None, None, None, None, None, None, None, None, None, None, None, None, None, None))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+hihp ((300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0), (300.0, 350.0, 400.0, 450.0, 500.0, 550.0, 600.0, 650.0, 700.0, 750.0, 800.0, 850.0, 900.0, 950.0, 1000.0))
+Reaction dict test
+dict_keys([(('FakeW-C4H8ORvEsWvAB', 'Cl'), ('FakeW-C4H7ORvE0BQ0', 'HCl'), (None,)), (('C4H8ORvEsWvAB', 'Cl'), ('FakeW-C4H8ORvEsWvAB', 'Cl'), (None,)), (('C4H8ORvEsWvAB', 'Cl'), ('FakeW-C4H7ORvE0BQ0', 'HCl'), (None,)), (('C4H8ORvEsWvAB', 'Cl'), ('C4H7ORvE0BQ0', 'HCl'), (None,)), (('C4H7ORvE0BQ0', 'HCl'), ('FakeW-C4H8ORvEsWvAB', 'Cl'), (None,)), (('C4H7ORvE0BQ0', 'HCl'), ('FakeW-C4H7ORvE0BQ0', 'HCl'), (None,))])
+
+Fitting Rate Constants for PES to Functional Forms
+
+Fitting Reaction: FakeW-C4H8ORvEsWvAB + Cl = FakeW-C4H7ORvE0BQ0 + HCl
+No pressure dependence, but no k(T)s at 1.0 atm.
+Grabbing kts at 100.0 atm.
+
+Fitting k(T,P)s to Arrhenius form...
+There are less than six rate constants to fit. Using single fit.
+--------------------------------
+
+
+Fitting Reaction: C4H8ORvEsWvAB + Cl = FakeW-C4H8ORvEsWvAB + Cl
+No pressure dependence, but no k(T)s at 1.0 atm.
+Grabbing kts at 100.0 atm.
+
+Fitting k(T,P)s to Arrhenius form...
+There are less than six rate constants to fit. Using single fit.
+--------------------------------
+
+
+Fitting Reaction: C4H8ORvEsWvAB + Cl = FakeW-C4H7ORvE0BQ0 + HCl
+No pressure dependence, but no k(T)s at 1.0 atm.
+Grabbing kts at 100.0 atm.
+
+Fitting k(T,P)s to Arrhenius form...
+There are less than six rate constants to fit. Using single fit.
+--------------------------------
+
+
+Fitting Reaction: C4H8ORvEsWvAB + Cl = C4H7ORvE0BQ0 + HCl
+No pressure dependence. Grabbing k(T)s at 1.0 atm.
+
+Fitting k(T,P)s to Arrhenius form...
+Single fit error is 0.4%, which is less than the input limit of 15.0%. Using single fit.
+--------------------------------
+
+
+Fitting Reaction: C4H7ORvE0BQ0 + HCl = FakeW-C4H8ORvEsWvAB + Cl
+No pressure dependence, but no k(T)s at 1.0 atm.
+Grabbing kts at 100.0 atm.
+
+Fitting k(T,P)s to Arrhenius form...
+There are less than six rate constants to fit. Using single fit.
+--------------------------------
+
+
+Fitting Reaction: C4H7ORvE0BQ0 + HCl = FakeW-C4H7ORvE0BQ0 + HCl
+No pressure dependence, but no k(T)s at 1.0 atm.
+Grabbing kts at 100.0 atm.
+
+Fitting k(T,P)s to Arrhenius form...
+There are less than six rate constants to fit. Using single fit.
+--------------------------------
+
+
+=========================================================
+EXITING kTPDRIVER
+=========================================================
+
+
+
+
+
+          ================================================================
+          ==                    EXITING AUTOMECHANIC                    ==
+          ================================================================
+

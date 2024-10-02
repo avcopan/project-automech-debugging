@@ -1,0 +1,41 @@
+REACTIONS     CAL/MOLE     MOLES
+
+! vib model: harm
+! tors model: rigid
+! sym model: HCO_model
+! sort freqs level: RUwb97xd/6-31g*
+! sort sp    level: RUwb97xd/6-31g*
+! sort G(700.0 K) minimum
+! energy level:
+!     1.000 x RUwb97xd/6-31g*//RUwb97xd/6-31g*
+! CBH reference scheme: basic
+
+
+FakeW-C4H8ORvEsWvAB + Cl = FakeW-C4H7ORvE0BQ0 + HCl          5.120E+06     0.000        0
+! Fitting errors and ranges:
+! 1.00e+02 atm: fit betw. 300 and 300 K, MeanAbsErr of 0.0%, MaxAbsErr of 0.0%
+
+C4H8ORvEsWvAB + Cl = FakeW-C4H8ORvEsWvAB + Cl                8.551E+13     0.000        0
+! Fitting errors and ranges:
+! 1.00e+02 atm: fit betw. 300 and 300 K, MeanAbsErr of 0.0%, MaxAbsErr of 0.0%
+
+C4H8ORvEsWvAB + Cl = FakeW-C4H7ORvE0BQ0 + HCl                1.758E+10     0.000        0
+! Fitting errors and ranges:
+! 1.00e+02 atm: fit betw. 300 and 300 K, MeanAbsErr of 0.0%, MaxAbsErr of 0.0%
+
+C4H8ORvEsWvAB + Cl = C4H7ORvE0BQ0 + HCl                      1.998E+11     0.378     2040
+! Fitting errors and ranges:
+! 1.00e+00 atm: fit betw. 300 and 1000 K, MeanAbsErr of 0.2%, MaxAbsErr of 0.4%
+
+C4H7ORvE0BQ0 + HCl = FakeW-C4H8ORvEsWvAB + Cl                2.782E+09     0.000        0
+! Fitting errors and ranges:
+! 1.00e+02 atm: fit betw. 300 and 300 K, MeanAbsErr of 0.0%, MaxAbsErr of 0.0%
+
+C4H7ORvE0BQ0 + HCl = FakeW-C4H7ORvE0BQ0 + HCl                9.395E+13     0.000        0
+! Fitting errors and ranges:
+! 1.00e+02 atm: fit betw. 300 and 300 K, MeanAbsErr of 0.0%, MaxAbsErr of 0.0%
+
+
+
+END
+

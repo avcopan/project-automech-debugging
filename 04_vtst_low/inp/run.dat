@@ -1,0 +1,50 @@
+input
+    run_prefix  = ./run
+    save_prefix  = ./save
+    canonical = True
+end input
+
+pes
+ 9: 3
+end pes
+
+spc
+  17
+  30
+  69-70
+  # Reference species
+  4
+  7
+  71
+end spc
+
+els
+  spc init_geom     runlvl=lvl_wbs   inplvl=lvl_wbs 
+  spc conf_samp     runlvl=lvl_wbs   inplvl=lvl_wbs
+  spc conf_hess     runlvl=lvl_wbs   inplvl=lvl_wbs cnf_range=n100
+  # spc conf_energy   runlvl=cc_lvl_tf  inplvl=lvl_b2t cnf_range=min sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700)
+# >> added for VTST
+  # ts find_ts       runlvl=lvl_wbs    inplvl=lvl_wbs nobarrier=rpvtst  # manually replaced with desired starting point for scan
+  ts rpath_scan    runlvl=lvl_wbs    inplvl=lvl_wbs rxncoord=irc
+  ts rpath_hess    runlvl=lvl_wbs    inplvl=lvl_wbs rxncoord=irc
+# ^^ added for VTST
+end els
+
+#proc
+end proc
+
+#thermo
+    write_mess      kin_model=global  spc_model=global cnf_range=min nprocs=8 #sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700)
+    run_mess        kin_model=global  spc_model=global cnf_range=min nprocs=8 #sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700)
+    run_fits        kin_model=global  spc_model=global cnf_range=min nprocs=8 #sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700)
+end thermo
+
+ktp
+    write_mess      kin_model=global  spc_model=global cnf_range=min nprocs=8 sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700)
+    run_mess        kin_model=global  spc_model=global cnf_range=min nprocs=8 sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700)
+    run_fits        kin_model=global  spc_model=global cnf_range=min nprocs=8 sort=freqs(lvl_wbs),sp(lvl_wbs),gibbs(700)
+end ktp
+
+
+
+# pes index; species index
