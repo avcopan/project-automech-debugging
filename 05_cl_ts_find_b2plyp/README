@@ -1,0 +1,18 @@
+### Context
+
+We found that what we thought was the IRC for this abstraction reaction was actually an
+IRC from one van der Waals complex to another. Optimizing the final point of the original IRC found a local minimum, representing a Cl ... H van der Waals complex.
+
+Implication: It seems that the default Cl ... H distance for TS searching was too close
+in the original TS search, and this is why it failed to find the saddle point.
+
+Approach: I am trying to modify the default Cl ... H distance for H abstraction
+scans to see if I can find the right value.
+
+### Notes
+
+1. AutoMech sets the Cl ... H distance for the hydrogen abstraction structure to 1.65 A, whereas the optimized van der Waals complex has a distance of 1.73 A. Probably we should be setting the distance closer to the latter during the scan?
+
+2. The above is not the issue. Visualizing the scan potential shows that we are capturing the well minimum, but it seems that we are missing the saddle point and need to actually allow the range to span *smaller* Cl ... H distances.
+
+3. Actually, the scan range seems fine. It appears that this is a barrierless potential in the reverse direction -- R + HCl => RH + Cl.
